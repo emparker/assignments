@@ -1,0 +1,38 @@
+h1 {
+    color: whitesmoke;
+    font-size: 60px;
+    text-align: center;
+    background-color: #FF5A6B;
+}
+
+p {
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+    
+div {
+    text-align: center;
+}
+
+.charley {
+    width: 8px;
+    height: 2px;
+    color:black;
+    font-size: 40px;
+    border-width: .10px;
+    border-style: solid;
+    border-color: pink ;
+    
+    
+}
+
+.josie {
+    width: 8px;
+    height: 2px;
+    color: black;
+    font-size: 40px;
+    border-width: .10px;
+    border-style: solid;
+    border-color: green;
+}

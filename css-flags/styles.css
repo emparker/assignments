@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 0em;
+}
+
+
+.flag {
+    display: block;
+    margin: 10px;
+}
+h1 {
+    display: inline-block;
+    margin: 0;
+}
+
+
+.france {
+    padding: 20px;
+}
+
+.blue {
+    position: relative;
+    width: 100px;
+    background-color: darkblue;
+    height: 200px;
+    
+}
+
+.white {
+    position: relative;
+    width: 100px;
+    background-color: whitesmoke;
+    height: 200px;
+}
+
+.red {
+    position: relative;
+    right: 0;
+    width: 100px;
+    background-color:red;
+    height: 200px;
+}
+
+
+.germany {
+    padding: 20px;
+}
+
+.black-germany {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background-color: black;
+}
+
+.red-germany {
+    position: relative;
+    top:50px;
+    right: 300px;
+    width: 300px;
+    height: 50px;
+    background-color:red;
+}
+
+.yellow-germany {
+    position: relative;
+    top: 100px;
+    right: 600px;
+    width: 300px;
+    height: 50px;
+    background-color:yellow;
+
+}
+
+
+.madagascar {
+    padding: 20px;
+
+}
+
+.white-madagascar {
+    position: relative;
+    top: 100px;
+    width: 100px;
+    height: 50px;
+    background-color: whitesmoke;
+
+}
+
+.red-madagascar {
+    position: relative;
+    bottom: 100px;
+    width: 200px;
+    height: 100px;
+    background-color: tomato;
+}
+
+.green-madagascar {
+    position: relative;
+    bottom: 100px;
+    left: 100px;
+    width: 200px;
+    height: 100px;
+    background-color: green;
+}
+
+
+.switzerland {
+    padding: 20px;
+}
+
+.red-switzerland {
+    position: relative;
+    height: 200px;
+    width: 300px;
+    background-color: red;
+}
+
+.white1-switzerland {
+    position: relative;
+    left: -178px;
+    bottom: 32px;
+    height: 130px;
+    width: 40px;
+    background-color: white;
+}
+
+.white2-switzerland {
+    position: relative;
+    left: -260px;
+    bottom: 80px;
+    height: 40px;
+    width: 130px;
+    background-color: white;
+}
+
+
+.sweeden {
+    padding: 20px;
+}
+
+.blue-sweeden {
+    position: relative;
+    height: 200px;
+    width: 300px;
+    background-color: blue;
+}
+
+.yellow1-sweeden {
+    position: relative;
+    left: -200px;
+    height: 200px;
+    width: 40px;
+    background-color: yellow;
+}
+
+.yellow2-sweeden {
+    position: relative;
+    bottom: 100px;
+    right: 340px;
+    height: 40px;
+    width: 300px;
+    background-color: yellow;
+}
+
+
+.gambia {
+    padding: 20px;
+}
+
+.white-gambia {
+    position: relative;
+    height: 200px;
+    width: 300px;
+    background-color:whitesmoke;
+}
+
+.red-gambia {
+    position: relative;
+    height: 75px;
+    width: 300px;
+    background-color: red;
+    right: 300px;
+    bottom: 150px;
+
+}
+
+.blue-gambia {
+    position: relative;
+    height: 55px;
+    width: 300px;
+    background-color: blue;
+    right: 600px;
+    bottom: 85px;
+    
+}
+
+.green-gambia {
+    position: relative;
+    height: 75px;
+    width: 300px;
+    background-color: green;
+    bottom: 75px;
+}
