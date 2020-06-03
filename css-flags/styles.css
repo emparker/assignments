@@ -203,3 +203,181 @@ h1 {
     background-color: green;
     bottom: 75px;
 }
+
+
+.tonga {
+    padding: 20px;
+}
+
+.red1-tonga {
+    position: relative;
+    height: 200px;
+    width: 300px;
+    background-color: red;
+}
+
+.white-tonga {
+    position: relative;
+    height: 100px;
+    width: 150px;
+    background-color: white;
+    bottom: 100px;
+    right: 300px;
+}
+
+.red2-tonga {
+    position: relative;
+    height: 60px;
+    width: 20px;
+    background-color:red;
+    right: 380px;
+    bottom: 120px;
+}
+
+.red3-tonga {
+    position: relative;
+    height: 20px;
+    width: 60px;
+    background-color:red;
+    right: 420px;
+    bottom: 140px;
+}
+
+
+.japan {
+    padding: 20px;
+}
+
+.flag.japan {
+    height: 200px;
+    width: 300px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-japan {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 100px;
+}
+
+
+.greece {
+    padding: 20px;
+}
+
+.white-greece {
+    position: absolute;
+    height: 279px;
+    width: 378px;
+    background-color: whitesmoke;
+    z-index: -1;
+}
+
+.blue1-greece {
+    position: relative;
+    height: 62px;
+    width: 62px;
+    background-color: blue;
+     
+}
+
+.blue2-greece {
+    position: relative;
+    height: 62px;
+    width: 62px;
+    background-color: blue;
+    left: 31px;
+    
+
+}
+
+.blue3-greece {
+    position: relative;
+    height: 62px;
+    width: 62px;
+    background-color: blue;
+    right: 124px;    
+    top: 93px;
+}
+
+.blue4-greece {
+    position: relative;
+    height: 62px;
+    width: 62px;
+    background-color: blue;
+    top: 93px;
+    right: 93px;
+}
+
+.blue5-greece {
+    position: relative;
+    height: 31px;   
+    width: 222px;
+    background-color: blue  ;
+    right: 93px;
+    bottom: 31px;
+}
+
+.blue6-greece {
+    position: relative;
+    height: 31px;   
+    width: 223px;
+    background-color: blue;
+    right: 315px;
+    top: 31px;
+    
+}
+
+.blue7-greece {
+    position: relative;
+    height: 31px;   
+    width: 223px;
+    background-color: blue;
+    top: 93px;
+    right: 538px;
+  }
+
+
+.blue8-greece {
+    position: relative;
+    height: 31px;   
+    width: 379px;
+    background-color: blue;
+    top: 125px;
+    
+}
+
+.blue9-greece {
+    position: relative;
+    height: 31px;   
+    width: 379px;
+    background-color: blue;
+    top: 186px;
+    right: 379px;
+}
+
+
+
+.niger {
+    margin: 200px;
+    height: 280px;
+    width: 300px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.orange-niger {
+    position: relative;
+    height: 60px;
+    width: 320px;
+    background-color: orange;
+    bottom: 60px;
+}
