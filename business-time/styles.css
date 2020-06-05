@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5%;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  height: 100%;
+  grid-gap: 1%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 15% auto 15%;
+  grid-template-areas:
+    "h h h h h h h h h h h h h"
+    "m m m c c c c c c c c c c"
+    "f f f f f f f f f f f f f";
+}
+.container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  justify-content: center;
+  grid-area: h;
+  background-color: #3c91e6;
+}
+
+.menu {
+  grid-area: m;
+  background-color: #9fd356;
+}
+.content {
+  grid-area: c;
+  background-color: yellow;
+}
+.footer {
+  grid-area: f;
+  background-color: #fa824c;
+}
