@@ -32,38 +32,38 @@
     height: 45px;
     justify-content: flex-start;
 }
-.butt1 {
+#butt1 {
     border: none;
     background-color:#E8F8C1;
     padding: 3px;
     margin-left: 10px;
     margin-right: 10px;
 }
-.butt1:hover {
+#butt1:hover {
     transition-duration: 0.4s;
     background-color: #D3C1C3;
     color: black;
 }
-.butt2 {
+#butt2 {
     border: none;
     background-color:#E8F8C1;
     padding: 3px;
     margin-left: 10px;
     margin-right: 10px;
 }
-.butt2:hover {
+#butt2:hover {
     transition-duration: 0.4s;
     background-color: #D3C1C3;
     color: black;
 }
-.butt3 {
+#butt3 {
     border: none;
     background-color:#E8F8C1;
     padding: 3px;
     margin-left: 10px;
     margin-right: 10px;
 }
-.butt3:hover {
+#butt3:hover {
     transition-duration: 0.4s;
     background-color: #D3C1C3; 
     color: black;
@@ -85,10 +85,10 @@
     object-fit: cover;
 }
 .sale {
-   position: absolute; 
-   font-family: 'Lexend Tera', sans-serif;
-   text-align: center;
-   font-size: x-large;
+    position: absolute; 
+    font-family: 'Lexend Tera', sans-serif;
+    text-align: center;
+    font-size: x-large;
 }
 
 .main2 {
@@ -112,4 +112,21 @@
 .footer {
     grid-column: 1 / -1;
     background-color: #E2D0BE;
+}
+
+
+#page1 .nav {
+    display: flex;
+    grid-column: 1 / -1;
+    background-color: #D3C1C3;
+    font-family: 'Lexend Tera', sans-serif;
+}
+#page1.name {
+    padding-left: 5px;
+}
+#page1.nav-pic {
+    height: 100px; 
+    grid-area: right;
+    position: relative;
+    left: 25px;
 }
