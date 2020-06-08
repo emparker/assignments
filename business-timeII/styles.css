@@ -4,14 +4,29 @@
   padding: 0;
 }
 
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
 @media only screen and (max-width: 812px) {
+
+
+
+    a{
+        text-decoration: none;
+    }
   .grid-container {
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
   .nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
     grid-column: 1 / -1;
     background-color: #d3c1c3;
     font-family: "Lexend Tera", sans-serif;
@@ -29,7 +44,10 @@
   }
 
   .sidebar {
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column: 1 / -1;
     background-color: #e8f8c1;
     height: 45px;
@@ -133,13 +151,52 @@
     left: 25px;
   }
 
-  #index1.grid-container2 {
+  .grid-container2 {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-auto-rows: 75px;
+    grid-auto-flow: dense;
   }
- 
+  .pic1 {
+    grid-column: 1 / 3;
+    width: 100%;
+  }
+  .pic2 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
+  .pic3 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
+  .pic4 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
+  .pic5 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
+  .pic6 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
+  .pic7 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
+  .pic8 {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 812px) and (max-width: 1024px) {
