@@ -32,20 +32,20 @@ function divide(num1, num2){
     return num1 / num2
 }
 
-var result = 0;
+let result = 0;
 
 switch (operations[index]) {
      
-  case "Addition": var result = add(num1, num2)
+  case "Addition": result = add(num1, num2)
   console.log(result)
     break;
-  case "Subtraction": var result = subtract(num1, num2)
+  case "Subtraction": result = subtract(num1, num2)
   console.log(result)
     break;
-  case "Multiplication": var result = multiply(num1, num2)
+  case "Multiplication": result = multiply(num1, num2)
   console.log(result)
     break;
-   case "Division": var result = divide(num1, num2)
+   case "Division":  result = divide(num1, num2)
    console.log(result)
     break;
   default:
