@@ -11,13 +11,8 @@ const num1 = readline.question("Please enter first number: ");
 const num2 = readline.question("Please enter second number: ");
 
 const operations = ["Addition", "Subtraction", "Multiplication", "Division"];
-// operations[0] = num1 + num2
-// operations[1] = num1 - num2
-// operations[2] = num1 * num2
-// operations[3] = num1 / num2
 
 const index = readline.keyInSelect(operations,"Which operation would you like to perform?");
-
 
 
 function add(num1, num2){
