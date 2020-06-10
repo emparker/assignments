@@ -15,9 +15,10 @@ const operations = ["Addition", "Subtraction", "Multiplication", "Division"];
 const index = readline.keyInSelect(operations,"Which operation would you like to perform?");
 
 
+
 function add(num1, num2){
-    return num1 + num2
-}
+    return parseInt(num1) + parseInt(num2)
+    }
 
 function subtract(num1, num2){
     return num1 - num2
@@ -30,22 +31,24 @@ function multiply(num1, num2){
 function divide(num1, num2){
     return num1 / num2
 }
-// for (let i = 1; i <= operations.length; i++){
-//     if (i == operations[0])
-// }
-let result = 0
+
+var result = 0;
+
 switch (operations[index]) {
-    
-  case "Addition": add()
+     
+  case "Addition": var result = add(num1, num2)
+  console.log(result)
     break;
-  case "Subtraction": subtract()
+  case "Subtraction": var result = subtract(num1, num2)
+  console.log(result)
     break;
-  case "Multiplication": multiply()
+  case "Multiplication": var result = multiply(num1, num2)
+  console.log(result)
     break;
-   case "Division": divide()
+   case "Division": var result = divide(num1, num2)
+   console.log(result)
     break;
   default:
     console.log ("sorry you can't do that")
 }
-
-// console.log(`Sweet, your answer is ${result}. Great job!`);
+console.log(`Sweet, your answer is ${result}. Great job!`);
