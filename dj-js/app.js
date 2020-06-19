@@ -1,12 +1,5 @@
 // The square's color will change as follows:
 
-
-// You should also be able to press the first letter of the colors (typing "r" on the keyboard for "red"
-
-
-// const button = document.getElementById("button")
-
-
 const button = document.getElementById("box")
 // Green when the mouse is double clicked in the square
 button.addEventListener("dblclick", doubleClick)
@@ -28,21 +21,29 @@ function mouseOut(){
 }
 
 // Red when the mouse button is held down over the square
-button.addEventListener("mousedown", event)
-    if (event.button == 1){
-        button.style.backgroundColor = "red";
-        console.log("???")
-    }
+button.addEventListener('mousedown', function () {
+    button.style.backgroundColor = 'red';
+});
+
 // Yellow when the mouse button is let go over the square
-button.addEventListener("mouseup", event)
-    if (event.button == 1){
-        button.style.backgroundColor = "yellow";
-        console.log("come on!")
-    }
+button.addEventListener('mouseup', function () {
+    button.style.backgroundColor = 'yellow';
+});
+
 
 // //  Orange when the mouse scroll is used somewhere in the window (not just over the square).
-// document.body.addEventListener("mousewheel", mouseScroll);
-// function mouseScroll(){
-//     document.body.style.backgroundcolor = "orange";
-//     console.log("howdy")
-// }
+document.body.addEventListener('wheel', function () {
+    document.body.style.backgroundColor = 'orange';
+});
+
+
+// You should also be able to press the first letter of the colors (typing "r" on the keyboard for "red"
+// which	
+// Returns the Unicode character code of the key that triggered the onkeypress event, or the Unicode key code of the key that triggered the onkeydown or onkeyup event
+
+
+document.body.addEventListener("keypress", function(){
+    // const char = event.which || event.keyCode;
+    // if (keypress.key == 114);
+    button.style.backroundColor = "red"
+}) 
