@@ -30,9 +30,9 @@ button.addEventListener('mouseup', function () {
     button.style.backgroundColor = 'yellow';
 });
 
-
+const anywhere = document.getElementById("anywhere")
 // //  Orange when the mouse scroll is used somewhere in the window (not just over the square).
-document.body.addEventListener('wheel', function () {
+anywhere.addEventListener('wheel', function () {
     document.body.style.backgroundColor = 'orange';
 });
 
@@ -41,9 +41,16 @@ document.body.addEventListener('wheel', function () {
 // which	
 // Returns the Unicode character code of the key that triggered the onkeypress event, or the Unicode key code of the key that triggered the onkeydown or onkeyup event
 
-
-document.body.addEventListener("keypress", function(){
-    // const char = event.which || event.keyCode;
-    // if (keypress.key == 114);
-    button.style.backroundColor = "red"
+addEventListener("keydown", function(event){
+    if (event.which == 82){
+        button.style.backgroundColor ='red'
+    } else if (event.which == 66){
+        button.style.backgroundColor = "blue"
+    } else if (event.which == 71){
+        button.style.backgroundColor = "green"
+    } else if (event.which == 89){
+        button.style.backgroundColor = "yellow"
+    } else if (event.which == 79){
+        button.style.backgroundColor = "orange"
+    }
 }) 
