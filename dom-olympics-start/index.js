@@ -46,13 +46,25 @@ clearButton.addEventListener("click", event =>{
 // const themeTwo = document.getElementsByTagName("theme-two")
 // themeTwo.style.backgroundColor = "red"
 
-const themeDropDown = document.getElementById("theme-drop-down")
-for (let i = 0; i < themeDropDown.length; i++){
-    themeDropDown[i].addEventListener("click", event=>{
-        themeDropDown[0] = event.target.value
-        themeDropDown[1] = event.target.value
-    })
+// const themeDropDown = document.getElementById("theme-drop-down").value
+// console.log(themeDropDown.length)
+
+// function changeColor(){
+//     for (let i = 0; i < themeDropDown.length; i++){
+//             console.log(event)
+//         if (themeDropDown[i] === themeDropDown[0]){
+//                 console.log('blue')
+//                 event.target.value.style.backgroundColor = "blue"
+//                 // document.getElementsByClassName('left')
+//         } else if(themeDropDown[i] === themDropDown[1]){
+//                 console.log('red')
+//                 event.target.value.style.backgroundColor = "red"
+//             }
+//         }
+//     }
+
+// themeDropDown[0].addEventListener("click", changeColor) 
+// themeDropDown[1].addEventListener("click", changeColor)
+document.getElementById("theme-drop-down").change = function(){
+    alert(this.value)
 }
-
-
-
