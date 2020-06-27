@@ -7,8 +7,17 @@ form.addEventListener("submit", function(event){
     const addedItem = form.title.value
     form.title.value = ""
 
-    const p = document.createElement("p")
-    p.textContent = addedItem
-    document.getElementById("list").append(p)
-})
+    const li = document.createElement("li")
+    li.textContent = addedItem
+    document.getElementById("list").append(li)
 
+    const div = document.createElement("div")
+    const button = document.createElement("button")
+    const xButton = ("X")//(this is only representing the button tag?)
+
+    button.append(xButton)
+    div.append(button)
+    li.append(div)
+    //console.log(xButton)
+
+})
