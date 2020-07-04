@@ -59,11 +59,7 @@ function pushEveryOther(){
 pushEveryOther()
 
 
-/*Silver Medal
-
-
-Write a loop that pushes every other name to an array starting with the first person, in this case "Harrison Ford", and every other occupation to another array starting with, in this case, "Singer".
-Think about what good names for the arrays would be. Since it will be an array of each name or occupation, the plurals of name and occupation would be appropriate.*/ 
+//Silver Medal
 
 var peopleArray = [
     {
@@ -118,6 +114,42 @@ function pushPeopleAndOccupation(){
 //}
 pushPeopleAndOccupation()
 
+//Write a loop that pushes every other name to an array starting with the first person, in this case "Harrison Ford",
+
+function pushEveryOtherName(){
+    let names = []
+
+    for (let i = 0; i < peopleArray.length; i = i+2){
+    names.push(peopleArray[i].name)
+    console.log(names)
+    }
+}
+pushEveryOtherName()
+
+
+// and every other occupation to another array starting with, in this case, "Singer".
+//??
+function pushEveryOtherOccu(){
+        let occu = []
+
+        for (let i = [1]; i < peopleArray.length; i = i+2){
+            occu.push(peopleArray[i].occupation)
+            console.log(occu)
+        }
+}
+pushEveryOtherOccu()
+//?? i = ? peopleArray.length?
+//peopleArray.splice(peopleArray.occpation[1], peopleArray.occupation[3])
+//console.log(peopleArray.occupation)
+
+
+// Gold Medal - Nesting
+// Create an array that mimics a grid like the following using nested for loops:
+// [[0, 0, 0], 
+// [0, 0, 0], 
+// [0, 0, 0]]
+
+const myArr = []
 
 
 
