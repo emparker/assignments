@@ -145,11 +145,17 @@ pushEveryOtherOccu()
 
 // Gold Medal - Nesting
 // Create an array that mimics a grid like the following using nested for loops:
-// [[0, 0, 0], 
-// [0, 0, 0], 
-// [0, 0, 0]]
-
+const nest = [
+[0, 0, 0], 
+[0, 0, 0], 
+[0, 0, 0]
+]
+function myMatrix(){
 const myArr = []
-
-
-
+for (let i = 0; i < nest.length; i++){
+        for (let j = 0; j < nest[i].length; j++){
+        myArr.push(nest[i][j])
+        } 
+    }
+}
+myMatrix()
