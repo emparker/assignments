@@ -1,5 +1,4 @@
 var people = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"]
-
 var alphabet = "abcdefghijklmnopqrstuvwxyz"
 const newAlpha = alphabet.split("")
 //console.log(newAlpha)
