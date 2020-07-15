@@ -23,27 +23,15 @@ function Employee(name, jobTitle, salary){
 const employee1 = new Employee("Whilma Flinstone", "Teacher", "100,000/yr")
 const employee2 = new Employee("Fred Flinstone", "Forman", "50,000/yr")
 const employee3 = new Employee("Barney Rubble", "Welder", "40,000/yr")
+const employee4 = new Employee("Franny Banny", "Nanny", "80K a day")
 
 employee3.changeStatus("Contract")
+employee4.changeStatus("Independant")
 
-employees.push(employee1, employee2, employee3)
+employees.push(employee1, employee2, employee3, employee4)
 
 for(let i = 0; i < employees.length; i++){
     employees[i].printEmployeeForm()
 }
 
-//console.log(emp1)
-//console.log(employees.push(emp1))
-
-// employee2.printEmployeeForm()
-// employee3.printEmployeeForm()
-
-// Employee.printEmployeeForm = function(){
-//     return employees.push(Employee)
-// }
-// printEmployeeForm()
-
-// console.log(employee1)
-// console.log(employee2)
-// console.log(employee3)
 
