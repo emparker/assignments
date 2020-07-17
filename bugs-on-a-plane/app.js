@@ -1,10 +1,10 @@
-var form = document.getElementById("airlineForm");   //null??
+var form = document.getElementById("airlineForm");  
 var submit = document.getElementById("submit");
 var query = document.querySelector;
 
 submit.addEventListener("click", function formAlert(){
-    const firstName = form.elements["firstName"].value;  //just had 'elements["name"].value
-    const lastName = form.elements["lastName"].value;       //form is null??
+    const firstName = form.elements["firstName"].value; 
+    const lastName = form.elements["lastName"].value;       
     const age = form.elements["age"].value;
     const gender = form.elements["gender"].value;
     const location = form.elements["travelLocation"].value;
