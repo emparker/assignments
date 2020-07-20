@@ -1,14 +1,15 @@
 //*
 //Write a function that takes an array of numbers and returns the largest (without using Math.max())
 //largest() // => 8
-function largest(arr){
-    for(let i = 0; i < arr.length; i++){
-        console.log(arr[i])
-        
-    }
+// function largest(arr){
+//     for(let i = 0; i < arr.length; i++){
+//         console.log(arr[i])
+
+//     }
     
-}
-largest([3, 5, 2, 8, 1])
+// }
+// largest([3, 5, 2, 8, 1])
+// work on this ^^^
 // function largest(arr){
 //     const largestNum = []; //if [] logs 1 if [0] logs 2??? AND WHY VAR?!
 //     for (var i = 0; i < arr.length; i++){
@@ -66,7 +67,7 @@ largest([3, 5, 2, 8, 1])
 
 // lettersWithStrings(["#3", "$$$", "C%4!", "Hey!"], "!") // => ["C%4!", "Hey!"]
 
-/* function lettersWithStrings( anArray, aString ){
+function lettersWithStrings( anArray, aString ){
     const result = []
     for (let i = 0; i < anArray.length; i++){
         if (anArray[i].includes(aString)){
@@ -76,7 +77,7 @@ largest([3, 5, 2, 8, 1])
     return result
 }
 const newVar = lettersWithStrings(["#3", "$$$", "C%4!", "Hey!"], "!")
-console.log(newVar) */
+console.log(newVar)
 //*
 //*
 // Write a function that takes a num1 and num2 and returns whether num1 is divisible by num2.
@@ -85,7 +86,7 @@ console.log(newVar) */
 // isDivisible(9, 3) // => true
 // isDivisible(15, 4) // => false
 
-/* function isDivisable( num1, num2){
+function isDivisable( num1, num2){
     if (num1 % num2 == 0){
         return true;
         } else {
@@ -97,5 +98,5 @@ console.log(answer1)
 const answer2 = isDivisable(9, 3)
 console.log(answer2)
 const answer3 = isDivisable(15, 4)
-console.log(answer3) */
+console.log(answer3) 
 //*
