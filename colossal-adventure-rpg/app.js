@@ -18,30 +18,30 @@ const hiker = new Player(`${name}`, 100, 100);
 
 
 class Enemy{
-    constructor(name, energy, strength, damage){
+    constructor(name, energy, strength){
         this.name = name;
         this.energy = energy;
         this.strength = strength;
-        this.damage = damage;
+        //this.damage = damage;
     }
 }
 
-const mountainLion = new Enemy('Mountain Lion', 100, 50, 5);
-const elk = new Enemy('Elk', 75, 75, 5);
-const bear = new Enemy('Bear', 50, 100, 5);
-const outlaw = new Enemy('Outlaw Dusty Rifle', 80, 25, 5);
+const mountainLion = new Enemy('MOUNTAIN LION', 100, 50, 5);
+const elk = new Enemy('ELK', 75, 75, 5);
+const bear = new Enemy('BEAR', 50, 100, 5);
+const outlaw = new Enemy('Outlaw DUSTY RIFLE', 80, 25, 5);
 
-const enemies = [mountainLion, elk, bear, outlaw];
+let enemies = [mountainLion, elk, bear, outlaw];
 
 
 while( isAlive && !hasWon ){
-    const action = readline.keyIn(`Alrighty ${hiker.name} would you like to [h] Hike, [c] check your inventory, [s] check your status, or [q] Quit?`, {limit: 'hscq'});
+    const action = readline.keyIn(`Alrighty ${hiker.name} would you like to [h] Hike, [p] print your inventory, [s] check your health status, or [q] Quit?`, {limit: 'hpsq'});
     if (action ==='h'){
         hike();
-    } else if (action === 'c'){
-        checkInventory();
+    } else if (action === 'p'){
+        printInventory();
     } else if (action === 's'){
-        healthStatus()
+        healthStatus();
     } else if (action === 'q'){
         isAlive = false;
         console.log(`you have QUIT the game`)
@@ -49,72 +49,90 @@ while( isAlive && !hasWon ){
 
 }
 
-function win(){
-    if(hasWon === true){
-        console.log(`congrats ${name}, you win!`)
-    }
+function healthStatus(){
+    hiker.hydration + 1;
+    console.log(hiker.health)
 }
+
+function printInventory(){
+    //const selectItem = readline.keyIn('How about you pick an item ')
+    console.log(hiker.inventory)
+}
+// function win(){
+//     if(hasWon === true){
+//         console.log(`congrats ${name}, you win!`)
+//     }
+// }
 
 function hike(){
     const random = Math.floor(Math.random() * 4);
-    console.log(random)
-    hiker.hydration--
+    console.log(random);
+    hiker.hydration - 3;
     if (random === 0){
+        console.log('There is defintely something out there, be careful...')
         enemyAttack();
         } else if (random === 2){
-            hiker.inventory.push(`you found Dusty Rifile's fresh loot`)
+            hiker.inventory.push(`SCORE! You found a gold coin from Dusty Rifile's fresh loot!`);
             console.log(`Hike On ${hiker.name}`)
         }
 }
 
-function checkInventory(){
-    //const selectItem = readline.keyIn('How about you pick an item ')
-    console.log(hiker.inventory)
-}
+
 
 function enemyAttack(){ 
-    let battle = true
-    const random = Math.floor(Math.random() * enemies.length);
-    
-    const enemy = enemies[random];
-    console.log(enemy)
-    // we use the while loop to create the ability to have a fight that can have multiple attcks until an enemy dies
+    let battle = true;
+    let random = Math.floor(Math.random() * enemies.length);
+    let enemy = enemies[random];
+        console.log(`Oh no! ${enemy}!!!!`)
+        hiker.health -= 50;
+        console.log(`You're Damage Report: ${hiker.health}`)
     while(battle === true){
-        const random6 = Math.floor(Math.random() * 6);
-        // here is where the 'fighting' will take place as in the hiker losing health and the enemy losing strength and energy
-        if(random6 === 6){
-            // where you need to write code to pop out an item from the hikers inventory array
-
-        } else if (random6 === 1){
-            // the area you write code for STRONG attack
-            // might need to change the way the damage is being handled (syntax)
-            hiker.health -= enemy.damage
-            enemy.strength -= 20
-            enemy.energy -= 20
-        } else if (random6 === 2){
-
-        }
-
-        // this check to see if the enemy is dead, and then finishes the battle by changing the battle variable to false and ending the while loop
-        if(enemy.strength === 0 && enemy.energy === 0){
-            battle = false
-        }
+        let random5 = Math.floor(Math.random() * 5);
+            enemy.energy -= 50;
+            enemy.strength -= 50;
+            hiker.health -= 10 ;
+            hiker.health -= 10;
+        if(random5 === 0){    
+                lostItem = [];
+                const lostInventory = hiker.inventory.pop();
+                const lost = lostItem.push(lostInventory);
+                console.log(`Wow ${name} that was impressive! There has been however the unfortunate loss of an item from your inventory. In the curfulffle you have lost ${lost}`)
+            } else if (random5 === 1){
+                enemy.strength -= 20;
+                enemy.energy -= 20;
+            } else if (random5 === 2){
+                enemies = [];
+                battle = false;
+                enemyParished();;
+            } else (enemy.strength === 0 && enemy.energy === 0);{
+                    battle = false;
+                    playerParished();
+                }
     }
+}
 
-        hasWon = true 
-        console.log('YOU WIN!')
-        // const selectItem = realine.keyIn('How about you select an item from your pack! [w] for Water, [p] to use Pepper Spray, [f] for your first aid kit', {limit: 'wpf'})
-        // if (selectItem === 'w'){
-        //     hydrate();
-        // } else if (selectItem === 'p'){
-        //     usePepperSpray();
-        // } else if (selectItem === 'f'){
-        //     replenishHealth();
-        // }
-        // hiker.inventory == inventory.pop([2]) ?
-        // 
+function playerParished(){
+    if (hiker.health <= 0 && hiker.hydration <= 0){
+            console.log(`Sorry to say it ${hiker}, but ya toast... GAME OVER`)
+            isAlive = false;
+    } 
+}
+function enemyParished(){
+    if (enemies.strength <= 0 && enemies.energy <= 0){
+            console.log(`YOU JUST CLEANED HOUSE! YOU WIN THE GAME ${name}!!`)
+            hasWon= true;
     }
+}
 
+// const selectItem = realine.keyIn('How about you select an item from your pack! [w] for Water, [p] to use Pepper Spray, [f] for your first aid kit', {limit: 'wpf'})
+// if (selectItem === 'w'){
+//     hydrate();
+// } else if (selectItem === 'p'){
+//     usePepperSpray();
+// } else if (selectItem === 'f'){
+//     replenishHealth();
+// }
+// hiker.inventory == inventory.pop([2]) ?
 
 // function hydrate(){
 //     //?
@@ -125,17 +143,3 @@ function enemyAttack(){
 // function replenishHealth(){
 //     //?
 // }
-
-function healthStatus(){
-
-    console.log(hiker)
-
-
-    //const random = Math.floor(Math.random() * Player.inventory.length);
-    //const healthPoints = Player.inventory[random];
-    /* if (healthPoints === 0){
-        console.log('NOOOOOOOOO!  Sorry you loose')
-    } else{
-
-    } */
-}
