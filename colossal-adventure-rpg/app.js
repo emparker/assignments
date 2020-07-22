@@ -51,7 +51,7 @@ while( isAlive && !hasWon ){
 
 function healthStatus(){
     hiker.hydration + 1;
-    console.log(hiker.health)
+    console.log(`Your health: ${hiker.health}%`)
 }
 
 function printInventory(){
@@ -69,11 +69,15 @@ function hike(){
     console.log(random);
     hiker.hydration - 3;
     if (random === 0){
+        hiker.inventory.push(`SCORE! You found a gold coin from Dusty Rifile's fresh loot!`);
+        console.log(`Hike On ${hiker.name}`)
+    } else if (random === 1){
+        hiker.inventory.push(`YUM! Snacks!`);
+        gains()
+        }else if (random === 2){
         console.log('There is defintely something out there, be careful...')
+        //ADD OPTION TO FIGHT?
         enemyAttack();
-        } else if (random === 2){
-            hiker.inventory.push(`SCORE! You found a gold coin from Dusty Rifile's fresh loot!`);
-            console.log(`Hike On ${hiker.name}`)
         }
 }
 
@@ -83,32 +87,58 @@ function enemyAttack(){
     let battle = true;
     let random = Math.floor(Math.random() * enemies.length);
     let enemy = enemies[random];
-        console.log(`Oh no! ${enemy}!!!!`)
-        hiker.health -= 50;
-        console.log(`You're Damage Report: ${hiker.health}`)
-    while(battle === true){
+    console.log(`Oh no! ${enemy}!!!!`)
+        while(battle === true){
         let random5 = Math.floor(Math.random() * 5);
-            enemy.energy -= 50;
-            enemy.strength -= 50;
-            hiker.health -= 10 ;
-            hiker.health -= 10;
-        if(random5 === 0){    
+        if (random5 === 0)
+            enemyDamageReport();
+            playerDamageReport();
+        if(random5 === 1){    
                 lostItem = [];
                 const lostInventory = hiker.inventory.pop();
                 const lost = lostItem.push(lostInventory);
-                console.log(`Wow ${name} that was impressive! There has been however the unfortunate loss of an item from your inventory. In the curfulffle you have lost ${lost}`)
-            } else if (random5 === 1){
+                console.log(`Wow ${name} that was impressive! There has been however the unfortunate loss of an item from your inventory. 
+                In the curfulffle you have lost ${lost}`)
+            } else if (random5 === 2){
                 enemy.strength -= 20;
                 enemy.energy -= 20;
-            } else if (random5 === 2){
+                gains();
+            } else if (random5 === 3){
                 enemies = [];
                 battle = false;
-                enemyParished();;
+                enemyParished();
             } else (enemy.strength === 0 && enemy.energy === 0);{
-                    battle = false;
-                    playerParished();
+                battle = false;
+                playerParished();
                 }
     }
+}
+
+function gains(){
+    let gainsRandom = Math.floor(Math.random() * 2);
+    if (gainsRandom === 0){
+        hiker.inventory.push('Sling Shot')
+    //console.log(wepon)
+    } else if (gainsRandom === 1){
+        hiker.inventory.push('Hiking Stick')
+    }
+}
+
+function playerDamageReport(){
+    hiker.health -= 10 ;
+    hiker.hydration -= 10;
+    console.log(`You're Damage Report: 
+        Health: ${hiker.health}
+        Hydration: ${hiker.hydration}`)
+            
+}
+
+function enemyDamageReport(){
+    enemies.energy -= 50;
+    enemies.strength -= 50;
+    console.log(`${enemies} Damage Report: 
+            Energy: ${enemies.energy}
+            Strength: ${enemies.strength}`)
 }
 
 function playerParished(){
@@ -123,6 +153,7 @@ function enemyParished(){
             hasWon= true;
     }
 }
+
 
 // const selectItem = realine.keyIn('How about you select an item from your pack! [w] for Water, [p] to use Pepper Spray, [f] for your first aid kit', {limit: 'wpf'})
 // if (selectItem === 'w'){
