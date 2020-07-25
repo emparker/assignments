@@ -99,7 +99,7 @@ function fight(){
     let random = Math.floor(Math.random() * enemies.length);
     let badGuy = enemies[random]; //BAD GUY UNDEFINED OR {OBJECT, OBJECT}
     console.log(`Oh no! ${badGuy.name}!!!!`);
-    console.log(badGuyIsAlive(badGuy), playerIsAlive())
+    //console.log(badGuyIsAlive(badGuy), playerIsAlive())
     while(badGuyIsAlive(badGuy) && playerIsAlive()){
         // console.log(badGuy);
         // console.log(hiker)
@@ -109,14 +109,14 @@ function fight(){
         hiker.health -= Math.ceil(Math.random() *20);
         playerDamageReport();
         enemyDamageReport(badGuy);
-        theyWin(enemy);
+        theyWin();
         badGuy.energy -= Math.ceil(Math.random() *50);
         badGuy.strength -= Math.ceil(Math.random() *50);
         hiker.hydration += Math.ceil(Math.random() *75);
         hiker.health += Math.ceil(Math.random() *75);
-        playerDamageReport();
-        enemyDamageReport();
-        youWin();
+        //playerDamageReport();
+        //enemyDamageReport(badGuy);
+        youWin(badGuy);
         
     }
 
@@ -147,36 +147,38 @@ function playerIsAlive(){
 }
 
 function badGuyIsAlive(enemy){
-    console.log(enemy)
+   // console.log(enemy)
     return enemy.strength > 0 && enemy.energy > 0
     
 }
 
-function playerDamageReport(enemy){
+function playerDamageReport(){
     console.log(`You're Damage Report: 
         Health: ${hiker.health}
         Hydration: ${hiker.hydration}`)
+        
 }
 
-function enemyDamageReport(enemy){  // NOT QUITE WORKING, ALSO IS IN RIGHT PLACE?
-    console.log(`${enemies} Damage Report: 
+function enemyDamageReport(enemy){  
+    console.log(`${enemy.name} Damage Report: 
             Energy: ${enemy.energy}
             Strength: ${enemy.strength}`)
+            
 }
 
 
 function theyWin(){
-    if (hiker.health <= 0 && hiker.hydration <= 0){
-            console.log(`Sorry to say it ${hiker}, but ya toast... GAME OVER`)
+    if (hiker.health <= 0 || hiker.hydration <= 0){
+            console.log(`Sorry to say it ${hiker.name}, but ya toast... GAME OVER`)
             isAlive = false;
     } else {
-        playerDamageRerport();
-        enemyDamageReport(enemy);
+        playerDamageReport(); 
+        //enemyDamageReport();
     }
     
 }
 function youWin(enemy){
-    if (enemy.strength <= 0 && enemy.energy <= 0){
+    if (enemy.strength <= 0 || enemy.energy <= 0){
             console.log(`You survived the Wild West, CONGRATULATIONS ${hiker}!`)
             hasWon= true;
     } else {
