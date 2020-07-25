@@ -105,17 +105,17 @@ function fight(){
         // console.log(hiker)
         badGuy.energy += Math.ceil(Math.random() *20);
         badGuy.strength += Math.ceil(Math.random() *20);
-        hiker.hydration -= Math.ceil(Math.random() *20);
-        hiker.health -= Math.ceil(Math.random() *20);
+        hiker.hydration -= Math.ceil(Math.random() *50);
+        hiker.health -= Math.ceil(Math.random() *50);
         playerDamageReport();
         enemyDamageReport(badGuy);
         theyWin();
         badGuy.energy -= Math.ceil(Math.random() *50);
         badGuy.strength -= Math.ceil(Math.random() *50);
-        hiker.hydration += Math.ceil(Math.random() *75);
-        hiker.health += Math.ceil(Math.random() *75);
-        //playerDamageReport();
-        //enemyDamageReport(badGuy);
+        hiker.hydration += Math.ceil(Math.random() *30);
+        hiker.health += Math.ceil(Math.random() *30);
+        playerDamageReport();
+        enemyDamageReport(badGuy);
         youWin(badGuy);
         
     }
@@ -179,7 +179,7 @@ function theyWin(){
 }
 function youWin(enemy){
     if (enemy.strength <= 0 || enemy.energy <= 0){
-            console.log(`You survived the Wild West, CONGRATULATIONS ${hiker}!`)
+            console.log(`You survived the Wild West, CONGRATULATIONS ${hiker.name}!`)
             hasWon= true;
     } else {
         playerDamageReport();
