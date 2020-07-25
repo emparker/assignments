@@ -22,14 +22,13 @@ class Enemy{
         this.name = name;
         this.energy = energy;
         this.strength = strength;
-        //this.damage = damage;
     }
 }
 
-const mountainLion = new Enemy('MOUNTAIN LION', 100, 50, 5);
-const elk = new Enemy('ELK', 75, 75, 5);
-const bear = new Enemy('BEAR', 50, 100, 5);
-const outlaw = new Enemy('Outlaw DUSTY RIFLE', 80, 25, 5);
+const mountainLion = new Enemy('MOUNTAIN LION', 100, 50);
+const elk = new Enemy('ELK', 75, 75);
+const bear = new Enemy('BEAR', 50, 100);
+const outlaw = new Enemy('Outlaw DUSTY RIFLE', 80, 25);
 
 let enemies = [mountainLion, elk, bear, outlaw];
 
@@ -55,19 +54,13 @@ function healthStatus(){
 }
 
 function printInventory(){
-    //const selectItem = readline.keyIn('How about you pick an item ')
     console.log(hiker.inventory)
 }
-// function win(){
-//     if(hasWon === true){
-//         console.log(`congrats ${name}, you win!`)
-//     }
-// }
 
 function hike(){
     const random = Math.floor(Math.random() * 4);
     //console.log(random);
-    hiker.hydration - 5;
+    hiker.hydration -= 10;
     if (random === 0){
         hiker.inventory.push(`SCORE! You found a gold coin from Dusty Rifile's fresh loot!`);
         console.log(`Hike On ${hiker.name}`)
@@ -83,16 +76,17 @@ function hike(){
 
 
 function enemyAttack(){ 
-    // let battle = true;
-    // while(battle){ 
+    // attackOn = true;
+    // attackOff = false;
+    //while (!attackOff && attackOn){
     const bailOrFight = readline.keyIn(`This could get ugly, wannna [b]bail or stay and [f]fight?`, {limit: 'bf'});
-    if (bailOrFight === 'b'){
+        if (bailOrFight === 'b'){
         bail();
-        //battle = false;
-    } else if (bailOrFight === 'f'){
+        //attackOff = true;
+        } else if (bailOrFight === 'f'){
         fight();
-    }   
-}
+        } 
+    } 
 //}
 
 function bail(){
@@ -100,51 +94,74 @@ function bail(){
     gains()
 }
 
+
 function fight(){
     let random = Math.floor(Math.random() * enemies.length);
     let badGuy = enemies[random]; //BAD GUY UNDEFINED OR {OBJECT, OBJECT}
-    console.log(`Oh no! ${badGuy}!!!!`)
-    let random5 = Math.floor(Math.random() * 5);
-    if (random5 === 0){
+    console.log(`Oh no! ${badGuy.name}!!!!`);
+    console.log(badGuyIsAlive(badGuy), playerIsAlive())
+    while(badGuyIsAlive(badGuy) && playerIsAlive()){
+        // console.log(badGuy);
+        // console.log(hiker)
+        badGuy.energy += Math.ceil(Math.random() *20);
+        badGuy.strength += Math.ceil(Math.random() *20);
+        hiker.hydration -= Math.ceil(Math.random() *20);
+        hiker.health -= Math.ceil(Math.random() *20);
+        playerDamageReport();
+        enemyDamageReport(badGuy);
+        theyWin(enemy);
+        badGuy.energy -= Math.ceil(Math.random() *50);
+        badGuy.strength -= Math.ceil(Math.random() *50);
+        hiker.hydration += Math.ceil(Math.random() *75);
+        hiker.health += Math.ceil(Math.random() *75);
+        playerDamageReport();
+        enemyDamageReport();
         youWin();
-        // theyWin();
-    } else if(random5 === 1){    
-        lostItem = [];
-        const lostInventory = hiker.inventory.pop();
-        const lost = lostItem.push(lostInventory);
-        console.log(`You just barely escaped, well done! However there seems to have been an unfortunate loss to your inventory. 
-        Looks like in the curfulffle you lost ${lost}`)
-    } else if (random5 === 2){
-        theyWin();
-    } 
-}
+        
+    }
+
+}  
+    // choose a bad guy
+    // fight loop => while both the fighter and emeny are alive
+    //    each loop the player takes a random amount of damage and so does the bad guy
+    // if then calling either theyWin or youWin
+
+    
+    
+            
+
+    
 
 
 function gains(){
     let gainsRandom = Math.floor(Math.random() * 2);
     if (gainsRandom === 0){
         hiker.inventory.push('Sling Shot')
-    //console.log(wepon)
     } else if (gainsRandom === 1){
         hiker.inventory.push('Hiking Stick')
     }
 }
 
-function playerDamageReport(){
-    hiker.health -= 10 ;
-    hiker.hydration -= 10;
+function playerIsAlive(){
+    return hiker.health > 0 && hiker.hydration > 0
+}
+
+function badGuyIsAlive(enemy){
+    console.log(enemy)
+    return enemy.strength > 0 && enemy.energy > 0
+    
+}
+
+function playerDamageReport(enemy){
     console.log(`You're Damage Report: 
         Health: ${hiker.health}
         Hydration: ${hiker.hydration}`)
-            
 }
 
-function enemyDamageReport(){  // NOT QUITE WORKING, ALSO IS IN RIGHT PLACE?
-    enemies.energy -= 50;
-    enemies.strength -= 50;
+function enemyDamageReport(enemy){  // NOT QUITE WORKING, ALSO IS IN RIGHT PLACE?
     console.log(`${enemies} Damage Report: 
-            Energy: ${enemies.energy}
-            Strength: ${enemies.strength}`)
+            Energy: ${enemy.energy}
+            Strength: ${enemy.strength}`)
 }
 
 
@@ -154,19 +171,19 @@ function theyWin(){
             isAlive = false;
     } else {
         playerDamageRerport();
-        enemyDamageReport();
+        enemyDamageReport(enemy);
     }
-    return action
+    
 }
-function youWin(){
-    if (enemies.strength <= 0 && enemies.energy <= 0){
+function youWin(enemy){
+    if (enemy.strength <= 0 && enemy.energy <= 0){
             console.log(`You survived the Wild West, CONGRATULATIONS ${hiker}!`)
             hasWon= true;
     } else {
         playerDamageReport();
-        enemyDamageReport()
+        enemyDamageReport(enemy)
     }
-    return action
+
 }
 
 // function playerWins(){
