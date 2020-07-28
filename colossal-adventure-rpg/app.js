@@ -180,11 +180,11 @@ function theyWin(){
 function youWin(enemy){
     if (enemy.strength <= 0 || enemy.energy <= 0){
             console.log(`You survived the Wild West, CONGRATULATIONS ${hiker.name}!`)
-            hasWon= true;
-    } else {
-        playerDamageReport();
-        enemyDamageReport(enemy)
-    }
+            // hasWon= true;
+    } //else {
+    //     playerDamageReport();
+    //     enemyDamageReport(enemy)
+    // }
 
 }
 

@@ -1,7 +1,7 @@
 const form = document.addItem
 // console.log(addItem)
 
-form.addEventListener("submit", function(event){
+form.addEventListener("submit", event => {
     event.preventDefault()
 
     const addedItem = form.title.value
@@ -18,10 +18,7 @@ form.addEventListener("submit", function(event){
     button.append(xButton)
     li.append(button)
     
-    button.addEventListener("click", ()=>{
-        li.remove()
-    })
-    
+    button.addEventListener("click", ()=> li.remove())
 })
 
 // another attempted method:
