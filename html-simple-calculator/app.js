@@ -15,7 +15,7 @@ one.addEventListener("submit", () => {
     
     one.add1.value = ""
     one.add2.value = ""
-
+    //how to clear result div?//Form.resultBox1.innerHTML = ""
 })
 
 const two = document.two

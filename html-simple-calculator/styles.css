@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(229, 229, 248);
+}
+
+h1{
+    color: blue;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.form1{
+    margin: 20px;
+    
+}
+
+.form2{
+    margin: 20px;
+}
+
+.form3{
+    margin: 20px;
+}
+
+.calcBackground{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    background-color: aqua;
+    border-style: solid;
+    border-radius: 15%;
+}
+
+.h3{
+    font-family: "monospace, Courier New", Courier;
+}
