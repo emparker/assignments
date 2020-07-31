@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Travel Form</h1>
+
+    <form id="travelForm">
+        <b>
+            <input type="text" placeholder="First Name" name="firstName" id="firstName"/>
+            <label for="">First Name</label>
+            <br>
+            <input type="text" placeholder="Last Name" name="lastName" id="lastName">
+            <label for="">Last Name</label>
+        </b>
+        <br>
+        <b>
+            <input type="number" name="age" id="age"/>
+            <label for="">Age</label>
+        </b>
+        <br>
+        <b>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">Female</label>
+            <br>
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">Male</label>
+        </b>
+        <br>
+        <select name="destination" id="destionation">
+            <option value="poland">Poland</option>
+            <option value="germany">Germany</option>
+            <option value="spain">Spain</option>
+        </select>
+        <b>
+            <label for="">Destination</label>
+        </b>
+        <br>
+        <b>
+            <input type="checkbox" name="diet" class="diet" name="noRestrictions" id="noRestrictions" value="noRestrictions">
+            <label for="">No Restrictions</label>
+            <br>
+            <input type="checkbox" name="diet" class="diet" name="glutenFree" id="glutenFree" value="glutenFree">
+            <label for="">Gluten Free</label>
+            <br>
+            <input type="checkbox" name="diet" class="diet" name="vegan" id="vegan" value="vegan">
+            <label for="">Vegan</label>
+            <br>
+            <input type="checkbox" name="diet" class="diet" name="difficult" id="difficult" value="difficult">
+            <label for="">I'm super difficult and dont fall into your catagories!</label>
+        </b>
+        <br>
+        <button type="button" id="submit">Submit</button>
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>
