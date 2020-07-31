@@ -9,12 +9,13 @@ one.addEventListener("submit", () => {
     const plusNum2 = parseInt(addNum2)
     
     const sum1 = plusNum1 + plusNum2
-    const resultBox1 = document.getElementById("resultBox1")
+    document.getElementById("resultBox1").textContent = `Equals ${sum1}`
+    // const resultBox1 = document.getElementById("resultBox1")
     
-    resultBox1.append(sum1)
+    // resultBox1.append(sum1)
     
-    one.add1.value = ""
-    one.add2.value = ""
+    // one.add1.value = ""
+    // one.add2.value = ""
     //how to clear result div?//Form.resultBox1.innerHTML = ""
 })
 
@@ -29,12 +30,13 @@ two.addEventListener("submit", () => {
     const minusNum2 = parseInt(subNum2)
 
     const sum2 = minusNum1 - minusNum2
-    const resultBox2 = document.getElementById("resultBox2")
+    document.getElementById("resultBox2").textContent = `Equals ${sum2}`
+    //const resultBox2 = document.getElementById("resultBox2")
 
-    resultBox2.append(sum2)
+    // resultBox2.append(sum2)
 
-    two.sub1.value = ""
-    two.sub2.value = ""
+    // two.sub1.value = ""
+    // two.sub2.value = ""
 
 })
 
@@ -49,12 +51,13 @@ three.addEventListener("submit", () => {
     const multiplyNum2 = parseInt(multNum2)
 
     const sum3 = multipyNum1 * multiplyNum2
-    const resultBox3 = document.getElementById("resultBox3")
+    document.getElementById("resultBox3").textContent = `Equals ${sum3}`
+    //const resultBox3 = document.getElementById("resultBox3")
 
-    resultBox3.append(sum3)
+    // resultBox3.append(sum3)
 
-    three.mult1.value = ""
-    three.mult2.value = ""
+    // three.mult1.value = ""
+    // three.mult2.value = ""
 
 })
 
