@@ -2,10 +2,36 @@
     list-style-type: square;
 }
 
+.baddiesCaught{
+    width: 50px;
+    border: 2px solid rgb(30, 132, 201);
+    border-radius: 4px;
+}
+
 #goomba{
     position: absolute;
     height: 50px;
     width: 50px;
     margin-top: -20px;
     margin-left: 10px;
+}
+
+#bobOmb{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+
+#cheepCheep{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+
+#spacingGoomba, #spacingBobOmb, #spacingCheepCheep{
+    margin-top: 40px;
 }
