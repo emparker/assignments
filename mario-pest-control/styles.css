@@ -1,3 +1,12 @@
+#pageTitle{
+    display: flex;
+    justify-content: center;
+}
+
+#baddiesTitle{
+    margin-left: 175px;
+}
+
 .list{
     list-style-type: square;
 }
@@ -34,4 +43,20 @@
 
 #spacingGoomba, #spacingBobOmb, #spacingCheepCheep{
     margin-top: 40px;
+}
+
+.line1{
+    margin-top: 50px;
+    width: 75%;
+}
+
+#footerList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.line2{
+    width: 75%;
 }
