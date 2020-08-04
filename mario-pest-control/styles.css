@@ -1,24 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.view{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
 #pageTitle{
     display: flex;
     justify-content: center;
 }
 
-#baddiesTitle{
-    margin-left: 175px;
-}
-
 .list{
     list-style-type: square;
+    margin-bottom: 50px;
 }
 
-.baddiesCaught{
+#goombaForm, #bobOmbForm, #cheepCheepForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#goombasCaught, #bobOmbsCaught, #cheepCheepsCaught{
     width: 50px;
     border: 2px solid rgb(30, 132, 201);
     border-radius: 4px;
 }
 
 #goomba{
-    position: absolute;
+    position: relative;
     height: 50px;
     width: 50px;
     margin-top: -20px;
@@ -26,7 +49,7 @@
 }
 
 #bobOmb{
-    position: absolute;
+    position: relative;
     height: 50px;
     width: 50px;
     margin-top: -20px;
@@ -34,19 +57,56 @@
 }
 
 #cheepCheep{
-    position: absolute;
+    position: relative;
     height: 50px;
     width: 50px;
     margin-top: -20px;
     margin-left: 10px;
 }
 
-#spacingGoomba, #spacingBobOmb, #spacingCheepCheep{
+.spacingBaddies {
     margin-top: 40px;
 }
 
+#baddiesTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.totals{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+#totalGoombasButton, #totalBobOmbsButton, #totalCheepCheepsButton{
+    padding: 10px;
+}
+
+#grandTotalDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#grandTotalButton{
+    padding: 10px 30px;
+}
+
+#grandTotalBox{
+    background-color:pink;
+    padding: 30px;
+}
+
+/* #totalsBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
 .line1{
-    margin-top: 50px;
+    
     width: 75%;
 }
 
@@ -55,6 +115,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     list-style-type: none;
+    padding: 20px;
+}
+
+#footer{
+    background-color: rgb(236, 233, 213);
 }
 
 .line2{

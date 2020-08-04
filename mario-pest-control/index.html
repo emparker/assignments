@@ -7,36 +7,80 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header></header>
-    <h1 id="pageTitle">Mario Pest Control</h1>
+    <div class="view">
+        <header></header>
+        <h1 id="pageTitle">Mario Pest Control</h1>
 
-    <h3 id="baddiesTitle">BADDIES</h3>
-
-    <ul class="list">
-        <li id="spacingGoomba"><strong>Goombas</strong> | Price: $5 |
-            Enter Total Caught: <input type="number" name="baddiesCaught" class="baddiesCaught"> <img src="https://vignette.wikia.nocookie.net/nintendo/images/d/d5/GoombaNSMB.png/revision/latest?cb=20110724131649&path-prefix=en" alt="picture of a Goomba" id="goomba"></li> 
         
-        <li id="spacingBobOmb"><strong>Bob-ombs</strong> | Price: $7 | Enter Total Caught: <input type="number" name="baddiesCaught" class="baddiesCaught"> <img src="https://vignette.wikia.nocookie.net/mariokart/images/f/ff/Bob-omb_-_Mario_Kart_Double_Dash.png/revision/latest?cb=20190626220005" alt="picture of a Bob-omb" id="bobOmb"></li>
+        <h3 id="baddiesTitle">BADDIES</h3>
+            <ul class="list">
+                <form id="goombaForm">
+                    <li class="spacingBaddies"><strong>Goombas</strong> | Price: $5 |
+                    Enter Total Caught: <input type="number" name="goombasCaught" id="goombasCaught"> <img src="https://vignette.wikia.nocookie.net/nintendo/images/d/d5/GoombaNSMB.png/revision/latest?cb=20110724131649&path-prefix=en" alt="picture of a Goomba" id="goomba"></li>
+                    <div class=totals>
+                        <button id="totalGoombasButton">TOTAL GOOMBAS</button>
+                    </div>
         
-        <li id="spacingCheepCheep"><strong>Cheep-cheeps</strong>  | Price: $11 | Enter Total Caught: <input type="number" name="baddiesCaught" class="baddiesCaught"> <img src="https://www.mariowiki.com/images/thumb/6/63/CheepCheepNSMBU.png/1200px-CheepCheepNSMBU.png" alt="picture of a Cheep-cheep" id="cheepCheep"></li>
-    </ul>
-
-    <main>
-
-    </main>
-
-    <footer>
-        <hr class="line1">
+                    <div id="totalGoombasBox"></div>
+                </form>
+                <form id="bobOmbForm">
+                    <li class="spacingBaddies"><strong>Bob-ombs</strong> | Price: $7 | Enter Total Caught: <input type="number" name="bobOmbsCaught" id="bobOmbsCaught"> <img src="https://vignette.wikia.nocookie.net/mariokart/images/f/ff/Bob-omb_-_Mario_Kart_Double_Dash.png/revision/latest?cb=20190626220005" alt="picture of a Bob-omb" id="bobOmb"></li>
+                    <div class=totals>
+                        <button id="totalBobOmbsButton">TOTAL BOB-OMBS</button>
+                    </div>
         
-            <ul id="footerList">
-                <li>Mario email address</li>
-                <li>Mario URL</li>
-                <li>Mario physical address</li>
+                    <div id="totalBobOmbsBox"></div>
+                </form>
+                <form id="cheepCheepForm">
+                    <li class="spacingBaddies"><strong>Cheep-cheeps</strong>  | Price: $11 | Enter Total Caught: <input type="number" name="cheepCheepsCaught" id="cheepCheepsCaught"> <img src="https://www.mariowiki.com/images/thumb/6/63/CheepCheepNSMBU.png/1200px-CheepCheepNSMBU.png" alt="picture of a Cheep-cheep" id="cheepCheep"></li>
+                    <div class=totals>
+                        <button id="totalCheepCheepsButton">TOTAL CHEEP-CHEEPS</button>
+                    </div>
+        
+                    <div id="totalCheepCheepsBox"></div>
+
+                    <div id="grandTotalDiv">
+                        <button id="grandTotalButton">GRAND TOTAL</button>
+                        <div id="grandTotalBox"></div>
+
+                    </div>
+                </form>
             </ul>
+        
+        <!-- <div id="baddiesButtonsDiv">
+        
+            <div id="goombaButtonDiv"><button id="totalGoombaButton">TOTAL GOOMBAS</button></div>
+            
+            <div id="totalGoombaBox"></div>
 
-        <hr class="line2">
-    </footer>
-    
+            <div id="bobOmbButtonDiv"><button id="totalBobOmbButton">TOTAL BOB-OMBS</button></div>
+            
+            <div id="totalBobOmbBox"></div>
+
+            <div id="cheepCheepButtonDiv"><button id="totalCheepCheepButton">TOTAL GOOMBAS</button></div>
+            
+            <div id="totalCheepCheepBox">
+
+            </div> -->
+        
+
+        </div>
+
+    </form>
+
+        <footer>
+            <div id="footer">
+            <hr class="line1">
+                    <ul id="footerList">
+                        <li>Mario email address</li>
+                        <li>Mario URL</li>
+                        <li>Mario physical address</li>
+                    </ul>
+                    <hr class="line2">
+                </div>
+        </footer>
+    </div>
+        
     <script src="app.js"></script>
 </body>
 </html>
