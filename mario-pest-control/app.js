@@ -3,31 +3,15 @@ const goombaForm = document.getElementById("goombaForm")
 goombaForm.addEventListener("submit", ()=> {
     event.preventDefault()
     const goombaValue = goombaForm.goombasCaught.value
-    // const bobOmbsValue = form.bobOmbsCaught.value
-    // const cheepCheepsValue = form.cheepCheepsCaught.value
-
     const goombaPrice = 5
-    // const bobOmbsPrice = 7
-    // const cheepCheepsPrice = 11
-
-    //let goombaTot = 0
-    // let bobOmbsTotal = 0
-    // let cheepCheepsTotal = 0
-
-// const goombasValue = form.goombas.value
+    
     let goombaTot = (Number(goombaValue) * parseInt(goombaPrice))
-
-//let bobOmbsValue = form.bobOmbs.value
-//     let bobOmbsTotal = (Number(bobOmbsValue) * parseInt(bobOmbsPrice))
-
-// //let cheepCheepsValue = form.cheepCheeps.value
-//     let cheepCheepsTotal = (Number(cheepCheepsValue) * parseInt(cheepCheepsPrice))
-
 
     let goombaTotal = goombaTot 
     document.getElementById("totalGoombasBox").textContent = goombaTotal
 
 })
+
 
 const bobOmbForm = document.getElementById("bobOmbForm")
 
@@ -42,6 +26,7 @@ bobOmbForm.addEventListener("submit", ()=> {
     document.getElementById("totalBobOmbsBox").textContent = bobOmbTotal
 })
 
+
 const cheepCheepForm = document.getElementById("cheepCheepForm")
 
 cheepCheepForm.addEventListener("submit", ()=> {
@@ -54,3 +39,23 @@ cheepCheepForm.addEventListener("submit", ()=> {
     let cheepCheepTotal = cheepCheepTot
     document.getElementById("totalCheepCheepsBox").textContent = cheepCheepTotal
 })
+
+
+
+totalButton = document.getElementById("grandTotalButton")
+
+totalButton.addEventListener("click", ()=>{
+    const actualGoombaPrice = Number(document.getElementById("totalGoombasBox").textContent) 
+    console.log(actualGoombaPrice)
+    
+    const actualBobOmbPrice = Number(document.getElementById("totalBobOmbsBox").textContent) 
+    
+    const actualCheepCheepPrice = Number(document.getElementById("totalCheepCheepsBox").textContent) 
+
+        totalP = actualGoombaPrice + actualBobOmbPrice + actualCheepCheepPrice
+        
+        let finalPrice = totalP
+        document.getElementById("grandTotalBox").textContent = finalPrice
+    })
+
+
