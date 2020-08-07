@@ -1,17 +1,21 @@
 
 
 const bodyClick = document.getElementById("clickBody")
+
 let clicks = 0;
+
 bodyClick.addEventListener("click", () =>{
     clicks += 1
-    const counter = document.getElementById("counter")
-    counter.innerHTML = clicks
+    let counter = document.getElementById("counter")
+    counter.textContent = clicks.length
 
-    localStorage.setItem("amount", "clicks")
-    const howManyClicks = localStorage.getItem("amount")
-    console.log(howManyClicks)
+    localStorage.setItem("numberOfClicks", clicks)
 }) 
 
-// Then, using localStorage or sessionStorage, make it so the number of clicks will remain on the screen even after the site is refreshed.
+const savedClicks = localStorage.getItem("numberOfClicks")
+
+if (savedClicks){
+    clicks = savedClicks
+}
 
 
