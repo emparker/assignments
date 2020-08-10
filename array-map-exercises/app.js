@@ -48,16 +48,8 @@ function stringItUp(arr2){
 
 
 //   Make an array of strings of the names
-function namesOnly(arr4, callback){
-    return callback(arr4)
-}
 
-function getName(arr4){
-    return arr4[0]
-}
-
-
-console.log(namesOnly([
+const namesOnly = [
     {
         name: "Angelina Jolie",
         age: 80
@@ -78,4 +70,25 @@ console.log(namesOnly([
         name: "Bob Ziroll",
         age: 100
     }
-]), getName); 
+]
+    
+    const names = namesOnly.map(user => user.name)
+    console.log(names)
+
+    // Make an array of strings of the names saying whether or not they can go to The Matrix
+
+    const ages = namesOnly.map(function(userAge){
+        if (userAge.age >= 18){
+            return `${userAge.name} is ${userAge.age} and can go to the Matrix `
+        } else {
+            return `${userAge.name} is ${userAge.age} and NOT old enough to go to the Matrix `
+        }
+    })
+    console.log(ages)
+
+    // Make an array of the names in h1s, and the ages in h2s
+    
+    const readyToPutInTheDOM = namesOnly.map(function(arr){
+        return `<h1>${arr.name}</h1><h2>${arr.age}</h2>`
+    })
+    console.log(readyToPutInTheDOM)
