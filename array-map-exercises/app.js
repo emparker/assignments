@@ -22,8 +22,10 @@ console.log(numbers2);
 // Take an array of numbers and make them strings
 
 function stringItUp(arr2){
-    return arr2.map(function(eachNum){
-        return "" + eachNum + ""
+    return arr2.map(eachNum => {
+        return eachNum.toString()
+        //return "" + eachNum + ""
+        
     })
 }
 
@@ -32,19 +34,14 @@ function stringItUp(arr2){
 
 // Capitalize each of an array of names
 
-// function capitalizeNames(arr3){
-//     return arr3.map(function(capitalize){
-//         if (capitalize.charAt(0) == capitalize.toLowerCase()){
-//             return capitalize.charAt(0).toUpperCase
-//         }
-//         if (capitalize.slice(1) == capitalize.toUppercse()){
-//             return capitalize(1).toLowercase
-//         }
-
-//     })
-// }
-
-//   console.log(capitalizeNames(["john", "JACOB", "jinGleHeimer", "schmidt"])); // ["John", "Jacob", "Jingleheimer", "Schmidt"]
+function capitalizeNames(arr){
+    return arr.map(name => {
+        let lowered = name.toLowerCase().split("")
+        lowered[0] = lowered[0].toUpperCase()
+        return lowered.join("")
+    })
+}
+console.log(capitalizeNames(["john", "JACOB", "jinGleHeimer", "schmidt"])); // ["John", "Jacob", "Jingleheimer", "Schmidt"]
 
 
 //   Make an array of strings of the names

@@ -45,7 +45,6 @@ console.log(peopleWhoBelongToTheIlluminati([
 function ofAge(arr){
     return arr.filter(person => person.age >= 18)
 }
-// test
 console.log(ofAge([
     { name: "Angelina Jolie", age: 80 },
     { name: "Eric Jones", age: 2 },
