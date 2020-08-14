@@ -108,22 +108,57 @@ var voters = [
     {name: 'Zack', age: 19, voted: false}
 ];
 
-function voterResults(arr) {
-    return arr.reduce(function(final, stats){
-        let  youngVotes = stats.age >= 18 && stats.age <= 25
-        let midVotes = stats.age >= 26 && stats.age <= 35
-        let oldVotes = stats.age >= 36 && stats.age <= 55
-        if (stats.age === youngVotes){
-            function didVote(voter){
-                return voter
+function voterResults(arr){
+    return arr.reduce(function(final, voter){
+        if(voter.age >= 18 && voter.age <= 25){
+            final.youth++
+            if(voter.voted === true){
+                final.youngVotes++
             }
         }
-        final = `youngVotes: ${youngVotes} \n youth: ${didVote} \n midVotes: ${midVotes} \n mids: ${didVote} \n oldVotes: ${oldVotes} \n old: ${didVote}`
-        
+        if(voter.age >= 26 && voter.age <= 35){
+            final.mids++
+            if(voter.voted === true){
+                final.midVotes++
+            }
+        }
+        if(voter.age >=36 && voter.age <= 55){
+            final.olds++
+            if(voter.voted === true){
+                final.oldVotes++
+            }
+        }
         return final
-    }, {})
+    }, {youth: 0, youngVotes: 0, mids: 0, midVotes: 0, olds: 0, oldVotes: 0})
 }
 
+// function voterResults(arr) {
+//     return arr.reduce(function(final, stats){
+//         let youngVotes = stats.age >= 18 && stats.age <= 25
+//         let midVotes = stats.age >= 26 && stats.age <= 35
+//         let oldVotes = stats.age >= 36 && stats.age <= 55
+//         if (stats.age === youngVotes){
+//             const voted = arr.filter((voter)=> voter.voted === true)
+//             return voted
+//         }
+//         final = `youngVotes: ${youngVotes} \n youth: ${voted} \n midVotes: ${midVotes} \n mids: ${voted} \n oldVotes: ${oldVotes} \n old: ${voted}`
+        
+//         return final
+//     }, {})
+// }
+// if (voter.age <= 25){
+//     if (voter.voted){
+//         final.youthVotes++;
+//     } else {
+//         final.youth++;
+//     } 
+// }
+// if (voter.age >= 36){
+//     final.old++;
+//     if (voter.voted === true){
+//     final.oldVotes++;
+//     }
+// }
 console.log(voterResults(voters)); // Returned value shown below:
 
 /*
