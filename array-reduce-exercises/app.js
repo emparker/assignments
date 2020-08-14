@@ -108,25 +108,21 @@ var voters = [
     {name: 'Zack', age: 19, voted: false}
 ];
 
-function voterResults(voters){
-    let name = voters.filter(person => person.age >=18 && person.age <= 25)
-    return name.reduce(function(final, stats){
-        let youngVotes = stats.age >= 18 && stats.age <= 25
-        if(youngVotes = true){
-            return `youngVotes: ${stats.age}`
-        } 
+function voterResults(arr) {
+    return arr.reduce(function(final, stats){
+        let  youngVotes = stats.age >= 18 && stats.age <= 25
+        let midVotes = stats.age >= 26 && stats.age <= 35
+        let oldVotes = stats.age >= 36 && stats.age <= 55
+        if (stats.age === youngVotes){
+            function didVote(voter){
+                return voter
+            }
+        }
+        final = `youngVotes: ${youngVotes} \n youth: ${didVote} \n midVotes: ${midVotes} \n mids: ${didVote} \n oldVotes: ${oldVotes} \n old: ${didVote}`
+        
         return final
     }, {})
 }
-// function voterResults(voters) {
-//     return voters.reduce(function(final, stats){
-//         let youngVotes = stats.age >= 18 && stats.age <= 25
-//         if(youngVotes = true){
-//             return `youngVotes: ${stats.age}`
-//         } 
-//         return final
-//     }, {})
-// }
 
 console.log(voterResults(voters)); // Returned value shown below:
 
