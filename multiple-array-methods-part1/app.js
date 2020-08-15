@@ -37,23 +37,57 @@ var peopleArray = [
         lastName: "Tolstoy",
         age: 82
     }
+
 ]
-function sortedOfAge(arg){
-    return arg.filter(person => person > 18)
+function mainFunc(arr){
+    let results = 
+    sortedByAge(arr)
+    alphabetically(arr)
+    putInLi(arr)
+    //stringConcat(arr)
+    return results
 }
+
+function sortedByAge(arg){
+    return arg.filter(num => num.age > 18)
+}
+
 function alphabetically(arg){
-    return arg.sort((a, b) => a.lastName.localeCompare(b.lastName)
-    )}
+    const lastName = arg.sort((a, b) => a.lastName.localeCompare(b.lastName))
+    return lastName
+}
 
-console.log(sortedOfAge(peopleArray));
+function putInLi(arg){
+    const newArr = []
+    arg.forEach(function(element){
+        const li = document.createElement("li")
+        li.textContent = `${element.firstName} ${element.lastName} is ${element.age}`
+        const appended = document.querySelector("body").append(li)
+        newArr.push(appended)
+        return newArr
+    })
+}
 
-/*
-Output: 
-[ 
-    "<li>Kyle Mooney is 27</li>",
-    "<li>Sarah Palin is 47</li>",
-    "<li>Rick Sanchez is 78</li>",
-    "<li>Morty Smith is 29</li>",
-    "<li>Lev Tolstoy is 82</li>" 
-]
-*/
+// function stringConcat(arg){
+//     return arg.reduce(function(final, element){
+//         return final += element
+//     }, `"<li>${arg}</li>"`)
+// }
+
+// function stringConcat(arg){
+//     return arg.forEach(function(element){
+//         return element
+//     }, "<li> </li>")
+// }
+
+console.log(mainFunc(peopleArray));
+
+
+// Output: 
+// [ 
+//     "<li>Kyle Mooney is 27</li>",
+//     "<li>Sarah Palin is 47</li>",
+//     "<li>Rick Sanchez is 78</li>",
+//     "<li>Morty Smith is 29</li>",
+//     "<li>Lev Tolstoy is 82</li>" 
+// ]
