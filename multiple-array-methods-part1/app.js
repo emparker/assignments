@@ -39,13 +39,16 @@ var peopleArray = [
     }
 
 ]
-function mainFunc(arr){
-    let results = 
-    sortedByAge(arr)
-    alphabetically(arr)
-    putInLi(arr)
-    //stringConcat(arr)
-    return results
+
+function putInLi(arg){
+    const newArr = []
+    arg.forEach(function(element){
+        const li = document.createElement("li")
+        li.textContent = `"${element.firstName} ${element.lastName} is ${element.age}"`
+        const appended = document.querySelector("body").append(li)
+        return newArr.push(appended)
+    })
+    
 }
 
 function sortedByAge(arg){
@@ -53,19 +56,16 @@ function sortedByAge(arg){
 }
 
 function alphabetically(arg){
-    const lastName = arg.sort((a, b) => a.lastName.localeCompare(b.lastName))
-    return lastName
+    return arg.sort((a, b) => a.lastName.localeCompare(b.lastName))
 }
 
-function putInLi(arg){
-    const newArr = []
-    arg.forEach(function(element){
-        const li = document.createElement("li")
-        li.textContent = `${element.firstName} ${element.lastName} is ${element.age}`
-        const appended = document.querySelector("body").append(li)
-        newArr.push(appended)
-        return newArr
-    })
+function mainFunc(arr){
+    let results = 
+    sortedByAge(arr)
+    alphabetically(arr)
+    putInLi(arr)
+    //stringConcat(arr)
+    return results
 }
 
 // function stringConcat(arg){
