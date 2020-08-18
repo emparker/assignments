@@ -40,48 +40,19 @@ var peopleArray = [
 
 ]
 
-function putInLi(arg){
-    const newArr = []
-    arg.forEach(function(element){
-        const li = document.createElement("li")
-        li.textContent = `"${element.firstName} ${element.lastName} is ${element.age}"`
-        const appended = document.querySelector("body").append(li)
-        return newArr.push(appended)
-    })
-    
-}
-
-function sortedByAge(arg){
-    return arg.filter(num => num.age > 18)
-}
-
-function alphabetically(arg){
-    return arg.sort((a, b) => a.lastName.localeCompare(b.lastName))
-}
-
 function mainFunc(arr){
-    let results = 
-    sortedByAge(arr)
-    alphabetically(arr)
-    putInLi(arr)
-    //stringConcat(arr)
-    return results
+    const sortedLastName = arr.sort((a, b) => a.lastName.localeCompare(b.lastName))
+    let filtered = sortedLastName.filter(num => num.age > 18)
+    //console.log(sortedLastName)
+    //console.log(filtered)
+    return filtered.map(function(person){
+        return `<li>"${person.firstName} ${person.lastName} is ${person.age}"</li>`
+        
+    })
+
 }
-
-// function stringConcat(arg){
-//     return arg.reduce(function(final, element){
-//         return final += element
-//     }, `"<li>${arg}</li>"`)
-// }
-
-// function stringConcat(arg){
-//     return arg.forEach(function(element){
-//         return element
-//     }, "<li> </li>")
-// }
 
 console.log(mainFunc(peopleArray));
-
 
 // Output: 
 // [ 
