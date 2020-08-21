@@ -1,0 +1,88 @@
+*{
+    box-sizing: 0;  
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    padding: 25px;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2, 200px);
+    gap: 25px;
+    justify-content: center;
+    align-content: center;
+}
+.box{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+#box1{
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+    transition-delay: 500ms;
+}
+
+#box1:hover{
+    background-color: cornflowerblue;
+}
+
+#box2{
+    transition-property: background-color, border;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in;
+    transition-delay: 500ms;
+}
+
+#box2:hover{
+    background-color: yellow;
+    border: 5px dotted tomato;
+}
+
+#box3{
+    transition: background-color 1s ease-out 1s, border-radius 1s ease-out 1s;
+}
+
+#box3:hover{
+    background-color: teal;
+    border-radius: 100px;
+}
+
+#box4{
+    transition: background-color 2s ease-out 1s, height 2s ease-out 1s, opacity 1s linear 2s;
+}
+
+#box4:hover{
+    background: palevioletred;
+    opacity: 25%;
+    height: 300px;
+}
+
+#box5{
+    transition: background-color 300ms ease-in-out 500ms, border 500ms ease-in-out 700ms, width 700ms ease-in-out 1s;
+}
+
+#box5:hover{
+    background-color: peru;
+    border: 10px groove grey;
+    width: 100px;
+}
+
+#box6{
+    transition: background-color 3s ease-in 3s, height 1s ease-in 3s, width 1s ease-in 3s, box-shadow 3s ease-in 3s, opacity 1s ease-in-out 1s;
+}
+
+#box6:hover{
+    background-color: navy;
+    height: 200px;
+    width: 150px;
+    box-shadow: 10px 20px skyblue;
+    opacity: 50%;
+}
