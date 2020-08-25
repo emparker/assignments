@@ -1,5 +1,5 @@
 *{
-    box-sizing: 0;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -8,12 +8,22 @@
     display: grid;
     grid-template-columns:repeat(autofit, minmax(240px, 1fr));
     align-items: center;
-    /* grid-template-rows: repeat(12, auto); */
+    grid-template-rows: repeat(12, auto);
+    
+}
+/* mobile first? */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 230px;
+    background: url('http://www.csszengarden.com/214/huntington.jpg');
+    background-attachment: fixed;
+    background-color: #2d6360;
 }
 
-
 h1::before{
-    display: inline-block;
     position: relative;
     top: 20px;
     content: "";
@@ -24,23 +34,45 @@ h1::before{
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.6;
-    /* height: 200px;
-    width: 200px;
-    background-color: oldlace;
-    border: 1px solid black;   */
+    font-family: 'Julius Sans One', sans-serif;
 }
+
 .two{
-    /* height: 200px;
-    width: 200px; */
-    border: 1px solid black;  
+    background-color: pink;  
 }
+
 .three{
-    /* height: 200px;
-    width: 200px; */
-    border: 1px solid black;  
+    background-color: paleturquoise;  
 }
+
 .authors{
-    /* height: 200px;
-    width: 200px; */
-    border: 1px solid black;  
+    background-color: peachpuff; 
+}
+
+.four{
+    background-color: plum;
+}
+
+.links{
+    background-color: yellowgreen;
+}
+
+.five{
+    background-color: salmon;
+}
+
+.six{
+    background-color: sandybrown;
+}
+
+.seven{
+    background-color: steelblue;
+}
+
+.footer{
+    background-color: tomato;
+}
+
+.icons{
+    background-color: yellow;
 }
