@@ -24,19 +24,37 @@ header{
 }
 
 h1::before{
-    position: relative;
+    /* display: block;
+    content: url('http://www.csszengarden.com/214/enso.svg');
+    position: fixed;
     top: 20px;
-    content: "";
-    width: 80px;
-    height: 80px;
-    margin: -20px 20px 0 0;
-    background: url(enso.svg);
-    background-repeat: no-repeat;
+    height: 230px;
+    width: 100%;
+    /* content: ""; */
+    /* background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.6;  */
+    display: block;
+    position: absolute;
+    content: url('http://www.csszengarden.com/214/enso.svg');
     background-size: 100%;
+    left: 10%;
+    width: 5px;
+    height: 50%;
+    margin: 0 0 0 -25px;
+    padding: 0 0 35px 0;
     opacity: 0.6;
-    font-family: 'Julius Sans One', sans-serif;
 }
 
+h1{
+    font-family: 'Julius Sans One', sans-serif; 
+    position: relative
+}
+
+h2{
+    font-family: 'Julius Sans One', sans-serif; 
+    position: relative;
+}
 .two{
     background-color: pink;  
 }
