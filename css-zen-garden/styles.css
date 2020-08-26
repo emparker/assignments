@@ -21,39 +21,64 @@ header{
     background: url('http://www.csszengarden.com/214/huntington.jpg');
     background-attachment: fixed;
     background-color: #2d6360;
-    background-size: 100% 230px;
+    background-size: 150% 250px;
     background-repeat: no-repeat;
+    background-position: 0 10px, 0 0, -5px -25px, 0 50%;
     max-width: 100%;
-    
-    
-    /* object-fit: cover;
-    max-height: 100%;
-    min-width: 100%;
-    vertical-align: bottom; */
+}
+
+header > div {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    min-height: 120px;
+    margin-top: 10px;
 }
 
 h1::before{
     display: block;
     background-image: url('http://www.csszengarden.com/214/enso.svg');
-    margin-bottom: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 50px;
+    margin: 50px auto 0px auto;
+    height: 70px;
     width: 20%;
     content: "";
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.6;
+    z-index: -2;
+}
+
+.veiwAll{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.2em;
+    font-style: normal;
+    font-weight: 100;
+    color: #ffffff;
+    padding: 20px 0 0 0;
+    text-transform: uppercase;
 }
 
 h1{
+    padding-top: 0%;
     font-family: 'Julius Sans One', sans-serif; 
-    position: relative
+    font-weight: 100;
+    font-size: 2.0em;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
 }
 
 h2{
-    font-family: 'Julius Sans One', sans-serif; 
+    font-family: 'Libre Baskerville', sans-serif; 
+    font-weight:normal;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.2em;
     position: relative;
+    font-style: italic;
+    margin-top: 0px;
+    
 }
 .two{
     background-color: pink;  
