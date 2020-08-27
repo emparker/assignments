@@ -30,8 +30,8 @@ header{
 header > div {
     width: 100%;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.4);
-    min-height: 120px;
+    background-color: rgba(255, 255, 255, 0.2);
+    min-height: 100px;
     margin-top: 10px;
 }
 
@@ -49,20 +49,34 @@ h1::before{
 }
 
 .veiwAll{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 0px; 
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
     font-style: normal;
     font-weight: 100;
     color: #ffffff;
+    opacity: 0.6;
     padding: 20px 0 0 0;
     text-transform: uppercase;
+}
+.veiwAll::after{
+    display: inline-block;
+    content:">";
+    font-family: 'verdemoderna';
+    font-size: 44px;
+    height: 70px;
+    width: 70px;
+    margin-left: 70px;
+    z-index: -1;
 }
 
 h1{
     padding-top: 0%;
     font-family: 'Julius Sans One', sans-serif; 
     font-weight: 100;
-    font-size: 2.0em;
+    font-size: 2em;
     color: #ffffff;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -80,12 +94,27 @@ h2{
     margin-top: 0px;
     
 }
-.two{
-    background-color: pink;  
+.two p{
+    font-family: 'Libre Baskerville', sans-serif;
+    color:#325050;
+    font-size: 70%;
+    background-color: #ffffff;
+    padding-top: 2em;
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.8em;
 }
 
-.three{
-    background-color: paleturquoise;  
+.three h3{
+    margin: 2em 0 0 1.2em;
+    color: #2e484c;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    
+    
 }
 
 .authors{
