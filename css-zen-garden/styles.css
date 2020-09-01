@@ -103,7 +103,7 @@ h2{
     margin-top: 10px;
     
 }
-.section1 .section2{
+.section1 .section2 .section4{
     display: block;
     /* width: 80%; */
     margin: 0 auto;
@@ -112,21 +112,24 @@ h2{
 
 .section3{
     display: block;
+    padding: 15px 0px; 
     margin:0 auto;
     background-attachment: scroll, scroll, fixed;
-    background-image: url('contours-opaque.png'), url('gridlines-opaque.png'), url('bamboo.png');
+    background: url('http://www.csszengarden.com/214/bamboo.png'), url('gridlines-opaque.png'), url('bamboo.png');
+    background-attachment: fixed;
     background-color: rgba(138,188,159,0.5);
     background-repeat: repeat, repeat, no-repeat;
     background-size: auto, auto, cover;
 }
 
 .uBlue{
-    border-bottom: 1px dotted blue;
+    color: #0d8ba1;
+    border-bottom: 1px dotted #0d8ba1;
     text-decoration: none;
 }
 
 .strongBlue{
-    color: blue;
+    color: #0d8ba1;
     font-weight: normal;
 }
 
@@ -160,34 +163,76 @@ h3{
     text-transform: uppercase;
 }
 
-.authors{
-    background-color: peachpuff; 
+.footer1 p{
+    background-image: url('http://www.csszengarden.com/214/koi.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: repeat, repeat, repeat;
+    background-position: center;
+    /* background-size: auto, auto, cover; */
+    width: 100%;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.2em;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 10px 25px;
 }
 
-.four{
-    /* background-color: plum; */
+.footer-icons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    background: #134347;
+    padding: 3em 10%;
+    font-family: 'verdemoderna';
 }
+
+.strongWhite{
+    color: rgba(255, 255, 255, 0.7);
+    font-style: normal;
+}
+/* .authors{
+    display: block;
+    margin-bottom: 0.25em;
+    background-color: #ffffff; 
+} */
+li{
+    display: block;
+    float: left;
+    margin-bottom: 0.25em;
+    background-color: #ffffff; 
+    padding: 1em 5%;
+}
+.design-name{
+    font-family: 'Julius Sans One', sans-serif;
+    font-style: normal;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+}
+
+small{
+    font-family: 'Libre Baskerville', sans-serif;
+    font-style: italic;
+    color: #c0cac3;
+    font-size: 0.9em;
+}
+
+.designer-name{
+    color: #616857;
+    font-size: 0.9em;
+    font-style: normal;
+}
+
+/* 'Libre Baskerville', sans-serif; */
 
 .links{
     background-color: yellowgreen;
 }
 
-.five{
-    /* background-color: salmon; */
-}
 
-.six{
-    /* background-color: sandybrown;*/
-} 
 
-.seven{
-    /* background-color: steelblue; */
-}
 
-.footer{
-    background-color: tomato;
-}
-
-.icons{
-    background-color: yellow;
-}
