@@ -12,9 +12,9 @@
 #container{
     display: grid;
     grid-template-columns:repeat(autofit, minmax(240px, 1fr));
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     grid-template-rows: repeat(12, auto);
-    
 }
 
 /* mobile first? */
@@ -208,7 +208,6 @@ h3{
     grid-row-gap: 0px;
     justify-content: center;
     align-items: center;
-    /* float: left; */
 }
 
 li{
@@ -244,8 +243,6 @@ small{
     font-style: normal;
 }
 
-/* 'Libre Baskerville', sans-serif; */
-
 #links{
     display: block;
     padding: 15px 0px;
@@ -271,13 +268,13 @@ small{
     /* flex-wrap: wrap; */
 }
 
-    /* font-family: 'Julius Sans One', sans-serif;
-    font-style: normal;
-    font-size: 1em;
-    text-transform: uppercase;
-    margin: 0;
     
-
+    
+@media (max-width: 1250px) and (min-width: 1100){
+    #sidebar{
+        background-color: cadetblue;
+    }
+}
 
 
 

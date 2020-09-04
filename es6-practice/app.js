@@ -2,8 +2,8 @@
 
 // John is the pet owner, and his name should be stored differently than the other names.
 
-const name = "John"
-const age = 101
+let name = "John"
+let age = 101
 
 function runForLoop(pets) {
     const petObjects = []
@@ -40,7 +40,7 @@ const carrots = ["bright orange", "ripe", "rotten"]
 //  }
 //ES6:
 function mapVegetables(arr) {
-    return arr.map((carrot) =>  { return { type: "carrot", name: carrot } })
+    return arr.map((carrot) => ({ type: "carrot", name: carrot }))
 }
 console.log(mapVegetables(carrots))
 
@@ -72,7 +72,7 @@ const people = [
 // }
 //ES6:
 function filterForFriendly(arr) {
-    return arr.filter(person => {return person.friendly})
+    return arr.filter(person => person.friendly)
 }
 console.log(filterForFriendly(people))
 
@@ -143,7 +143,7 @@ const animals = [
 // }
 //make one line:
 function filterForDogs(arr) {
-    return arr.filter((animal) => {return animal.type === "dog" ? true : false})
+    return arr.filter((animal) => animal.type === "dog")
 }
 console.log(filterForDogs(animals))
 
@@ -171,3 +171,13 @@ I hope you enjoy your stay. Please ask the president of ${this.location} if you 
 const newGuest = new Guest("Hawaii", "Janice")
 
 newGuest.message()
+
+function message (name, location){
+    return `Hi ${name}!
+
+    Welcome to ${location}.
+    
+    I hope you enjoy your stay. Please ask the president of ${location} if you need anything.`
+}
+
+message('Janice', 'Hawaii')
