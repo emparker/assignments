@@ -106,6 +106,68 @@ Person.prototype.printToString = function() {
     console.log(`Hi ${this.jane} ${this.doe}, how does it feel to be ${this.age}?`)
 } 
 
-const kat = new Person("kat", "Stark", 40)
+const kat = new Person("Kat", "Stark", 40)
 
 kat.printToString()
+//^how to make above with default "jane" "doe" 100?
+
+// Task 5
+// Use the shorthand syntax to make the following filter take up one line. Copy and paste the array to test it.
+
+const animals = [
+    {
+        type: "dog",
+        name: "theodore"
+    },
+    {
+        type: "cat",
+        name: "whiskers"
+    },
+    {
+        type: "pig",
+        name: "piglette"
+    },
+    {
+        type: "dog",
+        name: "sparky"
+    }
+];
+// function filterForDogs(arr) {
+//     return arr.filter(animal => {
+//         if (animal.type === "dog") {
+//             return true
+//         } else {
+//             return false
+//         }
+//     })
+// }
+//make one line:
+function filterForDogs(arr) {
+    return arr.filter((animal) => {return animal.type === "dog" ? true : false})
+}
+console.log(filterForDogs(animals))
+
+// Using template literals, write a function that takes location and name parameters and outputs a message formatted like this: 
+// Hi Janice!
+
+// Welcome to Hawaii. 
+
+// I hope you enjoy your stay. Please ask the president of Hawaii if you need anything. 
+
+function Guest(location, name){
+    this.location = location;
+    this.name = name;
+}
+
+Guest.prototype.message = function(){
+    console.log(
+        `Hi ${this.name}!
+
+Welcome to ${this.location}.
+
+I hope you enjoy your stay. Please ask the president of ${this.location} if you need anything.`)
+}
+
+const newGuest = new Guest("Hawaii", "Janice")
+
+newGuest.message()
