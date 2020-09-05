@@ -172,12 +172,13 @@ const newGuest = new Guest("Hawaii", "Janice")
 
 newGuest.message()
 
-function message (name, location){
-    return `Hi ${name}!
+//OR
+// function message (name, location){
+//     return `Hi ${name}!
 
-    Welcome to ${location}.
+//     Welcome to ${location}.
     
-    I hope you enjoy your stay. Please ask the president of ${location} if you need anything.`
-}
+//     I hope you enjoy your stay. Please ask the president of ${location} if you need anything.`
+// }
 
-message('Janice', 'Hawaii')
+// message('Janice', 'Hawaii')
