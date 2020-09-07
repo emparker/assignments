@@ -14,8 +14,9 @@ function combineFruit(fruit, sweets, vegetables){
         fruit: `${fruit}`, 
         sweets: `${sweets}`, 
         vegetables: `${vegetables}`
+        
 }
-//HELP
+//HELP- added the fruit = ["apple", "pear"]etc
 }
 console.log(combineFruit(["apple", "pear"],
             ["cake", "pie"],
@@ -43,8 +44,8 @@ console.log(parseSentence(vacation))
 //     const firstItem = items[0]; /*change this line to be es6*/
 //     return firstItem
 // }
-
-function returnFirst(items){
+function returnFirst({items}){
     const firstItem = items[0]; /*change this line to be es6*/
     return firstItem
 }
+returnFirst("dog", "cat", "mouse")
