@@ -55,7 +55,7 @@ console.log(returnFirst(["dog", "cat", "mouse"]))
 const favoriteActivities = ["magnets", "snowboarding", "philanthropy", "janitor work", "eating"];
 
 function returnFavorites(arr){
-    const [ firstFav, secondFav, thirdFav] = arr
+    const [ firstFav, secondFav, thirdFav ] = arr
     return `My top three favorite activities are, ${firstFav}, ${secondFav}, and ${thirdFav}`;
 }
 
@@ -119,20 +119,19 @@ function unshift(array, ...rest) {
 
 // populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"])
 
-function populatePeople([firstName, lastName]){
-    return [????].map(name => {
-        name = name.split(" ")
+function populatePeople(names){
+    return names.map(function(name){
+        name = name.split(" ");
+        const [firstName, lastName] = name
         return {
             firstName,
             lastName
         }
-        
     })
 }
-
 console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
-//[
-//  {firstName: "Frank", lastName: "Peterson"},
-//  {firstName: "Suzy", lastName: "Degual"},
-//  {firstName: "Liza", lastName: "Jones"},
-//]
+// [
+//   {firstName: "Frank", lastName: "Peterson"},
+//   {firstName: "Suzy", lastName: "Degual"},
+//   {firstName: "Liza", lastName: "Jones"},
+// ]
