@@ -2,7 +2,7 @@ const readline = require("readline-sync")
 console.log("This is Princess In Another Castle")
 
 //gameActive boolean
-let gameActive = true
+
 
 //create a class for a player
 class Player{
@@ -11,19 +11,16 @@ class Player{
         this.totalCoins = totalCoins
         this.status = status
         this.hasStar = hasStar
-        this.gameActive = gameActive //?
+        this.gameActive = true 
+        this.playerStatus = ["Powered Up", "Big", "Small", "Dead"]
     }
 
 // setName function
     setName(namePicked){
-        this.name = namePicked //??
+        this.name = namePicked
     }
 
-//gotHit function
-    // gotHit(){
-
-    // } or like this?
-    gotHit = () => { //need a for loop?
+    gotHit(){ //need a for loop?
             this.status = playerStatus
             for (let i = 0; i < playerStatus.length; i++){
                 if( playerStatus[i] === "Dead"){
@@ -34,38 +31,44 @@ class Player{
     }
 
 //gotPowerup function
-    gotPowerup = () => {
+    gotPowerup(){
             return starActive()
             // if (playerStatus === "PoweredUp"){
             //     return starActive()
             // }
         }
-//playerStatus options string? 
-    playerStatus = ["Powered Up", "Big", "Small", "Dead"]
+
     // starActive(){
     //     this.hasStar = true
-    // } or like this?
+    // } 
 
 //addCoin function
-    addCoin = () => this.totalCoins = this.totalCoins++
+    addCoin(){
+        this.totalCoins = this.totalCoins++
+    }
     
 //hasStar is active of type boolean?
-    starActive = () => this.hasStar = true
+    starActive(){
+        this.hasStar = true
+    }
 
 //print funciton 
-    print = () => {
-        const name = this.name
-        const totalCoins = this.totalCoins
-        const status = playerStatus[i]
-        const hasStar = this.hasStar
-        console.log(name, totalCoins, status, hasStar)
+    print(){
+        let {name, totalCoins, hasStar, playerStatus} = this
+
+        console.log(name, totalCoins, playerStatus[0], hasStar)
     }
 
         
 }
 
-//use class to create object ?!?!?  What object?
 
+//use class to create object ?!?!?  What object?
+const theMarioObject = new Player("Mario", 0, "Small", false)
+console.log(theMarioObject)
+const theLuigiObject = new Player("Luigi", 0, "Small", false)
+console.log(theLuigiObject)
+console.log(setName(theMarioObject))
 // Create a random range function that returns either 0, 1, or 2.
 
 // If the value is 0 call the gotHit() function on the object.
