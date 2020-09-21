@@ -85,7 +85,7 @@ function randomNumber() {
 // If the value is 2 call the addCoin() function
 //dont forget to clear interval!
 let gameOn = setInterval(function(){
-    if(mario.gameActive == true){
+    if(mario.gameActive){
         if(randomNumber() === 0){
             mario.gotHit()
         } if(randomNumber() === 1){
@@ -101,7 +101,7 @@ let gameOn = setInterval(function(){
 },3000)
 
 
-
+// const luigi = new Player(0, "Luigi")
 
 
 
