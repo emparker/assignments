@@ -1,0 +1,89 @@
+{
+    "menu": {
+        "appetizers": [
+            {
+                "name": "Bakeys",
+                "ingredients": "bacon, dates, basalmic drizzle",
+                "description": "delicious gooness wrapped in bacon"
+            },
+            {
+                "name": "sweet breads",
+                "ingredients": "tongues and stuff",
+                "description": "weird stuff made to taste wonderful"
+            },
+            {
+                "name": "jalepeno poppers",
+                "ingredients": "jalepenos, panko, cream cheese",
+                "description": "spicy and cheesy bites"
+            }
+        ],
+        "coldSandwiches": [
+            {
+                "name": "roast beef",
+                "ingerdients": "beef, onion, sauces, bread",
+                "description": "best roast beef sammy on a kaiser roll"
+            },
+            {
+                "name": "ham sam",
+                "ingredients": "bread, ham, horseradish, swiis cheese",
+                "description": "it just your standard ham sam people"
+            },
+            {
+                "name": "turkey",
+                "ingredients": "bread, turkey, mayo, mustard, tomato, lettuce"
+            }
+        ],
+        "hotSandwiches": [
+            {
+                "name": "cubano",
+                "ingerdients": "not, actually, sure",
+                "description": "it is very tasty tho"
+            },
+            {
+                "name": "tuna melt",
+                "ingerdients": "tuna, cheese, bread",
+                "description": "you may not enjoy the smell but you will the taste"
+            },
+            {
+                "name": "turkey and brie",
+                "ingerdients": "turkey, brie, granny smith apple, toast",
+                "description": "this sandwich will give your mouth something to talk about"
+            }
+        ],
+        "desserts": [
+            {
+                "name": "churros",
+                "ingredients": "fried dough, cinnimon, sugar",
+                "description": "crunchy, chewy and sweet"
+            },
+            {
+                "name": "vanilla ice cream",
+                "ingredients": "vanilla, cream, chocolate sauce",
+                "description": "classic vanilla with a simple chocolate sauce swirl atop"
+            },
+            {
+                "name": "chocolate cake",
+                "ingredients": "chocolate, flour, sugar, milk, etc",
+                "description": "just like mom makes"
+            }
+        ],
+            "drinks": [
+            {
+                "name": "coke",
+                "ingredients": "syrup, caffine",
+                "description": "you know what this is"
+            },
+            {
+                "name": "wine",
+                "ingredients": "fermented grapes, water",
+                "description": "a flawless red blend"
+            },
+            {
+                "name": "beer",
+                "ingerdients": "hops, barley, water",
+                "description": "a citrus-y IPA" 
+            }
+        ]
+
+    }
+}
