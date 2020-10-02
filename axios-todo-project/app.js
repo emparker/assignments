@@ -15,7 +15,6 @@ function toDoData(data) {
 
     for (let i = 0; i < data.length; i++) {
         createToDo(data[i])
-        let ids = (data[i]._id)  //?
     }
 }
 
@@ -23,50 +22,50 @@ getData() //whhhyyyy here????
 
 function createToDo(todoItem) {
 
+    const divBox = document.createElement('div')
     const h1 = document.createElement('h1')
     const p = document.createElement('p')
     const p2 = document.createElement('p')
     const img = document.createElement('img')
-    const input = document.createElement('input')
+    const checkBox = document.createElement('input')
     const deleteButton = document.createElement('button')
     img.setAttribute("src", todoItem.imgUrl)
     img.setAttribute("height", "100px")
     img.setAttribute("width", "100px")
-    input.setAttribute("type", "checkbox")
+    checkBox.setAttribute("type", "checkbox")
     deleteButton.textContent = "DELETE"
     p.textContent = todoItem.description
     p2.textContent = todoItem.price
     h1.textContent = todoItem.title
 
-    toDoList.appendChild(h1)
-    toDoList.appendChild(p)
-    toDoList.appendChild(p2)
-    toDoList.appendChild(img)
-    toDoList.appendChild(input)
-    toDoList.appendChild(deleteButton)
-    plaything = toDoList
+    toDoList.appendChild(divBox)
+    divBox.appendChild(h1)
+    divBox.appendChild(p)
+    divBox.appendChild(p2)
+    divBox.appendChild(img)
+    divBox.appendChild(checkBox)
+    divBox.appendChild(deleteButton)
+    
+    divBox.style.border = "double"
+    divBox.style.borderWidth = "5px"
+    divBox.style.padding = "20px"
+    divBox.style.margin = "25px 75px 25px"
+
 }
-
-//?
-// toDoForm.input.addEventListener('checked', () => {
-//     if (input.checked == false) {
-//         input.checked = true
-//         const strike = document.createElement('s')
-//         toDoForm.title.setAttribute(strike, "true")
-
-//     } else {
-//         if (input.checked == true) {
-//             input.checked = false
-//         }
-//     }
-// })
-
 
 function clearDiv() {
     while (toDoList.firstChild) {
         toDoList.removeChild(toDoList.firstChild)
     }
 }
+
+
+
+// toDoForm.checkBox.addEventListener('click', () => {
+//     toDoForm.h1.style.textDecoration = "line-through"
+//     axios.put(`https://api.vschool.io/emily/todo/`) //need id!
+
+// })
 
 //form for post request
 const toDoForm = document["todo-form"]
@@ -87,16 +86,16 @@ toDoForm.addEventListener("submit", e => {
     // toDoObj.title.value = ""
     // toDoObj.image.value = ""
 
-    console.log(toDoObj)
+    //console.log(toDoObj)
 
     axios.post("https://api.vschool.io/emily/todo", toDoObj)
         .then(response => createToDo(response.data))//need to snag _id from this?!
         .catch(error => console.log(error))
-    //grab _id
-// for (let attr of Object.keys(toDoForm)) {
-//     toDoForm[attr].value = ""
-// } 
+    
+        //grab _id
+
         Object.keys(toDoObj).forEach((toDoItem) => {
+            console.log(toDoItem)
             console.log(toDoObj[toDoItem])
         })
 })
