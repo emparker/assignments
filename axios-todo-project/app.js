@@ -18,11 +18,12 @@ function toDoData(data) {
     }
 }
 
-getData() //whhhyyyy here????
+getData() //can be anywhere
 
 function createToDo(todoItem) {
 
-    const divBox = document.createElement('div')
+    const container = document.createElement('div')
+    const divBox = document.createElement('div')  
     const h1 = document.createElement('h1')
     const p = document.createElement('p')
     const p2 = document.createElement('p')
@@ -38,18 +39,23 @@ function createToDo(todoItem) {
     p2.textContent = todoItem.price
     h1.textContent = todoItem.title
 
-    toDoList.appendChild(divBox)
+    toDoList.appendChild(container)
+    container.appendChild(divBox)
+
     divBox.appendChild(h1)
     divBox.appendChild(p)
     divBox.appendChild(p2)
     divBox.appendChild(img)
     divBox.appendChild(checkBox)
     divBox.appendChild(deleteButton)
-    
+
     divBox.style.border = "double"
     divBox.style.borderWidth = "5px"
     divBox.style.padding = "20px"
     divBox.style.margin = "25px 75px 25px"
+    divBox.style.width = "500px"
+
+
 
 }
 
@@ -87,7 +93,7 @@ toDoForm.addEventListener("submit", e => {
     // toDoObj.image.value = ""
 
     //console.log(toDoObj)
-
+    
     axios.post("https://api.vschool.io/emily/todo", toDoObj)
         .then(response => createToDo(response.data))//need to snag _id from this?!
         .catch(error => console.log(error))
