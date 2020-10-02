@@ -15,6 +15,7 @@ function toDoData(data) {
 
     for (let i = 0; i < data.length; i++) {
         createToDo(data[i])
+        let ids = (data[i]._id)  //?
     }
 }
 
@@ -67,8 +68,6 @@ function clearDiv() {
     }
 }
 
-
-
 //form for post request
 const toDoForm = document["todo-form"]
 
@@ -81,21 +80,25 @@ toDoForm.addEventListener("submit", e => {
         title: toDoForm.title.value,
         imgUrl: toDoForm.image.value
     }
-    
-    //for (let attr of Object.keys(toDoForm)) {
-    //toDoForm[attr].value = ""
-    //} - thing shane wrote
 
-    toDoObj.description.value = "" // need a value for the obj created
-    toDoObj.price.value = ""
-    toDoObj.title.value = ""
-    toDoObj.image.value = ""
+
+    // toDoObj.description.value = "" // how to clear inputs?
+    // toDoObj.price.value = ""
+    // toDoObj.title.value = ""
+    // toDoObj.image.value = ""
 
     console.log(toDoObj)
 
     axios.post("https://api.vschool.io/emily/todo", toDoObj)
-        .then(response => console.log("success")) // is this right?
+        .then(response => createToDo(response.data))//need to snag _id from this?!
         .catch(error => console.log(error))
+    //grab _id
+// for (let attr of Object.keys(toDoForm)) {
+//     toDoForm[attr].value = ""
+// } 
+        Object.keys(toDoObj).forEach((toDoItem) => {
+            console.log(toDoObj[toDoItem])
+        })
 })
 
 // function deleteItem(toDoObj) {
