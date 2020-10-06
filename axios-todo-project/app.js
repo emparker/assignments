@@ -7,6 +7,8 @@ function getData() {
         .catch(err => console.log(err))
 }
 
+getData() //can be anywhere
+
 const toDoList = document.getElementById('todo-list')
 
 //List TODOs to the DOM
@@ -18,11 +20,9 @@ function toDoData(data) {
     }
 }
 
-getData() //can be anywhere
 
 function createToDo(todoItem) {
 
-    const container = document.createElement('div')
     const divBox = document.createElement('div')  
     const h1 = document.createElement('h1')
     const p = document.createElement('p')
@@ -39,8 +39,8 @@ function createToDo(todoItem) {
     p2.textContent = todoItem.price
     h1.textContent = todoItem.title
 
-    toDoList.appendChild(container)
-    container.appendChild(divBox)
+    
+    toDoList.appendChild(divBox)
 
     divBox.appendChild(h1)
     divBox.appendChild(p)
@@ -55,6 +55,8 @@ function createToDo(todoItem) {
     divBox.style.margin = "25px 75px 25px"
     divBox.style.width = "500px"
 
+    setDeleteEvent(todoItem._id, deleteButton, divBox)
+    
 }
 
 function clearDiv() {
@@ -91,26 +93,28 @@ toDoForm.addEventListener("submit", e => {
         
     .catch(error => console.log(error))
     
-    // Object.keys(toDoObj).forEach((toDoItem) => {
-    //     console.log(toDoItem)
-    //     console.log(toDoObj[toDoItem])
-    // })
+    
     
 })
 
-toDoForm.checkBox.addEventListener('click', () => {
-        if (checkBox === true){
-            return toDoList.h1.strike()
-}})
+// toDoForm.checkBox.addEventListener('click', () => {
+//         if (checkBox === true){
+//             return toDoList.h1.strike()
+// }})
 
-axios.put(`https://api.vschool.io/emily/todo/`) //need id!
+// axios.put(`https://api.vschool.io/emily/todo/`) //need id!
 
 
 //make this a function
-// toDoForm.deleteButton.addEventListener("button", e => {
-//         e.preventDefault()
 
-//         axios.delete("https://api.vschool.io/emily/todo", toDoObj._id)
-//             .then(response => console.log(response))
-//             .catch(error => console.log(error))
-// })
+function setDeleteEvent(id, dbutton, divBox){
+    dbutton.addEventListener("click", ()=> {
+
+    axios.delete("https://api.vschool.io/emily/todo/" + id)
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+
+
+        divBox.remove()
+})}
+
