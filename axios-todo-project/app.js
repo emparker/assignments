@@ -55,8 +55,6 @@ function createToDo(todoItem) {
     divBox.style.margin = "25px 75px 25px"
     divBox.style.width = "500px"
 
-
-
 }
 
 function clearDiv() {
@@ -65,53 +63,54 @@ function clearDiv() {
     }
 }
 
-
-
-// toDoForm.checkBox.addEventListener('click', () => {
-//     toDoForm.h1.style.textDecoration = "line-through"
-//     axios.put(`https://api.vschool.io/emily/todo/`) //need id!
-
-// })
+const toDoForm = document["todo-form"]
 
 //form for post request
-const toDoForm = document["todo-form"]
 
 toDoForm.addEventListener("submit", e => {
     e.preventDefault()
-
+    
     const toDoObj = {
         description: toDoForm.description.value,
         price: toDoForm.price.value,
         title: toDoForm.title.value,
         imgUrl: toDoForm.image.value
     }
-
-
-    // toDoObj.description.value = "" // how to clear inputs?
-    // toDoObj.price.value = ""
-    // toDoObj.title.value = ""
-    // toDoObj.image.value = ""
-
+    
+    // clear input values
+    toDoForm.description.value = "" 
+    toDoForm.price.value = ""
+    toDoForm.title.value = ""
+    toDoForm.image.value = ""
+    
     //console.log(toDoObj)
     
     axios.post("https://api.vschool.io/emily/todo", toDoObj)
-        .then(response => createToDo(response.data))//need to snag _id from this?!
-        .catch(error => console.log(error))
+    .then(response => {createToDo(response.data)
+    console.log(response.data)})//need to snag _id from this?!
+        
+    .catch(error => console.log(error))
     
-        //grab _id
-
-        Object.keys(toDoObj).forEach((toDoItem) => {
-            console.log(toDoItem)
-            console.log(toDoObj[toDoItem])
-        })
+    // Object.keys(toDoObj).forEach((toDoItem) => {
+    //     console.log(toDoItem)
+    //     console.log(toDoObj[toDoItem])
+    // })
+    
 })
 
-// function deleteItem(toDoObj) {
-//     toDoForm.deleteButton.addEventListener("button", e => {
+toDoForm.checkBox.addEventListener('click', () => {
+        if (checkBox === true){
+            return toDoList.h1.strike()
+}})
+
+axios.put(`https://api.vschool.io/emily/todo/`) //need id!
+
+
+//make this a function
+// toDoForm.deleteButton.addEventListener("button", e => {
 //         e.preventDefault()
 
 //         axios.delete("https://api.vschool.io/emily/todo", toDoObj._id)
 //             .then(response => console.log(response))
 //             .catch(error => console.log(error))
-//     })
-// }
+// })
