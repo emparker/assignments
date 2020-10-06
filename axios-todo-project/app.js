@@ -39,7 +39,6 @@ function createToDo(todoItem) {
     p2.textContent = todoItem.price
     h1.textContent = todoItem.title
 
-    
     toDoList.appendChild(divBox)
 
     divBox.appendChild(h1)
@@ -56,7 +55,7 @@ function createToDo(todoItem) {
     divBox.style.width = "500px"
 
     setDeleteEvent(todoItem._id, deleteButton, divBox)
-    
+    boxCheck(todoItem._id, checkBox, h1)
 }
 
 function clearDiv() {
@@ -71,7 +70,7 @@ const toDoForm = document["todo-form"]
 
 toDoForm.addEventListener("submit", e => {
     e.preventDefault()
-    
+    //console.log(e) STUDY with or with out and the difference
     const toDoObj = {
         description: toDoForm.description.value,
         price: toDoForm.price.value,
@@ -89,26 +88,40 @@ toDoForm.addEventListener("submit", e => {
     
     axios.post("https://api.vschool.io/emily/todo", toDoObj)
     .then(response => {createToDo(response.data)
-    console.log(response.data)})//need to snag _id from this?!
-        
+    console.log(response.data)})//this add it to API
     .catch(error => console.log(error))
-    
-    
+        
     
 })
 
-// toDoForm.checkBox.addEventListener('click', () => {
-//         if (checkBox === true){
-//             return toDoList.h1.strike()
-// }})
 
-// axios.put(`https://api.vschool.io/emily/todo/`) //need id!
+function boxCheck(id, cbutton, h1){
+    //console.log(cbutton.checked)
+    cbutton.addEventListener('click', () => {
+        
+        let obj = {}
+        //toggle?
+        if(cbutton.checked === true){
+            obj.completed = true
+            h1.className = "strikethrough"
+        } else if(cbutton.checked === false){
+            h1.className = "none"
+        }
 
+        axios.put("https://api.vschool.io/emily/todo/" + id, obj)     
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
+        
+        //console.log(cbutton.checked)
+        //h1.innerHTML = h1.textContent.strike()   //unstrike if check is false?  // toggle class
+
+    })
+}
 
 //make this a function
 
 function setDeleteEvent(id, dbutton, divBox){
-    dbutton.addEventListener("click", ()=> {
+    dbutton.addEventListener("click", () => {
 
     axios.delete("https://api.vschool.io/emily/todo/" + id)
         .then(response => console.log(response))
