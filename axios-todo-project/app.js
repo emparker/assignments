@@ -98,22 +98,20 @@ toDoForm.addEventListener("submit", e => {
 function boxCheck(id, cbutton, h1){
     //console.log(cbutton.checked)
     cbutton.addEventListener('click', () => {
+        h1.classList.toggle("strikethrough")//try to toggle class! element.classList.toggle(“classname”)
         
         let obj = {}
-        //toggle?
+        
         if(cbutton.checked === true){
             obj.completed = true
-            h1.className = "strikethrough"
-        } else if(cbutton.checked === false){
-            h1.className = "none"
-        }
-
+        } else{cbutton.checked === false}
+            
+        
+        
         axios.put("https://api.vschool.io/emily/todo/" + id, obj)     
             .then(response => console.log(response))
             .catch(error => console.log(error))
         
-        //console.log(cbutton.checked)
-        //h1.innerHTML = h1.textContent.strike()   //unstrike if check is false?  // toggle class
 
     })
 }
