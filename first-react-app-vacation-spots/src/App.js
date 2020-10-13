@@ -1,10 +1,10 @@
 import React from "react"
 import Spots from "./Spots"
-import vacationSpots from "./vactionSpots"
+import vacationData from "./vactionSpots"
 
 
 function App() {
-    const spotsComponent = vacationSpots.map(spots => <Spots 
+    const spotsMapped= vacationData.map(spots => <Spots 
         key= {spots.id} 
         place= {spots.place} 
         price= {spots.price} 
@@ -12,12 +12,10 @@ function App() {
     />)
 
     return (
-        <div>
-            <Spots />
-            {spotsComponent}
+        <div className='container'>
+            {spotsMapped}
         </div>
     )
 }
 
 export default App
-

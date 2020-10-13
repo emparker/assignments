@@ -1,0 +1,19 @@
+.Winter {
+    background-color: aliceblue
+}
+
+.Fall {
+    background-color: orange
+}
+
+.Summer {
+    background-color:yellow;
+}
+
+.Spring {
+    background-color: green
+}
+
+.container > div {
+    outline: 2px solid grey;
+}
