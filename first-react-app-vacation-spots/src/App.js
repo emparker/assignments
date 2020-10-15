@@ -4,7 +4,8 @@ import vacationData from "./vactionSpots"
 
 
 function App() {
-    const spotsMapped= vacationData.map(spots => <Spots 
+    const spotsMapped= vacationData.map(spots => 
+    <Spots 
         key= {spots.id} 
         place= {spots.place} 
         price= {spots.price} 
