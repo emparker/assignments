@@ -1,8 +1,9 @@
 import React from "react"
 import Friend from "./Friend"
-import friendData from "./friends"
+import friendData from "../friends"
 
 function FriendList() {
+
     const friendsMapped = friendData.map(human => 
     <Friend 
         key={human.id} 
@@ -11,7 +12,8 @@ function FriendList() {
 
     return (
         <div>
-            <ul>{friendsMapped}</ul>
+            {friendsMapped}
+            
         </div>
     )
 }

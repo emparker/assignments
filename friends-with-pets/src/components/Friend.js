@@ -1,24 +1,26 @@
 import React from "react"
 import Pet from "./Pet"
-import friendData from "./friends"  
+// import friendData from "./friends"  
 
 
 function Friend(props) {
-    const petsMapped = friendData.map(animal => 
+    // console.log(props)
+    const petsMapped = props.friend.pets.map(animal => 
     <Pet  
-        key={animal.breed} 
-        pet={animal.name}
+        key={animal.id} 
+        pet={animal}
     />)
+
 
     return (
         <div className="friendSheet">
             
             <h1>{props.friend.name}</h1>
             <p>{props.friend.age}</p>
-            <p>{props.friend.name.animal.name}</p>
+            
         
+            {petsMapped}
 
-            <li>{petsMapped}</li>
             
         </div>
     )

@@ -5,12 +5,15 @@ const friends = [
         age: 29,
         pets: [
         {
+            id: 12,
             name: "spot",
             breed: "tabby"
         },{
+            id: 22,
             name: "John Johnson",
             breed: "husky"
         },{
+            id: 23,
             name: "Bear the bear",
             breed: "Grizzly"
         }
@@ -21,6 +24,7 @@ const friends = [
         age: 31,
         pets: [
         {
+            id: 13,
             name: "Sally",
             breed: "Australian Shepard"
         }
@@ -31,6 +35,7 @@ const friends = [
         age: 25,
         pets: [
         {
+            id: 14,
             name: "Indy",
             breed: "Akita"
         },{
@@ -44,15 +49,19 @@ const friends = [
         age: 20,
         pets: [
         {
+            id: 15,
             name: "fluffy",
             breed: "sphynx cat"
         },{
+            id: 25,
             name: "patches",
             breed: "sphynx cat"
         },{
+            id: 35,
             name: "tiger",
             breed: "sphynx cat"
         },{
+            id: 45,
             name: "oscar",
             breed: "sphynx cat"
         }
