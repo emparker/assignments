@@ -18,7 +18,7 @@ form.addEventListener("submit", event => {
     button.append(xButton)
     li.append(button)
     
-    button.addEventListener("click", ()=> li.remove())
+    button.addEventListener("click", () => li.remove())
 })
 
 // another attempted method:
