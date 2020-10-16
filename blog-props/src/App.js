@@ -1,18 +1,17 @@
 import React from "react"
+import "./styles.css"
+import Header from "./components/Header"
+import BlogList from "./components/BlogList"
+import Footer from './components/Footer'
 
 function App() {
     return (
         <div>
-            <h1>Heey</h1>
+            <Header />
+            <BlogList />
+            <Footer />
         </div>
     )
 }
 
 export default App
-
-
-{/* <Header />
-    <Navbar />
-<BlogList />
-    <BlogPost />
-<Footer /> */}
