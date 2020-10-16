@@ -1,15 +1,15 @@
 import React from "react"
-import Spots from "./Spots"
+import Spot from "./Spot"
 import vacationData from "./vactionSpots"
 
 
 function App() {
-    const spotsMapped= vacationData.map(spots => 
-    <Spots 
-        key= {spots.id} 
-        place= {spots.place} 
-        price= {spots.price} 
-        timeToGo= {spots.timeToGo} 
+    const spotsMapped= vacationData.map(spot => 
+    <Spot 
+        key= {spot.id} 
+        place= {spot.place} 
+        price= {spot.price} 
+        timeToGo= {spot.timeToGo} 
     />)
 
     return (

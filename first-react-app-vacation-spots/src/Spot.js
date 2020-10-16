@@ -2,7 +2,7 @@ import React from "react"
 import "./styles.css"
 
 
-function Spots(props) {
+function Spot(props) {
     let isExpensive = props.price
 
     if (isExpensive < 500) {
@@ -25,5 +25,5 @@ function Spots(props) {
     )
 }
 
-export default Spots
+export default Spot
 
