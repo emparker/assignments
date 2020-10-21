@@ -1,0 +1,29 @@
+*{
+    box-sizing: 0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat (2, 200px);
+    justify-content: center;
+    padding: 20px;
+    height: 400px
+}
+
+.box {
+    border: 3px solid black;
+    border-radius: 5%;
+    margin: 10px;
+}
+
+
+
