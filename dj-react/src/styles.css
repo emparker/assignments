@@ -9,14 +9,25 @@ h1 {
     padding: 25px;
 }
 
+/* #button {
+    ;
+    height: 50px;
+    width: 100px
+} */
+.container > button {
+    margin-left: 46%;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 5%;
+}
 
-.container {
+
+.boxContainer {
     display: grid;
     grid-template-columns: repeat(2, 200px);
-    grid-template-rows: repeat (2, 200px);
+    grid-template-rows: repeat(2, 200px);
     justify-content: center;
     padding: 20px;
-    height: 400px
 }
 
 .box {

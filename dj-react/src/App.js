@@ -1,6 +1,6 @@
 import React from "react"
 import "./styles.css"
-import SquaresContainer from "./components/SquaresContainer"
+import ParentComponent from "./components/ParentComponent"
 
 
 function App () {
@@ -9,7 +9,7 @@ function App () {
         <div>
             <h1>DJ REACT</h1>
             
-            <SquaresContainer />
+            <ParentComponent />
         </div>
 
     )
