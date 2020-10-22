@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import Squares from "./Squares"
+import Square from "./Square"
 
 class ParentComponent extends Component {
     constructor() {
@@ -12,18 +12,30 @@ class ParentComponent extends Component {
 
     handleClick() {
         this.setState(color => {
-            return {
-                colors: color.colors //? if statement?
+            if(color.colors[0] === "white"){
+                return {
+                    colors: ["black", "black", "black", "black"]
+                }
+            } else if (color.colors[0] === "black"){
+                return {
+                    colors: ["white", "white", "white", "white"]
+                }
             }
-        })
+                
+        } )
+        
+        
     }
 
     render () {
-        const squaresMapped = Squares.map(<Squares color={this.state.colors}/>)
+        const squareColorsMap = this.state.colors.map((color, id) => <Square key={id} color={color} handleClick={this.handleClick} />)
         return (
-            <div className= "container">
+            <div className="container">
                 <button onClick= {this.handleClick}>HIT ME!</button>
-                {squaresMapped}
+                <div className= "boxContainer">
+                    
+                    {squareColorsMap}
+                </div>
             </div>
         )
     }
