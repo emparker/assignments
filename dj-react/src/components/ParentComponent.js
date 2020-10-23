@@ -8,6 +8,7 @@ class ParentComponent extends Component {
             colors: ["white", "white", "white", "white"]
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleClick2 = this.handleClick.bind(this)
     }
 
     handleClick() {
@@ -23,15 +24,30 @@ class ParentComponent extends Component {
             }
                 
         } )
-        
+    }
+
+    handleClick2() {
+        this.setState({colors: ["purple", "purple", "white", "white"]})
+            
+            // return {
+            //     colors: ["purple", "purple", "white", "white"]
+                
+            // } 
+            
         
     }
 
     render () {
-        const squareColorsMap = this.state.colors.map((color, id) => <Square key={id} color={color} handleClick={this.handleClick} />)
+        const squareColorsMap = this.state.colors.map((color, id) => <Square 
+            key={id} color={color} 
+            handleClick={this.handleClick} 
+            handleClick2={this.handleClick2} 
+            />)
+
         return (
             <div className="container">
                 <button onClick= {this.handleClick}>HIT ME!</button>
+                <button onClick= {this.handleClick2}>try me</button>
                 <div className= "boxContainer">
                     
                     {squareColorsMap}
