@@ -9,16 +9,17 @@ h1 {
     padding: 25px;
 }
 
-/* #button {
-    ;
-    height: 50px;
-    width: 100px
-} */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .container > button {
-    margin-left: 46%;
     padding: 20px;
     background-color: aliceblue;
     border-radius: 5%;
+    width: 150px;
 }
 
 

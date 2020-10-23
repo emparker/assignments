@@ -8,16 +8,18 @@ class ParentComponent extends Component {
             colors: ["white", "white", "white", "white"]
         }
         this.handleClick = this.handleClick.bind(this)
-        this.handleClick2 = this.handleClick.bind(this)
+        this.handleClick2 = this.handleClick2.bind(this)
+        this.handleClick3 = this.handleClick3.bind(this)
+        this.handleClick4 = this.handleClick4.bind(this)
     }
 
     handleClick() {
-        this.setState(color => {
-            if(color.colors[0] === "white"){
+        this.setState(prevState => {
+            if(prevState.colors[0] === "white"){
                 return {
                     colors: ["black", "black", "black", "black"]
                 }
-            } else if (color.colors[0] === "black"){
+            } else {
                 return {
                     colors: ["white", "white", "white", "white"]
                 }
@@ -27,35 +29,55 @@ class ParentComponent extends Component {
     }
 
     handleClick2() {
-        this.setState({colors: ["purple", "purple", "white", "white"]})
-            
-            // return {
-            //     colors: ["purple", "purple", "white", "white"]
+        this.setState(prevState => {
+            return {
+                colors: ["purple", "purple", prevState.colors[2], prevState.colors[3]]
                 
-            // } 
+            } 
             
+        })
         
     }
+
+    handleClick3() {
+        this.setState(prevState => {
+            return {
+                colors: [prevState.colors[0], prevState.colors[1], "blue", prevState.colors[3]]
+            }
+        })
+    }
+    handleClick4() {
+        this.setState(prevState => {
+            return {
+                colors: [prevState.colors[0], prevState.colors[1], prevState.colors[3], "blue"]
+            }
+        })
+    }
+
+    // handleClick2(){
+    //     console.log("this was hit")
+    //     this.setState({colors: ["purple", "purple", "purple", "purple"]})
+    // }
 
     render () {
         const squareColorsMap = this.state.colors.map((color, id) => <Square 
             key={id} color={color} 
-            handleClick={this.handleClick} 
-            handleClick2={this.handleClick2} 
             />)
 
         return (
-            <div className="container">
-                <button onClick= {this.handleClick}>HIT ME!</button>
-                <button onClick= {this.handleClick2}>try me</button>
+            <div>
+                <div className="container">
+                    <button onClick= {this.handleClick}>HIT ME!</button>
+                    <button onClick= {this.handleClick2}>try me</button>
+                    <button onClick= {this.handleClick3}>YOU BE BLUE</button>
+                    <button onClick= {this.handleClick4}>YOU BLUE TOO</button>
+                </div>
                 <div className= "boxContainer">
-                    
                     {squareColorsMap}
                 </div>
             </div>
         )
     }
-    
 }
 
 
