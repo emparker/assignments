@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import Dice from "./Dice"
 
 class DiceBox extends Component { 
     constructor() {
@@ -9,41 +10,41 @@ class DiceBox extends Component {
             num3: 0,
             num4: 0,
             num5: 0,
+            isChecked: false
         }
-        this.ranoNum = this.randoNum.bind(this)
+        this.rollDice = this.rollDice.bind(this)
     }
     
-    randoNum() {
-        const diceRoll = Math.floor(Math.random() * 6)
-        this.setState(()=> {
-            return {
-                num1: diceRoll,
-                num2: diceRoll,
-                num3: diceRoll,
-                num4: diceRoll,
-                num5: diceRoll
-            }
-        })
-        
-    } 
-        
-//     this.setState(prevState => {
-//         return {
-//             count: prevState.count + 1
-//         }
-//     })
-// }
+    
 
+    rollDice() {
+        this.setState({
+            num1: Math.floor(Math.random() * 6),
+            num2: Math.floor(Math.random() * 6),
+            num3: Math.floor(Math.random() * 6),
+            num4: Math.floor(Math.random() * 6),
+            num5: Math.floor(Math.random() * 6)
+        })
+
+    
+    }
 
     render(){
         
         return (
             <div>
-                <h1>Dice Roll 1: {this.randoNum}</h1>
-                <h1>Dice Roll 2: {this.randoNum}</h1>
-                <h1>Dice Roll 3: {this.randoNum}</h1>
-                <h1>Dice Roll 4: {this.randoNum}</h1>
-                <h1>Dice Roll 5: {this.randoNum}</h1>
+                {/* <h1>Dice Roll 1: {this.state.num1}</h1>
+                <h1>Dice Roll 2: {this.state.num2}</h1>
+                <h1>Dice Roll 3: {this.state.num3}</h1>
+                <h1>Dice Roll 4: {this.state.num4}</h1>
+                <h1>Dice Roll 5: {this.state.num5}</h1> */}
+                <button onClick={this.rollDice}>this is the button</button>
+                <Dice number={this.state.num1}/>
+                <Dice number={this.state.num2}/>
+                <Dice number={this.state.num3}/>
+                <Dice number={this.state.num4}/>
+                <Dice number={this.state.num5}/>
+                
             </div>
         ) 
     }
@@ -51,3 +52,6 @@ class DiceBox extends Component {
 }
 
 export default DiceBox
+
+
+
