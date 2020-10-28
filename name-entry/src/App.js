@@ -12,8 +12,13 @@ class App extends Component {
 
     handleChange(event) {
         const { name, value } = event.target
-        //const list = ["Dr Pepper", "G. H Creators", "Cap 'N Crunch"]
-        this.setState({ [name]: value})
+        const arr = this.state.list
+        arr.push(this.state.person)
+        //push input value to prevState?
+        this.setState({ 
+            [name]: value, 
+            // [list]: value 
+        })
     }
 
     render() {
@@ -33,12 +38,12 @@ class App extends Component {
 
                     <button>Submit</button>
                 </form>
+                
                 <h1>INFO: {this.state.name} </h1>
                 <br />
 
                 <ol onChange={this.handleChange}>
-                    {this.state.list.map(person => (<li key={person}>{person}</li>))}
-                    
+                    {this.state.list.map(person => (<li key={this.state.name}>{person}</li>))}
                 </ol>
                 
             </div>
