@@ -1,10 +1,12 @@
 import React from "react"
+import Badge from "./Badge"
 
-
-function App() {
+//syntax for below??
+const App = () => {  
     return (
         <div>
             <h1>hii from App Component</h1>
+            <Badge />
         </div>
     )
 }
@@ -21,8 +23,8 @@ export default App
 // Write validation code to make sure the phone number field only has numbers (no dashes or special characters, must look like this 9757653323
 
 // Start writing sudo code
-// What components will you need? app will render (map it?) a badge and put into array in state.
-// What values of state do you need? first name, last name, email, phone, place of birth, fave food, text field.
+// What components will you need? app will render (map it?) a badge and set as array in state.
+// What values of state do you need? where to set state? first name, last name, email, phone, place of birth, fave food, text field.
 
 // Recommendation
 // Store all badges in an array in state
