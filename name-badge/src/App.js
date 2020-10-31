@@ -1,11 +1,15 @@
 import React from "react"
 import Badge from "./Badge"
+import "./styles.css"
 
 //syntax for below??
 const App = () => {  
     return (
         <div>
-            <h1>hii from App Component</h1>
+            <h1>Welcome to Name Badge!</h1>
+            <h2>Please enter your information below and hit SUBMIT</h2>
+            <br/>
+            <br/>
             <Badge />
         </div>
     )
