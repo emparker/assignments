@@ -1,5 +1,5 @@
 import React from "react"
-import Badge from "./Badge"
+import Form from "./Form"
 import "./styles.css"
 
 //syntax for below??
@@ -10,7 +10,7 @@ const App = () => {
             <h2>Please enter your information below and hit SUBMIT</h2>
             <br/>
             <br/>
-            <Badge />
+            <Form />
         </div>
     )
 }

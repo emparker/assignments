@@ -11,12 +11,70 @@ h2 {
     text-align: center;
 }
 
-.formTop {
+.form {
     display: grid;
     grid-template-columns: repeat(2, 300px);
     grid-template-rows: repeat(3, 100px);
     
 }
+
+.mainDiv {
+    margin-left: 25%;
+}
+
+textarea {
+    grid-column: 1/-1;
+    border: 1px solid black;
+    height: 50px;
+}
+
+button {
+    grid-column: 1/-1;
+}
+
+.badgeContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    grid-template-rows: repeat(4, 100px);
+    border: 1px solid black;
+    margin: 20px;
+}
+.badgeContainer > h1 {
+    grid-column: 1/-1;
+}
+
+.badgeContainer > .firstAndLastName {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.badgeContainer > .placeOfBirth {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.badgeContainer > .email {
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.badgeContainer > .phone {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.badgeContainer > .faveFood {
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+.badgeContainer > .aboutMe {
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+
+
 
 /* input[type=text] {
     width: 100%;
@@ -24,6 +82,6 @@ h2 {
     margin: 8px 0;
     box-sizing: border-box;
 } */
-/* .formTop > input {
+/* input {
     border: 1px, solid, black;
 } */

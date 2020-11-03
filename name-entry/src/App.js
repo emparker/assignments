@@ -49,7 +49,7 @@ class App extends Component {
                 </form>
 
                 <h1>INFO: {this.state.name} </h1>
-                <br />
+                <br /> 
 
                 <ol>
                     {this.state.list.map((person, i) => (<li key={person + i}>{person}</li>))}
@@ -59,5 +59,7 @@ class App extends Component {
         )
     }
 }
+
+
 
 export default App

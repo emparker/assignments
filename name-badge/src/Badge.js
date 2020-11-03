@@ -1,105 +1,24 @@
-import React, {Component} from "react"
-import "./styles.css"
-//badge component
-//where do you set state?  here because this is where badge gets created or App because its the hub?
-// update to ES6 and no binding 
-// mapping happens in App?
+import React from "react"
 
-//state =[badges go in here]
-
-class Badge extends Component {
-    constructor(){
-    super()
-    this.state = {
-        newBadge: [], 
-        fisrtName: "",
-        lastName: "",
-        placeOfBirth: "",
-        email: "",
-        phone: "",
-        faveFood: "",
-        aboutMe: ""
-    }
-}
-
-handleChange = (event) => {
-    const {name, value} = event.target
-    this.setState({[name]: value})
-}
-
-
-// handleSubmit = () => {}
-
-
-    render() {
+function Badge(props) {
+    // console.log(props)
         return (
-            <div>
-                {/* inputs  and things like this.state.firstName*/}
-                {/* submit button and an onSubmit ?? */}
-                <form  onSubmit={this.handleSubmit}>
-                    <div className="formTop">
-                        <input
-                            type="text"
-                            placeholder="First Name"
-                            name="firstName"
-                            onChnge={this.handleChange}
-                            value={this.state.name}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Last Name"
-                            name="lastName"
-                            onChnge={this.handleChange}
-                            value={this.state.name}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Place of Birth"
-                            name="placeOfBirth"
-                            onChnge={this.handleChange}
-                            value={this.state.name}
-                        />
+            <div className="badgeContainer">
+                <h1>BADGE:</h1>
+            {/* <div className="badge"> */}
+                
+                <h2 className="firstAndLastName">Name: {props.badge.firstName} {props.badge.lastName}</h2>
+                <h2 className="placeOfBirth">Place of Birth: {props.badge.placeOfBirth}</h2>
+                <h2 className="email">Email: {props.badge.email}</h2>
+                <h2 className="phone">Phone Number: {props.badge.phone}</h2>
+                <h2 className="faveFood">Favorite Food: {props.badge.faveFood}</h2>
+                <h3 className="about">About: {props.badge.aboutMe}</h3>
 
-                        <input
-                            type="text"
-                            placeholder="Email"
-                            name="email"
-                            onChnge={this.handleChange}
-                            value={this.state.name}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Phone Number"
-                            name="phone"
-                            onChnge={this.handleChange}
-                            value={this.state.name}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Favorite Food"
-                            name="faveFood"
-                            onChnge={this.handleChange}
-                            value={this.state.name}
-                        />
-                    </div>
-                    <textarea 
-                        value={"Tell us a little about yourself..."}
-                        onChange={this.handleChange}
-                    />
-
-                    <br/>
-
-                    <button>SUBMIT</button>
-
-                </form>
-
-                <div>
-                    {/* badge can go here... {this.state.user.badge} map and put in an unordered list ?? */}
-                </div>
+            {/* </div> */}
             </div>
         )
     }
     
-}
 
-export default Badge 
+
+export default Badge
