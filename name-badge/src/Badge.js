@@ -12,7 +12,7 @@ function Badge(props) {
                 <h2 className="email">Email: {props.badge.email}</h2>
                 <h2 className="phone">Phone Number: {props.badge.phone}</h2>
                 <h2 className="faveFood">Favorite Food: {props.badge.faveFood}</h2>
-                <h3 className="about">About: {props.badge.aboutMe}</h3>
+                <h3 className="aboutMe">About: {props.badge.aboutMe}</h3>
 
             {/* </div> */}
             </div>

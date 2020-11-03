@@ -35,7 +35,14 @@ handleChange = (event) => {
     const {name, value} = event.target
     this.setState({[name]: value})
 }
-
+// onChange={(value) => 
+//     num = value.replace("-", "")}
+//         if (isNaN(num)) {
+//             //not sure
+//         } else {
+//             {this.handleChange("phone", num)}
+//         }
+//     }
 
 handleSubmit = (event) => {
     event.preventDefault()
@@ -100,18 +107,10 @@ handleSubmit = (event) => {
                         />
                         <input
                             type="text"
-                            // pattern="[1-9]*"
+                            pattern="[0-9]{9,10}"
                             placeholder="Phone Number"
                             name="phone"
                             onChange={this.handleChange}
-                            // onChange={(value) => 
-                            //     num = value.replace("-", "")}
-                            //         if (isNaN(num)) {
-                            //             //not sure
-                            //         } else {
-                            //             {this.handleChange("phone", num)}
-                            //         }
-                            //     }
                             value={this.state.phone}
                         />
                         <input
