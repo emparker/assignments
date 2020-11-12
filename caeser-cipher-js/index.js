@@ -13,22 +13,23 @@ const specialChar = ' \\\' "(){}!@#$%^&*()1234567890-_=+|":;<>,.?/~`'
 
 shiftedText = () => {
     for (let i = 0; i < input.length; i++){
-        const place = theBet.indexOf(input[i]) + shift
-        if (specialChar.includes(place[i])){
-            arr.push(place[i])
+        
+        if (specialChar.includes(input[i])){
+            arr.push(input[i])
             continue
             //place is an index!!
             // console.log(place)
         }
-            if (place <= 26 ){
+        const place = theBet.indexOf(input[i]) + shift
+            if (place <= theBet.length ){
                 arr.push(theBet[place])
                 
-            } else if (place >= 26){
+            } else if (place >= theBet.length){
                 arr.push(theBet[place - 26])
+            
             }
         }
         console.log(arr)
-            
         
     // return the final string
     // return arr.join("")  could have made this simpler... 
