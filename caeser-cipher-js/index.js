@@ -44,10 +44,6 @@ console.log(shiftedText())
 // console.log("the input", input)
 // console.log("the shift", shift)
 
-//test for the indexOf on theBet string
-// const theE = theBet.indexOf("e")
-// console.log("the e", theE)
-
 
 // reduce method
 // arr.reduce(callbackFn, initalizedValue, index)
