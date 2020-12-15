@@ -1,0 +1,45 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(25, 88, 92);
+}
+
+.nav-bar {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: cornsilk;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    margin: 10px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.dark-theme {
+    background-color: black;
+    color: cornsilk;
+}
+
+.light-theme {
+    background-color: cornsilk;
+    color: black;
+}

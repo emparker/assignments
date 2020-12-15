@@ -9,8 +9,8 @@ import Badge from "./Badge"
 //state =[badges go in here]
 
 class Form extends Component {
-        constructor(props){
-        super(props)
+        constructor(){
+        super()
         this.state = {
 
             firstName: "",
