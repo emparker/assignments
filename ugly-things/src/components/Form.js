@@ -6,33 +6,38 @@ function Form () {
     return (
         <UglyContextConsumer>
             {({newImage, handleChange, handleSubmit}) => (
-                <form onSubmit={handleSubmit}>
-                <input
-                    type= "text"
-                    value={newImage.title}
-                    placeholder= "Title"
-                    name= "title"
-                    onChange= {handleChange}
-                />
-                <br/>
-                <input
-                    type= "text"
-                    value={newImage.imgUrl}
-                    placeholder= "Image URL"
-                    name= "imgUrl"
-                    onChange= {handleChange}
-                />
-                <br/>
-                <input
-                    type= "text"
-                    value={newImage.description}
-                    placeholder= "Description"
-                    name= "description"
-                    onChange= {handleChange}
-                />
-                <br/>
-                <button>Submit</button>
-            </form>
+                <div className="form-div">
+                    <form onSubmit={handleSubmit} className="form">
+                    <input
+                        className="title"
+                        type= "text"
+                        value={newImage.title}
+                        placeholder= "Title"
+                        name= "title"
+                        onChange= {handleChange}
+                    />
+                    <br/>
+                    <input
+                        className="img"
+                        type= "text"
+                        value={newImage.imgUrl}
+                        placeholder= "Image URL"
+                        name= "imgUrl"
+                        onChange= {handleChange}
+                    />
+                    <br/>
+                    <input
+                        className="desc"
+                        type= "text"
+                        value={newImage.description}
+                        placeholder= "Description"
+                        name= "description"
+                        onChange= {handleChange}
+                    />
+                    <br/>
+                    <button className="button">Submit</button>
+                </form>
+            </div>
             )}
 
         </UglyContextConsumer>
