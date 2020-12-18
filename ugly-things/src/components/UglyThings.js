@@ -4,14 +4,16 @@ import { UglyContextConsumer } from "../uglyContext"
 
 function UglyThings() {
     return (
-        <UglyContextConsumer>
-            {({uglyThingsList}) => (
-                    uglyThingsList.map((thing) => (
-                        <UglyThing uglyData={thing}/>
+        <div className="list-div">
+            <UglyContextConsumer>
+                {({uglyThingsList}) => (
+                        uglyThingsList.map((thing) => (
+                            <UglyThing uglyData={thing}/>
+                        )
                     )
-                )
-            )}
+                )}
             </UglyContextConsumer>
+        </div>
         )
     }
 
