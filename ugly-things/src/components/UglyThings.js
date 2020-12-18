@@ -1,14 +1,19 @@
 import React from "react"
 import UglyThing from "./UglyThing"
+import { UglyContextConsumer } from "../uglyContext"
 
 function UglyThings() {
     return (
-        <div>
-            {/* wrap with consumer */}
-            {/* map over UglyThing? */}
-            <UglyThing />
-        </div>
-    )
-}
+        <UglyContextConsumer>
+            {({uglyThingsList}) => (
+                    uglyThingsList.map((thing) => (
+                        <UglyThing uglyData={thing}/>
+                    )
+                )
+            )}
+            </UglyContextConsumer>
+        )
+    }
 
 export default UglyThings
+

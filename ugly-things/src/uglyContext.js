@@ -12,13 +12,12 @@ class UglyContextProvider extends Component {
         uglyThingsList: []
     }
 
-    //get image method?
-
 //make call for API? fetch
     componentDidMount(){
         fetch("https://api.vschool.io/emily/thing/")
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 this.setState({
                     newImage: {
                         title: "",
@@ -29,46 +28,38 @@ class UglyContextProvider extends Component {
                 })
             })
     }
-        
-//preState
-    handleChange = (event) => {
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
-        
-        /*
-        
-        state = { 
-            newImage: { 
-                title...
-            }
-            uglyThingsList: []
-            [name]:value
-        }
 
-        state={ 
-            newImage: { 
-                [name]:value
-            }, 
-            uglyThingsList: []
-        }
-        
-        */
+
+    handleChange = (event) => {
+        console.log(event.target)
+        const {name, value} = event.target
+        this.setState((prevState)=> {
+            return {
+                newImage: {
+                    ...prevState.newImage,
+                    [name]: value
+                }
+            }
+        })
     }
+
 //prevState in submit
     handleSubmit = (event) => {
         event.preventDefault()
-        this.setState({
-            newImage: {
-                title: "",
-                imgUrl: "",
-                decription: ""
-            },
-            uglyThingsList: []
+        this.setState((prevState) => {
+            return {
+                uglyThingsList: [
+                    {...this.state.newImage},
+                    ...prevState.uglyThingsList
+                ],
+                newImage: {
+                    title: "",
+                    imgUrl: "",
+                    description: ""
+                }
+            }
         })
     }
-    
 
     render() {
         
