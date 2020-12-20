@@ -61,6 +61,23 @@ class UglyContextProvider extends Component {
         })
     }
 
+    //delete func- use Get of DEL to "remove" an item using id.  setstate uglyThingsList without that item 
+    //edit func- use a post request to edit.  um...?  if i can edit in post man i can figure this out
+//     fetch(apiId, options)
+//       .then(res => res.json())
+//       .then(result.id or data? not sure => {
+//         this.setState({
+//           response: result,
+//           isDelete: false,
+//           isEdit: false
+//         })
+//       },
+//       (error) => {
+//         this.setState({ error });
+//       }
+//     )
+//   }
+
     render() {
         
         const {newImage, uglyThingsList} = this.state
