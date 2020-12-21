@@ -57,7 +57,8 @@ class UglyContextProvider extends Component {
                     imgUrl: "",
                     description: "",
                     id: ""  //?
-                }
+                },
+                newList: []
             }
         })
     }
@@ -67,14 +68,14 @@ class UglyContextProvider extends Component {
         this.setState(prevState => {
             for (let i = 0; i < this.state.uglyThingsList.length; i++) {
                 return {
-                    uglyThingsList: [{...prevState.uglyThingsList}].filter(uglyThing => uglyThing[i].id !== uglyThing.id)
+                    newList: [{...prevState.uglyThingsList}].filter(uglyThing => uglyThing[i].id !== uglyThing.id)
                 }
             }
         })
-        // ({ })
+
            //may need to mae UglyThings a class component and set state there? ID IS NOT DEFINED!
+           //console.log(this.state.uglyThingsList[1])
             
-    //     console.log(this.state.uglyThingsList[1])
     }
 
     //delete func- use Get of DEL to "remove" an item using id.  setstate uglyThingsList without that item 
