@@ -55,7 +55,8 @@ class UglyContextProvider extends Component {
                 newImage: {
                     title: "",
                     imgUrl: "",
-                    description: ""
+                    description: "",
+                    id: ""  //?
                 }
             }
         })
@@ -66,7 +67,7 @@ class UglyContextProvider extends Component {
         this.setState(prevState => {
             for (let i = 0; i < this.state.uglyThingsList.length; i++) {
                 return {
-                    uglyThingsList: [...prevState.uglyThingsList.filter(uglyThing => uglyThing[i].id !== id)]
+                    uglyThingsList: [{...prevState.uglyThingsList}].filter(uglyThing => uglyThing[i].id !== uglyThing.id)
                 }
             }
         })
