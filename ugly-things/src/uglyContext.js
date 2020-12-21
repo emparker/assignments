@@ -61,6 +61,21 @@ class UglyContextProvider extends Component {
         })
     }
 
+    deleteThing = (id) => {
+        console.log(id)
+        this.setState(prevState => {
+            for (let i = 0; i < this.state.uglyThingsList.length; i++) {
+                return {
+                    uglyThingsList: [...prevState.uglyThingsList.filter(uglyThing => uglyThing[i].id !== id)]
+                }
+            }
+        })
+        // ({ })
+           //may need to mae UglyThings a class component and set state there? ID IS NOT DEFINED!
+            
+    //     console.log(this.state.uglyThingsList[1])
+    }
+
     //delete func- use Get of DEL to "remove" an item using id.  setstate uglyThingsList without that item 
     //edit func- use a post request to edit.  um...?  if i can edit in post man i can figure this out
 //     fetch(apiId, options)
@@ -85,7 +100,8 @@ class UglyContextProvider extends Component {
             <Provider value={{newImage, 
             uglyThingsList, 
             handleChange: this.handleChange, 
-            handleSubmit: this.handleSubmit}}>
+            handleSubmit: this.handleSubmit,
+            deleteThing: this.deleteThing}}>
                 {this.props.children}
             </Provider>
         )

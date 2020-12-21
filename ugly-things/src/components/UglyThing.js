@@ -6,13 +6,13 @@ function UglyThing(props) {
     const {title, imgUrl, description} = props.uglyData
     return (
         <UglyContextConsumer>
-            {({UglyThingsList}) =>(
+            {({deleteThing, newImage}) =>(
                 <div className="ugly-div">
                     <h2>{title}</h2>
                     <p>{description}</p>
                     <img src={imgUrl} alt={description} />
                     <br/>
-                    <button>Delete</button>
+                    <button onClick={() => deleteThing(newImage.id)}>Delete</button>
                     <br/>
                     <button>Edit</button>
                 </div>
@@ -21,7 +21,7 @@ function UglyThing(props) {
         
     )
 }
-
+// key={id} neeed on line 15?
 
 export default UglyThing
 
