@@ -1,47 +1,69 @@
-import React from "react"
+import React, {Component} from "react"
 import { UglyContextConsumer } from "../uglyContext"
 
 
-function Form () {
-    return (
-        <UglyContextConsumer>
-            {({newImage, handleChange, handleSubmit}) => (
-                <div className="form-div">
-                    <form onSubmit={handleSubmit} className="form">
-                    <input
-                        className="title"
-                        type= "text"
-                        value={newImage.title}
-                        placeholder= "Title"
-                        name= "title"
-                        onChange= {handleChange}
-                    />
-                    <br/>
-                    <input
-                        className="img"
-                        type= "text"
-                        value={newImage.imgUrl}
-                        placeholder= "Image URL"
-                        name= "imgUrl"
-                        onChange= {handleChange}
-                    />
-                    <br/>
-                    <input
-                        className="desc"
-                        type= "text"
-                        value={newImage.description}
-                        placeholder= "Description"
-                        name= "description"
-                        onChange= {handleChange}
-                    />
-                    <br/>
-                    <button className="button">Submit</button>
-                </form>
-            </div>
-            )}
+class Form extends Component {
+    state= {
 
-        </UglyContextConsumer>
-    )
+        title: "",
+        imgUrl: "",
+        decription: ""
+
+    }
+
+    handleChange = (event) => {
+        console.log(event.target)
+        const {name, value} = event.target
+        this.setState({
+            [name]: value
+        })
+    }
+
+
+
+
+    render () {
+        return (
+            <UglyContextConsumer>
+                {({handleSubmit}) => (
+                    <div className="form-div">
+                        <form onSubmit={(e) => handleSubmit(e, this.state)} className="form">
+                        <input
+                            className="title"
+                            type= "text"
+                            value={this.state.title}
+                            placeholder= "Title"
+                            name= "title"
+                            onChange= {this.handleChange}
+                        />
+                        <br/>
+                        <input
+                            className="img"
+                            type= "text"
+                            value={this.state.imgUrl}
+                            placeholder= "Image URL"
+                            name= "imgUrl"
+                            onChange= {this.handleChange}
+                        />
+                        <br/>
+                        <input
+                            className="desc"
+                            type= "text"
+                            value={this.state.description}
+                            placeholder= "Description"
+                            name= "description"
+                            onChange= {this.handleChange}
+                        />
+                        <br/>
+                        <button className="button">Submit</button>
+                    </form>
+                </div>
+                )}
+    
+            </UglyContextConsumer>
+        )
+    }
+
 }
 
 export default Form

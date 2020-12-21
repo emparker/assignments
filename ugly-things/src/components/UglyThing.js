@@ -3,16 +3,17 @@ import { UglyContextConsumer } from "../uglyContext"
 
 function UglyThing(props) {
     // console.log(props)
-    const {title, imgUrl, description} = props.uglyData
+    const {title, imgUrl, description, _id} = props.uglyData
+    // const {id} = props.deleteThing
     return (
         <UglyContextConsumer>
-            {({deleteThing, newImage}) =>(
+            {({deleteThing}) =>(
                 <div className="ugly-div">
                     <h2>{title}</h2>
                     <p>{description}</p>
                     <img src={imgUrl} alt={description} />
                     <br/>
-                    <button onClick={() => deleteThing(newImage.id)}>Delete</button>
+                    <button onClick={() => deleteThing(_id)}>Delete</button>
                     <br/>
                     <button>Edit</button>
                 </div>
