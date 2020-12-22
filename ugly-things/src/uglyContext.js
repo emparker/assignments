@@ -24,6 +24,7 @@ class UglyContextProvider extends Component {
 
 //prevState in submit
     handleSubmit = (event, formObj) => {
+        console.log(formObj)
         event.preventDefault()
         this.setState((prevState) => {
             return {
@@ -33,6 +34,20 @@ class UglyContextProvider extends Component {
                 ]
             }
         })
+
+        let myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json")
+
+        fetch("https://api.vschool.io/emily/thing", {
+            method: "POST",
+            headers: myHeaders,
+            body: JSON.stringify(formObj)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                
+            })
     }
 
     deleteThing = (id) => {

@@ -7,7 +7,7 @@ class Form extends Component {
 
         title: "",
         imgUrl: "",
-        decription: ""
+        description: ""
 
     }
 
