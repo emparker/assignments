@@ -21,8 +21,6 @@ class UglyContextProvider extends Component {
     }
 
 
-
-//prevState in submit
     handleSubmit = (event, formObj) => {
         console.log(formObj)
         event.preventDefault()
@@ -49,6 +47,54 @@ class UglyContextProvider extends Component {
                 
             })
     }
+//I have NO clue what this takes to make it work!!
+    editThing = (id, title, imgUrl, desc) => {
+        console.log(id, title, imgUrl, desc)
+        this.state.uglyThingsList.map((formObj, objId) => {
+            if (objId === formObj.id) {
+                return {
+                    title,
+                    imgUrl,
+                    desc,
+                    isEditing: !formObj.isEditing
+                }
+            }
+            return formObj
+        })
+        
+        this.setState((prevState) => {
+            return {
+                uglyThingsList: [
+                    this.formObj, //what to return??
+
+                    ...prevState.uglyThingsList
+                ]
+            }
+        })
+        
+        let myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "imgUrl":`${imgUrl}`,
+            "title":`${title}`,
+            "description":`${desc}`
+            // formObj Im just making this shit up
+
+        })
+
+        var requestOptions = {
+        method: 'PUT',
+        headers: myHeaders,
+        body: raw,  //JSON.stringify({formObj}) can also put here and delete line 66
+        redirect: 'follow'
+        };
+
+        fetch(`https://api.vschool.io/emily/thing/${id}`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
 
     deleteThing = (id) => {
         console.log(id)
@@ -57,21 +103,28 @@ class UglyContextProvider extends Component {
             return {
                 uglyThingsList: [...prevState.uglyThingsList].filter(uglyThing => uglyThing._id !== id)
             }
-        
         })
+        
+        let requestOptions = {
+            method: 'DELETE',
+            redirect: 'follow'
+        };
+            fetch(`https://api.vschool.io/emily/thing/${id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
-    //may need to mae UglyThings a class component and set state there? ID IS NOT DEFINED!
-    //console.log(this.state.uglyThingsList[1])
 
     render() {
-        //do I need newList in this??
-        const {newImage, uglyThingsList} = this.state
+
+        const {uglyThingsList} = this.state
         return (
             <Provider value={{
-            newImage, 
+            
             uglyThingsList,
             handleSubmit: this.handleSubmit,
-            deleteThing: this.deleteThing}}>
+            deleteThing: this.deleteThing,
+            editThing: this.editThing}}>
                 {this.props.children}
             </Provider>
         )

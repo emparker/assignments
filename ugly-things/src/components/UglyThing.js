@@ -4,10 +4,10 @@ import { UglyContextConsumer } from "../uglyContext"
 function UglyThing(props) {
     // console.log(props)
     const {title, imgUrl, description, _id} = props.uglyData
-    // const {id} = props.deleteThing
+
     return (
         <UglyContextConsumer>
-            {({deleteThing}) =>(
+            {({deleteThing, editThing}) =>(
                 <div className="ugly-div">
                     <h2>{title}</h2>
                     <p>{description}</p>
@@ -15,7 +15,7 @@ function UglyThing(props) {
                     <br/>
                     <button onClick={() => deleteThing(_id)}>Delete</button>
                     <br/>
-                    <button>Edit</button>
+                    <button onClick={() => editThing(_id, title, imgUrl, description)}>Edit</button>
                 </div>
             )}
         </UglyContextConsumer>
