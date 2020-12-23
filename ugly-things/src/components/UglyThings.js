@@ -8,7 +8,7 @@ function UglyThings() {
             <UglyContextConsumer>
                 {({uglyThingsList}) => (
                         uglyThingsList.map((thing) => (
-                        <UglyThing uglyData={thing} key={thing.id}/>
+                        <UglyThing uglyData={thing} key={thing._id}/>
                         )
                     )
                 )}

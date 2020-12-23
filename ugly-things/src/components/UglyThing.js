@@ -7,7 +7,7 @@ function UglyThing(props) {
 
     return (
         <UglyContextConsumer>
-            {({deleteThing, editThing}) =>(
+            {({deleteThing, submitEditedThing, modalTitle, modalDescription, modalWindow}) =>(
                 <div className="ugly-div">
                     <h2>{title}</h2>
                     <p>{description}</p>
@@ -15,7 +15,28 @@ function UglyThing(props) {
                     <br/>
                     <button onClick={() => deleteThing(_id)}>Delete</button>
                     <br/>
-                    <button onClick={() => editThing(_id, title, imgUrl, description)}>Edit</button>
+                    <button onClick={(e) => {
+                        e.target.parentElement.lastChild.classList.toggle("hidden")
+                        modalWindow(title, description)}}>Edit</button>
+                    <div className="modal-div">
+                        <form onSubmit={() => submitEditedThing()}>
+                            <h1>Edit Me</h1>
+                            <br/>
+                            <input 
+                            value={modalTitle}
+                            placeholder="Title"
+                            name="modalTitle"
+                            />
+                            <br/>
+                            <input 
+                            value={modalDescription}
+                            placeholder={"description"}
+                            name="modalDecription"
+                            />
+                            <br/>
+                            <button>Save</button>
+                        </form>
+                    </div>
                 </div>
             )}
         </UglyContextConsumer>

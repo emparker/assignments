@@ -4,8 +4,10 @@ const { Provider, Consumer } = React.createContext()
 
 class UglyContextProvider extends Component {
     state = {
-        uglyThingsList: []
-    }
+        uglyThingsList: [],
+        modalTitle: "",
+        modalDescription: ""
+}
 
 
 //make call for API? fetch
@@ -48,39 +50,28 @@ class UglyContextProvider extends Component {
             })
     }
 //I have NO clue what this takes to make it work!!
-    editThing = (id, title, imgUrl, desc) => {
-        console.log(id, title, imgUrl, desc)
-        this.state.uglyThingsList.map((formObj, objId) => {
-            if (objId === formObj.id) {
-                return {
-                    title,
-                    imgUrl,
-                    desc,
-                    isEditing: !formObj.isEditing
-                }
-            }
-            return formObj
-        })
-        
-        this.setState((prevState) => {
-            return {
-                uglyThingsList: [
-                    this.formObj, //what to return??
 
-                    ...prevState.uglyThingsList
-                ]
-            }
+    modalWindow = (title, description) => {
+        this.setState({
+            modalTitle: title,
+            modalDescription: description
         })
+    }
+
+    //handleModalChange(e){
+
+    //}
+
+    
+    submitEditedThing = (id) => {
         
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            "imgUrl":`${imgUrl}`,
-            "title":`${title}`,
-            "description":`${desc}`
-            // formObj Im just making this shit up
-
+            // "imgUrl":`${this.state.modalImgUrl}`,
+            "title":`${this.state.modalTitle}`,
+            "description":`${this.state.modalDescription}`
         })
 
         var requestOptions = {
@@ -96,6 +87,7 @@ class UglyContextProvider extends Component {
         .catch(error => console.log('error', error));
     }
 
+
     deleteThing = (id) => {
         console.log(id)
         this.setState(prevState => {
@@ -108,23 +100,25 @@ class UglyContextProvider extends Component {
         let requestOptions = {
             method: 'DELETE',
             redirect: 'follow'
-        };
+        }
             fetch(`https://api.vschool.io/emily/thing/${id}`, requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+            .catch(error => console.log('error', error))
     }
 
     render() {
 
-        const {uglyThingsList} = this.state
+        const {uglyThingsList, modalTitle, modalDescription} = this.state
         return (
             <Provider value={{
-            
+            modalTitle,
+            modalDescription,
             uglyThingsList,
             handleSubmit: this.handleSubmit,
             deleteThing: this.deleteThing,
-            editThing: this.editThing}}>
+            submitEditedThing: this.submitEditedThing,
+            modalWindow: this.modalWindow}}>
                 {this.props.children}
             </Provider>
         )
