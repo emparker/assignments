@@ -100,6 +100,14 @@ body {
     width: 100%;
 }
 
+.modal-div {
+
+}
+
+.hidden {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .form {
         display: grid;

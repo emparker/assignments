@@ -6,34 +6,39 @@ class UglyContextProvider extends Component {
     state = {
         uglyThingsList: [],
         modalTitle: "",
-        modalDescription: ""
+        modalDescription: "",
+        // isModalOpen: false ??
 }
 
 
 //make call for API? fetch
     componentDidMount(){
+        this.loadData()
+    }
+
+    loadData = () => {
         fetch("https://api.vschool.io/emily/thing/")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                this.setState({
-                    uglyThingsList: data
-                })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            this.setState({
+                uglyThingsList: data
             })
+        })
     }
 
 
     handleSubmit = (event, formObj) => {
         console.log(formObj)
         event.preventDefault()
-        this.setState((prevState) => {
-            return {
-                uglyThingsList: [
-                    {...formObj},
-                    ...prevState.uglyThingsList
-                ]
-            }
-        })
+        // this.setState((prevState) => {
+        //     return {
+        //         uglyThingsList: [
+        //             {...formObj},
+        //             ...prevState.uglyThingsList
+        //         ]
+        //     }
+        // })
 
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json")
@@ -45,11 +50,9 @@ class UglyContextProvider extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                
+                this.loadData()
             })
     }
-//I have NO clue what this takes to make it work!!
 
     modalWindow = (title, description) => {
         this.setState({
@@ -58,18 +61,23 @@ class UglyContextProvider extends Component {
         })
     }
 
-    //handleModalChange(e){
-
-    //}
+    handleModalChange = (event) => {
+        console.log(event.target)
+        const {name, value} = event.target
+        this.setState({
+            [name]: value
+        })
+    }
 
     
-    submitEditedThing = (id) => {
-        
+    submitEditedThing = (event, id) => {
+        event.preventDefault()
+
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            // "imgUrl":`${this.state.modalImgUrl}`,
+            // "imgUrl":`${this.state.modalImgUrl}`,  no need to edit photo!
             "title":`${this.state.modalTitle}`,
             "description":`${this.state.modalDescription}`
         })
@@ -83,27 +91,32 @@ class UglyContextProvider extends Component {
 
         fetch(`https://api.vschool.io/emily/thing/${id}`, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => this.loadData())
         .catch(error => console.log('error', error));
     }
 
 
     deleteThing = (id) => {
         console.log(id)
-        this.setState(prevState => {
-            console.log(prevState)
-            return {
-                uglyThingsList: [...prevState.uglyThingsList].filter(uglyThing => uglyThing._id !== id)
-            }
-        })
+        // this.setState(prevState => {
+        //     console.log(prevState)
+        //     return {
+        //         uglyThingsList: [...prevState.uglyThingsList].filter(uglyThing => uglyThing._id !== id)
+        //     }
+        // })
         
         let requestOptions = {
             method: 'DELETE',
-            redirect: 'follow'
+            redirect: 'follow',
+            body: JSON.stringify({
+                // "imgUrl":`${this.state.modalImgUrl}`,  no need to edit photo!
+                "title":`${this.state.modalTitle}`,
+                "description":`${this.state.modalDescription}`
+            })
         }
             fetch(`https://api.vschool.io/emily/thing/${id}`, requestOptions)
             .then(response => response.text())
-            .then(result => console.log(result))
+            .then(result => this.loadData())
             .catch(error => console.log('error', error))
     }
 
@@ -118,7 +131,8 @@ class UglyContextProvider extends Component {
             handleSubmit: this.handleSubmit,
             deleteThing: this.deleteThing,
             submitEditedThing: this.submitEditedThing,
-            modalWindow: this.modalWindow}}>
+            modalWindow: this.modalWindow,
+            handleModalChange: this.handleModalChange}}>
                 {this.props.children}
             </Provider>
         )
