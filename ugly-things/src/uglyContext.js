@@ -6,12 +6,10 @@ class UglyContextProvider extends Component {
     state = {
         uglyThingsList: [],
         modalTitle: "",
-        modalDescription: "",
-        // isModalOpen: false ??
+        modalDescription: ""
 }
 
 
-//make call for API? fetch
     componentDidMount(){
         this.loadData()
     }

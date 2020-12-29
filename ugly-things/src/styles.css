@@ -101,6 +101,8 @@ body {
 }
 
 .modal-div {
+    background-color: rgba(135, 206, 235, .4);
+    position: relative;
     
 }
 

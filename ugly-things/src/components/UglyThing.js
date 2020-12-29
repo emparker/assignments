@@ -5,9 +5,9 @@ function UglyThing(props) {
     // console.log(props)
     const {title, imgUrl, description, _id} = props.uglyData
 
-    const handleModClick = () => {
+    const handleModClick = (e) => {
 
-        let element = document.getElementById("modal-div")
+        let element = e.target.parentElement
         element.classList.add("hidden")
 
     }
@@ -26,7 +26,7 @@ function UglyThing(props) {
                     <button onClick={(e) => {
                         e.target.parentElement.lastChild.classList.toggle("hidden")
                         modalWindow(title, description)}}>Edit</button>
-                    <div className="hidden" id="modal-div">
+                    <div className="hidden modal-div">
                         <form onSubmit={(e) => submitEditedThing(e, _id, modalTitle, modalDescription)}>
                             <h1>Edit Me</h1>
                             <br/>
@@ -44,7 +44,7 @@ function UglyThing(props) {
                             onChange={handleModalChange}
                             />
                             <br/>
-                            <button onClick={() => {handleModClick()}}>Save</button>
+                            <button onClick={handleModClick}>Save</button>
                         </form>
                     </div>
                 </div>
