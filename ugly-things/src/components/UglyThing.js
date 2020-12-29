@@ -5,6 +5,14 @@ function UglyThing(props) {
     // console.log(props)
     const {title, imgUrl, description, _id} = props.uglyData
 
+    const handleModClick = () => {
+
+        let element = document.getElementById("modal-div")
+        element.classList.add("hidden")
+
+    }
+
+
     return (
         <UglyContextConsumer>
             {({deleteThing, submitEditedThing, modalTitle, modalDescription, modalWindow, handleModalChange}) =>(
@@ -18,7 +26,7 @@ function UglyThing(props) {
                     <button onClick={(e) => {
                         e.target.parentElement.lastChild.classList.toggle("hidden")
                         modalWindow(title, description)}}>Edit</button>
-                    <div className="modal-div hidden">
+                    <div className="hidden" id="modal-div">
                         <form onSubmit={(e) => submitEditedThing(e, _id, modalTitle, modalDescription)}>
                             <h1>Edit Me</h1>
                             <br/>
@@ -36,7 +44,7 @@ function UglyThing(props) {
                             onChange={handleModalChange}
                             />
                             <br/>
-                            <button>Save</button>
+                            <button onClick={() => {handleModClick()}}>Save</button>
                         </form>
                     </div>
                 </div>
@@ -45,7 +53,6 @@ function UglyThing(props) {
         
     )
 }
-// key={id} neeed on line 15?
 
 export default UglyThing
 
