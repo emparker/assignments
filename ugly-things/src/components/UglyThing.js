@@ -2,8 +2,7 @@ import React, {useState} from "react"
 import {UglyContextConsumer} from "../uglyContext"
 
 function UglyThing(props) {
-  const [showModal,
-    setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   // console.log(props)
   const {title, imgUrl, description, _id} = props.uglyData
 
