@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
+// import { useState, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
+import { AnimalDataProvider } from "./AnimalDataProvider"
 import LandingPage from "./pages/LandingPage"
 import FormPage from "./pages/FormPage"
 import ListPage from "./pages/ListPage"
@@ -16,19 +17,23 @@ export default function App() {
                 <Route exact path="/">
                     <LandingPage />
                 </Route>
-                <Route path="/form">
-                    <FormPage />
-                </Route>
-                <Route path="/list">
-                    <ListPage />
-                </Route>
-                <Route path="/details/:animalId">
-                    <DetailsPage />
-                </Route>
+
+                <AnimalDataProvider>
+                    <Route path="/form">
+                        <FormPage />
+                    </Route>
+                    <Route path="/list">
+                        <ListPage />
+                    </Route>
+                    <Route path="/details">
+                        <DetailsPage />
+                    </Route>
+                </AnimalDataProvider>
+                    
             </Switch>
         </div>
     )
 
 }
-
+// /:animalId  will need in the DetailsPage path!
 // { animals === "" ? "Loading..." : animals.map(animal => <p>{ animal.name }</p>) }
