@@ -18,16 +18,15 @@ export default function FormPage() {
         e.preventDefault()
         // utility func?
             animalsAPI
-            .getAnimals(formData.animal, formData.place, formData.age, formData.gender, formData.size) 
+            .getAnimals(formData.animal, formData.place, formData.age, formData.gender, formData.size)
             .then((data)=> {
-                console.log(data)
-                history.push("/list", formData)
-                // console.log(response)
+
+                console.log("this is the data:", data)
+                history.push("/list", data) // THIS
+                // history.push("/list", animalsAPI.animals) NOT THIS
             })
-    
-    }
 
-
+}
 
     const handleChange = (e) => {
         const {name, value} = e.target

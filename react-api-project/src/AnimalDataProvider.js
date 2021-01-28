@@ -39,15 +39,21 @@ const useAnimalDataHook = () => {
                 headers : {
                     Authorization: `Bearer ${token}`
                 }
-            }).then((response) => {
+            }).then(response => {
+                console.log("this is the response: ", response)
+                //console.log(response.data)
                 setAnimals(response.data.animals)
-            })
+                return response.data.animals   // needed a return here
+                
+                
+            }).catch((error) => console.log(error))
 
     }
-        return {
-            animals,
-            getAnimals
-        }
+
+    return {
+        animals,
+        getAnimals
+    }
 }
 
 function AnimalDataProvider(props) {
