@@ -1,16 +1,19 @@
-import { useHistory } from "react-router-dom"
-import { useState, useContext } from "react"  
+import ListItemDetail from "../ListItemDetail"
+import { useContext } from "react"  
 import { context } from "../AnimalDataProvider"
 
 
 export default function ListPage() {
-//pull in context ? 
-    let history = useHistory()
-    console.log(history.location.state)
+    const animalAPI = useContext(context)
+
+    const listItem = animalAPI.animals.map((animal)=> {
+        return <ListItemDetail animal={animal} />
+    })
 
     return (
         <div>
             <h1>List of your search results</h1>
+            {listItem}
         </div>
     )
 }

@@ -32,15 +32,18 @@ const useAnimalDataHook = () => {
 
     const [animals, setAnimals] = useState([])
 
-    const getAnimals = (type, state, age, gender,  size) => {
+//animal=dog&place=CO&age=young&gender=male&size=small
+// type, state, age, gender,  size
+// type=${type}&state=${state}&age=${age}&gender=${gender}&size=${size}
+    const getAnimals = (query) => {
         
         return axios
-            .get(`${apiURL}/animals?type=${type}&state=${state}&age=${age}&gender=${gender}&size=${size}`, {
+            .get(`${apiURL}/animals?${query}`, {
                 headers : {
                     Authorization: `Bearer ${token}`
                 }
             }).then(response => {
-                console.log("this is the response: ", response)
+                console.log("PROVIDER PG- this is the response: ", response)
                 //console.log(response.data)
                 setAnimals(response.data.animals)
                 return response.data.animals   // needed a return here

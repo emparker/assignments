@@ -4,25 +4,34 @@ import { context } from "../AnimalDataProvider"
 
 export default function FormPage() {
     const [ formData, setFormData ] = useState({
-        animal: "dog",  //needs to be versitale dog or cat
+        type: "dog",  //needs to be versitale dog or cat
         place: "",
         age: "",
         gender: "",
         size: ""
     })
-    
+
     const animalsAPI = useContext(context)
     let history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         // utility func?
+        const convertToURLQueryParams = (obj) => {
+            let queryString = ""
+            
+            queryString = Object.keys(obj).map(key => key + "=" + obj[key]).join('&')
+            
+            return queryString
+        }
+        console.log(convertToURLQueryParams(formData))
+//formData.animal, formData.place, formData.age, formData.gender, formData.size
             animalsAPI
-            .getAnimals(formData.animal, formData.place, formData.age, formData.gender, formData.size)
-            .then((data)=> {
+            .getAnimals(convertToURLQueryParams(formData))
+            .then(()=> {
 
-                console.log("this is the data:", data)
-                history.push("/list", data) // THIS
+                // console.log("FORM PG- this is the data:", data)
+                history.push("/list") // THIS
                 // history.push("/list", animalsAPI.animals) NOT THIS
             })
 
