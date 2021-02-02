@@ -14,7 +14,7 @@ export default function ListItemDetail(props) {
             <h6>{props.animal.gender}</h6>
             <h6>{props.animal.breeds.primary}</h6>
             <p>{props.animal.description}</p>
-            <img src={src}/>
+            <img src={src} alt="Cute Adoptable Animal"/>
         </div>
     )
 }

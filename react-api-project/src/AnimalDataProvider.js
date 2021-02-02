@@ -4,9 +4,9 @@ import axios from "axios";
 const apiURL = "https://api.petfinder.com/v2";
 
 const body = {
-  grant_type: "client_credentials",
-  client_id: process.env.REACT_APP_CLIENT_ID,
-  client_secret: process.env.REACT_APP_CLIENT_SECRET,
+    grant_type: "client_credentials",
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    client_secret: process.env.REACT_APP_CLIENT_SECRET,
 };
 
 const context = React.createContext()
@@ -27,29 +27,26 @@ const useAnimalDataHook = () => {
     // USE EFFECT SET TOKEN
     useEffect(() => {
         getToken()
-
     }, [])
 
     const [animals, setAnimals] = useState([])
 
-//animal=dog&place=CO&age=young&gender=male&size=small
-// type, state, age, gender,  size
-// type=${type}&state=${state}&age=${age}&gender=${gender}&size=${size}
     const getAnimals = (query) => {
         
         return axios
-            .get(`${apiURL}/animals?${query}`, {
-                headers : {
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(response => {
-                console.log("PROVIDER PG- this is the response: ", response)
-                //console.log(response.data)
-                setAnimals(response.data.animals)
-                return response.data.animals   // needed a return here
+                    .get(`${apiURL}/animals?${query}`, {
+                        headers : {
+                            Authorization: `Bearer ${token}`
+                        }
+                    })
+                    .then(response => {
+                        console.log("PROVIDER PG- this is the response: ", response)
+                        //console.log(response.data)
+                        setAnimals(response.data.animals)
+                        return response.data.animals   // needed a return here
                 
                 
-            }).catch((error) => console.log(error))
+                    }).catch((error) => console.log(error))
 
     }
 

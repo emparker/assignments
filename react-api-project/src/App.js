@@ -36,4 +36,4 @@ export default function App() {
 
 }
 // /:animalId  will need in the DetailsPage path!
-// { animals === "" ? "Loading..." : animals.map(animal => <p>{ animal.name }</p>) }
+

@@ -1,10 +1,15 @@
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import { useState, useContext } from "react"  
 import { context } from "../AnimalDataProvider"
 
+
 export default function FormPage() {
+    const location = useLocation()
+    console.log(location.state.type)
+    // const dogOrCat = location.state
+
     const [ formData, setFormData ] = useState({
-        type: "dog",  //needs to be versitale dog or cat
+        type: location.state.type,  //needs to be versitale dog or cat- ues incoming props from landing page or history?
         place: "",
         age: "",
         gender: "",
