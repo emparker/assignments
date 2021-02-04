@@ -6,7 +6,6 @@ import { context } from "../AnimalDataProvider"
 export default function FormPage() {
     const location = useLocation()
     console.log(location.state.type)
-    // const dogOrCat = location.state
 
     const [ formData, setFormData ] = useState({
         type: location.state.type,  //needs to be versitale dog or cat- ues incoming props from landing page or history?
@@ -53,11 +52,12 @@ export default function FormPage() {
         console.log({name, value})
     }
 
-
+    // const type = location.state.type
+    const headerText = `Let's find you the perfect ${location.state.type}!`
 
     return (
         <div>
-            <h1>Let's find you the perfect Doggo!</h1>
+            <h1>{headerText}</h1>
 
             <form onSubmit = {handleSubmit}>
 

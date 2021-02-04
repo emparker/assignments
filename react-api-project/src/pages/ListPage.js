@@ -7,7 +7,7 @@ export default function ListPage() {
     const animalAPI = useContext(context)
 
     const listItem = animalAPI.animals.map((animal)=> {
-        return <ListItemDetail animal={animal} />
+        return <ListItemDetail key={animal.id} animal={animal}/>
     })
 
     return (

@@ -25,7 +25,7 @@ export default function App() {
                     <Route path="/list">
                         <ListPage />
                     </Route>
-                    <Route path="/details">
+                    <Route path="/details/:animalId">
                         <DetailsPage />
                     </Route>
                 </AnimalDataProvider>

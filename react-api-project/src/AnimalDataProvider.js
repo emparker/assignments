@@ -47,7 +47,6 @@ const useAnimalDataHook = () => {
                 
                 
                     }).catch((error) => console.log(error))
-
     }
 
     return {
@@ -68,7 +67,4 @@ function AnimalDataProvider(props) {
     )
 }
 
-
 export { AnimalDataProvider, context }
-
-// { animals === "" ? "Loading..." : animals.map(animal => <p>{ animal.name }</p>) }
