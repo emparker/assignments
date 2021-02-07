@@ -56,10 +56,10 @@ export default function FormPage() {
     const headerText = `Let's find you the perfect ${location.state.type}!`
 
     return (
-        <div>
+        <div className="div-form">  
             <h1>{headerText}</h1>
 
-            <form onSubmit = {handleSubmit}>
+            <form onSubmit = {handleSubmit} className="form">
 
             <h5>What state would you like to search?</h5>
             <input 
@@ -166,7 +166,7 @@ export default function FormPage() {
 
             <br/>
 
-            <button>Submit</button>
+            <button className="button">Submit</button>
 
             </form>
         </div>

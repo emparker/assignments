@@ -1,11 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* background-color: pink; */
+    height: 100%;
+    width: 100%;
 }
 
 .header {
@@ -14,13 +16,14 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 105px;
-    color: #000000;
+    color:rgb(22, 38, 43);
 }
 
 .div-links {
     display: flex;
     flex-direction: row;
-    justify-content: center;    
+    justify-content: center;   
+    padding-top: 65px;
 }
 
 .link-dog {
@@ -30,12 +33,14 @@ body {
 .div-dog {
     display: flex;
     margin: 1rem;
+    margin-right: 3rem;
     height: 60px;
     width: 120px;
+    border-left: 7px solid rgba(184, 137, 144, 0.993);
     background-color: rgba(233, 197, 164, 0.55);
-    outline-style: solid;
+    /* outline-style: solid;
     outline-width: 1px;
-    outline-color: black;
+    outline-color: black; */
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -43,6 +48,8 @@ body {
 
 .or {
     font-family: 'Rock Salt', cursive;
+    color: rgb(22, 38, 43);
+    font-size: 25px;
 }
 
 .link-cat {
@@ -52,13 +59,61 @@ body {
 .div-cat {
     display: flex;
     margin: 1rem;
+    margin-left: 3rem;
     height: 60px;
     width: 120px;
+    border-left: 7px solid rgb(194, 186, 113);
     background-color: rgba(238, 227, 131, 0.42);
-    outline-style: solid;
+    /* outline-style: solid;
     outline-width: 1px;
-    outline-color: black;
+    outline-color: black; */
     text-align: center;
     align-items: center;
     justify-content: center;
 }
+
+.div-form {
+    background-color: rgba(233, 197, 164, 0.219);
+    margin: 7px;
+    display: flex;
+    height: 100vh;
+    width:  100%;
+    flex-direction: column;
+    padding: 40px;
+    position: fixed;
+}
+
+h1 {
+    font-size: 45px;
+    text-align: center;
+    /* padding-top: 40px; */
+    margin-bottom: 40px;
+    color:rgb(22, 38, 43);
+    font-family: 'abel';
+}
+
+input {
+    margin-left: 300px;
+    color:rgb(22, 38, 43);
+    font-family: 'abel';
+}
+h5 {
+    font-size: 18px;
+    margin-left: 300px;
+    color:rgb(22, 38, 43);
+    font-family: 'abel';
+}
+
+.button {
+    float: right;
+    margin-right: 400px;
+    border: none;
+    border-left: 7px solid rgba(184, 137, 144, 0.993);
+    background-color: rgba(233, 197, 164, 0.55);
+    height: 50px;
+    width: 150px;
+    margin-top: -40px;
+    font-size: 32px;
+    font-family: 'abel';
+}
+
