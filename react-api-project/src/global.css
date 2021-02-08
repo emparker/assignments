@@ -10,6 +10,8 @@ body {
     width: 100%;
 }
 
+/* Landing Page */
+
 .header {
     text-align: center;
     font-family: 'Rock Salt', cursive;
@@ -29,6 +31,8 @@ body {
 .link-dog {
     color: rgb(32, 73, 85);
     text-decoration: none;
+    font-family: 'abel';
+    font-size: 30px;
 }
 .div-dog {
     display: flex;
@@ -38,9 +42,6 @@ body {
     width: 120px;
     border-left: 7px solid rgba(184, 137, 144, 0.993);
     background-color: rgba(233, 197, 164, 0.55);
-    /* outline-style: solid;
-    outline-width: 1px;
-    outline-color: black; */
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -55,6 +56,8 @@ body {
 .link-cat {
     color: rgb(32, 73, 85);
     text-decoration: none;
+    font-family: 'abel';
+    font-size: 30px;
 }
 .div-cat {
     display: flex;
@@ -64,16 +67,25 @@ body {
     width: 120px;
     border-left: 7px solid rgb(194, 186, 113);
     background-color: rgba(238, 227, 131, 0.42);
-    /* outline-style: solid;
-    outline-width: 1px;
-    outline-color: black; */
     text-align: center;
     align-items: center;
     justify-content: center;
 }
 
-.div-form {
+/* Form Page */
+
+.dog-form {
     background-color: rgba(233, 197, 164, 0.219);
+    margin: 7px;
+    display: flex;
+    height: 100vh;
+    width:  100%;
+    flex-direction: column;
+    padding: 40px;
+    position: fixed;
+}
+.cat-form {
+    background-color:  rgba(238, 227, 131, 0.219);
     margin: 7px;
     display: flex;
     height: 100vh;
@@ -86,7 +98,6 @@ body {
 h1 {
     font-size: 45px;
     text-align: center;
-    /* padding-top: 40px; */
     margin-bottom: 40px;
     color:rgb(22, 38, 43);
     font-family: 'abel';
@@ -104,11 +115,11 @@ h5 {
     font-family: 'abel';
 }
 
-.button {
+.dog-submit {
     float: right;
     margin-right: 400px;
     border: none;
-    border-left: 7px solid rgba(184, 137, 144, 0.993);
+    border-left: 7px solid rgba(184, 137, 144, 0.582);
     background-color: rgba(233, 197, 164, 0.55);
     height: 50px;
     width: 150px;
@@ -116,4 +127,86 @@ h5 {
     font-size: 32px;
     font-family: 'abel';
 }
+.cat-submit {
+    float: right;
+    margin-right: 400px;
+    border: none;
+    border-left: 7px solid rgb(194, 186, 113);
+    background-color: rgba(238, 227, 131, 0.42);
+    height: 50px;
+    width: 150px;
+    margin-top: -40px;
+    font-size: 32px;
+    font-family: 'abel';
+}
 
+/* List Page (sourced from ListPage & ListItemDetail)*/
+
+.list-page-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.dog-list-detail-div {
+    display: flex;
+    background-color: rgba(233, 197, 164, 0.219);
+    border-left: 11px solid rgba(184, 137, 144, 0.582);
+    width: 400px;
+    height: 90px;
+    padding: 40px;
+    margin: 20px;
+    align-items: center;
+    box-shadow: 1px 1px #8888885e;
+}
+.cat-list-detail-div {
+    display: flex;
+    background-color: rgba(238, 227, 131, 0.219);
+    border-left: 11px solid rgb(194, 186, 113, 0.582);
+    width: 400px;
+    height: 90px;
+    padding: 40px;
+    margin: 20px;
+    align-items: center;
+    box-shadow: 1px 1px #8888885e;
+}
+
+.list-h1 {
+    font-family: 'abel';
+    color:rgb(22, 38, 43);
+    font-size: 45px;
+    padding: 20px;
+}
+
+.animal-name-list {
+    font-family: 'abel';
+    color:rgb(22, 38, 43);
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size: 25px;
+}
+.name-link {
+    margin-left: -20px;
+    text-decoration: underline black;
+}
+img {
+    margin-left: 20px;
+    box-shadow: 1px 1px #8888885e;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    margin: 15px;
+}
+.gender-list {
+    float: top;
+    font-size: 23px;
+    font-family: 'abel';
+}
+.age-list{
+    font-size: 23px;
+    font-family: 'abel';
+}
+.age-gender-list {
+    color:rgb(22, 38, 43);
+    margin-left: 40px;
+}

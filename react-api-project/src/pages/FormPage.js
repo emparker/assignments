@@ -52,11 +52,11 @@ export default function FormPage() {
         console.log({name, value})
     }
 
-    // const type = location.state.type
-    const headerText = `Let's find you the perfect ${location.state.type}!`
 
+    const headerText = `Let's find you the perfect ${location.state.type}!`
+//add logic to 'div-form 'to change theme dog or cat (background-color)
     return (
-        <div className="div-form">  
+        <div className={`${location.state.type === "dog" ? "dog-form" : "cat-form"}`}>  
             <h1>{headerText}</h1>
 
             <form onSubmit = {handleSubmit} className="form">
@@ -166,7 +166,7 @@ export default function FormPage() {
 
             <br/>
 
-            <button className="button">Submit</button>
+            <button className={`${location.state.type === "dog" ? "dog-submit" : "cat-submit"}`}>Submit</button>
 
             </form>
         </div>

@@ -11,8 +11,8 @@ export default function ListPage() {
     })
 
     return (
-        <div>
-            <h1>List of your search results</h1>
+        <div className="list-page-div">
+            <h1 className="list-h1">Your Search Results</h1>
             {listItem}
         </div>
     )
