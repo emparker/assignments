@@ -11,7 +11,7 @@ export default function App() {
 
 
     return (
-        <div>
+        <>
 {/* put link tags on the landing page around buttons  */}
             <Switch>
                 <Route exact path="/">
@@ -31,7 +31,7 @@ export default function App() {
                 </AnimalDataProvider>
                     
             </Switch>
-        </div>
+        </>
     )
 
 }
