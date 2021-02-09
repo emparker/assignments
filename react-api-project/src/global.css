@@ -184,8 +184,6 @@ h5 {
 .animal-name-list {
     font-family: 'abel';
     color:rgb(22, 38, 43);
-    /* margin-top: 20px; */
-    /* margin-right: 10px; */
     font-size: 25px;
     text-shadow: .5px .5px rgba(136, 136, 136, 0.596);
 }
@@ -196,12 +194,10 @@ h5 {
     text-align: center;
 }
 .img-list {
-    /* margin-left: 20px; */
     box-shadow: 1px 1px #8888885e;
     height: 125px;
     width: 125px;
     object-fit: cover;
-    /* margin-right: 50px; */
     margin: 15px 5px 15px 5px;
     bottom: -10px;
 }
@@ -224,6 +220,7 @@ h5 {
 .header-text {
     color:rgb(22, 38, 43);
     font-family: 'abel';
+    font-size: 50px;
     text-shadow: .5px .5px rgba(136, 136, 136, 0.596);
 }
 
@@ -257,10 +254,9 @@ h5 {
     grid-column: 1/2;
     grid-row: 1/2;
     box-shadow: 1px 1px #8888885e;
-    /* height: 100%; */
 }
 
-.details {
+.details-grid {
     grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
@@ -273,6 +269,7 @@ h5 {
     text-align: center;
     font-family: 'abel';
     color:rgb(22, 38, 43);
+    font-size: 33px;
     text-shadow: .5px .5px rgba(136, 136, 136, 0.596);
 }
 .col1 {

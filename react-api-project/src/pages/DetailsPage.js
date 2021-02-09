@@ -27,7 +27,7 @@ export default function DetailsPage() {
         <div>
             <h1 className="header-text">{headerText}</h1>
             <div className={`${type === "Dog" ? "dog-detail-card-grid" : "cat-detail-card-grid"}`}>
-                <div className="details">
+                <div className="details-grid">
                     <h2 className="h2-details">{name}</h2>
                     <p className="col1">Age:</p> <p className="col2">{age}</p>
                     <p className="col1">Breed:</p> <p className="col2">{breed}</p>
