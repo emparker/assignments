@@ -13,6 +13,7 @@ export default function DetailsPage() {
     const thisAnimal = animalAPI.animals.find(animal => animal.id == params.animalId)
     
     const headerText = `Am I your new ${thisAnimal.type}?`
+
     const name = thisAnimal.name
     const age = thisAnimal.age
     const breed = thisAnimal.breeds.primary
