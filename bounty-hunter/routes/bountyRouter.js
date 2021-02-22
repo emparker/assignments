@@ -21,6 +21,14 @@ bountyRouter.route("/")
         res.send(`you have sent ${newBounty.firstName}${newBounty.lastName} with a bounty of ${newBounty.bounty} to your database!`)
     })
     
+//GET one
+bountyRouter.get("/:bountyId", (req, res) => {
+    const bountyId = req.params.bountyId
+    const foundBounty= bounties.find(bounty => bounty._id === bountyId)
+    // const foundBounty = bounties[bountyIndex]- if finding by index.  .find() returns the actual element
+    res.send(`you found the bounty ${foundBounty.firstName} ${JSON.stringify(foundBounty)}`)
+})
+
 bountyRouter.put("/:bountyId", (req, res) => {
         const bountyId = req.params.bountyId
         const newBounty = req.body
