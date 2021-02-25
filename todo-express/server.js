@@ -44,14 +44,22 @@ app.route("/todos/:todoId")
     .put((req, res) => {
   // console.log(req.params.todoId)
     const todoId = req.params.todoId;
-    newTodo = req.body;
-    todosIndex = todos.findIndex((todo) => todo._id === todoId);
+    const newTodo = req.body;
+    const todosIndex = todos.findIndex((todo) => todo._id === todoId);
     const freshTodo = Object.assign(todos[todosIndex], newTodo);
     res.send(`you have updated ${freshTodo.name} in the database`);
     })
+    // delete todo
     .delete((req, res) => {
-        
+        const todoId = req.params.todoId
+        const todoIndex = todos.findIndex(todo => todo._id === todoId)
+        todos.splice(todoIndex, 1)
+        res.send(`you have made a successful delete from your database`)
     })
+    // get one 
+    // .get((req, res) => {
+
+    // })
 
 const PORT = 9000;
 app.listen(PORT, () => {
