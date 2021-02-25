@@ -57,9 +57,11 @@ app.route("/todos/:todoId")
         res.send(`you have made a successful delete from your database`)
     })
     // get one 
-    // .get((req, res) => {
-
-    // })
+    .get((req, res) => {
+      const todoId = req.params.todoId
+      const theTodo = todos.find(todo => todo._id === todoId)
+      res.send(theTodo)
+    })
 
 const PORT = 9000;
 app.listen(PORT, () => {
