@@ -9,14 +9,20 @@ body {
 }
 
 .bounty-container {
-    display: flex;
-    flex-direction: column;
     margin: 0 32px;
 }
 
+.bounty-components {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    width: 100%;
+}
+
 .bounty {
+    
     border: 1px solid #333;
     padding: 10px;
-    margin: 5px;
+    margin: 15px; 
+    width: auto;
 }
 

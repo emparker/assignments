@@ -21,12 +21,19 @@ export default function App() {
         .catch(err => console.log(err))
     }
 
+    const handleExecution = (_id)=> {
+        axios.put(`/bounties/bountied/${_id}`)
+        .then(res => {
+            setBounties(res.data)
+        })
+        .catch(err => console.log(err))
+    }
+
     const handleDelete = (_id) => {
         axios.delete(`/bounties/${_id}`)
         .then(res => {
             setBounties(res.data)
         })
-        
         .catch(err => console.log(err))
     }
 
@@ -38,7 +45,16 @@ export default function App() {
         
         <div className="bounties-container">
             <AddBountyForm addBounty={addBounty} />
-            { bounties.map(bounty => <Bounty {...bounty} key={bounty.firstName} handleDelete={handleDelete}/>) }
+            <div className="bounty-components">
+                { bounties.map(bounty => 
+                    <Bounty 
+                            {...bounty} 
+                            key={bounty.firstName} 
+                            handleDelete={handleDelete} 
+                            handleExecution={handleExecution}
+                    />) }
+            </div>
+            
         </div>
     )
 } 
