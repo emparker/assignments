@@ -5,11 +5,11 @@ const uuid = require('uuid').v4
 
 
 const bounties = [
-    {firstName: "dark", lastName: "helmut", living: true, bounty: 60, type: "bad", _id: uuid() },
-    {firstName: "barf", lastName: "mcbarf", living: true, bounty: 170, type: "good", _id: uuid()},
-    {firstName: "lone", lastName: "starr", living: true, bounty: 5000, type: "good", _id: uuid()},
-    {firstName: "yogurt", lastName: "n/a", living: true, bounty: 10000, type: "good", _id: uuid()},
-    {firstName: "prince", lastName: "valium", living: true, bounty: 2, type: "bad", _id: uuid()},
+    {firstName: "dark", lastName: "helmut", living: true, bounty: 60, type: "Bad", _id: uuid() },
+    {firstName: "barf", lastName: "mcbarf", living: true, bounty: 170, type: "Good", _id: uuid()},
+    {firstName: "lone", lastName: "starr", living: true, bounty: 5000, type: "Good", _id: uuid()},
+    {firstName: "yogurt", lastName: "n/a", living: true, bounty: 10000, type: "Good", _id: uuid()},
+    {firstName: "prince", lastName: "valium", living: true, bounty: 2, type: "Bad", _id: uuid()},
 ]
 
 //get all and create one

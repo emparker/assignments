@@ -19,13 +19,14 @@ export default function AddBountyForm(props) {
     
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id = "main-form">
             <input 
                 type="text" 
                 name="firstName"
                 value={inputs.firstName} 
                 onChange={handleChange}
                 placeholder="First Name"
+                className="main-form-input"
             /> 
             <input
                 type="text" 
@@ -33,6 +34,7 @@ export default function AddBountyForm(props) {
                 value={inputs.lastName} 
                 onChange={handleChange} 
                 placeholder="Last Name"
+                className="main-form-input"
             />
             <input 
                 type="text"
@@ -40,6 +42,7 @@ export default function AddBountyForm(props) {
                 value={inputs.type} 
                 onChange={handleChange} 
                 placeholder="Good or Bad"
+                className="main-form-input"
             />
             <input 
                 type="text"
@@ -47,9 +50,10 @@ export default function AddBountyForm(props) {
                 value={inputs.bounty} 
                 onChange={handleChange} 
                 placeholder="Bounty"
+                className="main-form-input"
             />
 
-            <button>Add Bounty</button>
+            <button id="form-btn">Add Bounty</button>
 
         </form>
     )

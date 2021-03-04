@@ -6,8 +6,8 @@ export default function Bounty(props) {
 
     const [ toggle, setToggle ] = useState(false)
 
-    //for the edit form
-    const initInputs = { firstName: "", lastName: "", type: "", bounty: "", living: true }
+    //for the edit form - could have just imported the addBounty form! Should refactor!
+    const initInputs = { firstName, lastName, type, bounty }
     const [ inputs, setInputs ] = useState(initInputs)
 
     function handleChange(e) {
@@ -17,9 +17,7 @@ export default function Bounty(props) {
 
     function handleSaveAndEdit(e) {
         e.preventDefault()
-        // console.log(inputs)
         handleEdit(inputs, _id)
-        // setInputs()
         setInputs(initInputs)
         setToggle((prev)=> !prev)
     }
@@ -33,21 +31,22 @@ export default function Bounty(props) {
                     <p>{living ? "Living: true" : "Living: Closed"}</p>
                     <p>Bounty: ${bounty}</p>
                     <p>{type}</p>
-                    <button onClick={()=> {handleDelete(_id)}}>Delete</button>
-                    <button onClick={()=> setToggle((prev)=> !prev)}>Edit</button>
-                    <button onClick={()=> {handleExecution(_id)}}>Execute</button>
+                    <button onClick={()=> {handleDelete(_id)}} className="card-btn">Delete</button>
+                    <button onClick={()=> setToggle((prev)=> !prev)} className="card-btn">Edit</button>
+                    <button onClick={()=> {handleExecution(_id)}} className="card-btn">Execute</button>
                 </div>
             )
             :
             (
-                <div className="edit-form">
-                    <form onSubmit={handleSaveAndEdit}>
+                <div >
+                    <form onSubmit={handleSaveAndEdit} className="edit-form">
                         <input 
                             type="text" 
                             name="firstName"
                             value={inputs.firstName} 
                             onChange={handleChange}
-                            placeholder="First Name"
+                            // placeholder="First Name"
+                            className="inputs"
                         /> 
                         <input
                             type="text" 
@@ -55,6 +54,7 @@ export default function Bounty(props) {
                             value={inputs.lastName} 
                             onChange={handleChange} 
                             placeholder="Last Name"
+                            className="inputs"
                         />
                         <input 
                             type="text"
@@ -62,6 +62,7 @@ export default function Bounty(props) {
                             value={inputs.type} 
                             onChange={handleChange} 
                             placeholder="Good or Bad"
+                            className="inputs"
                         />
                         <input 
                             type="text"
@@ -69,8 +70,9 @@ export default function Bounty(props) {
                             value={inputs.bounty} 
                             onChange={handleChange} 
                             placeholder="Bounty"
+                            className="inputs"
                         />
-                        <button>Save</button>
+                        <button id="edit-btn">Done</button>
                     </form>
                 </div>
             )
