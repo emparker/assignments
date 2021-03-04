@@ -21,7 +21,16 @@ export default function App() {
         .catch(err => console.log(err))
     }
 
-    const handleExecution = (_id)=> {
+    const handleEdit = (inputs, _id) => {
+        console.log("edit", inputs, "id", _id)
+        axios.put(`/bounties/${_id}`, inputs)
+        .then(res => {
+            setBounties(res.data)
+        })
+        .catch(err => console.log(err))
+    }
+
+    const handleExecution = (_id) => {
         axios.put(`/bounties/bountied/${_id}`)
         .then(res => {
             setBounties(res.data)
@@ -49,9 +58,10 @@ export default function App() {
                 { bounties.map(bounty => 
                     <Bounty 
                             {...bounty} 
-                            key={bounty.firstName} 
+                            key={bounty._id} 
                             handleDelete={handleDelete} 
                             handleExecution={handleExecution}
+                            handleEdit={handleEdit}
                     />) }
             </div>
             

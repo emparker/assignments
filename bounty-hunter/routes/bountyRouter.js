@@ -38,11 +38,12 @@ bountyRouter.get("/:bountyId", (req, res) => {
 bountyRouter.put("/:bountyId", (req, res) => {
         const bountyId = req.params.bountyId
         const newBounty = req.body
-        const bountyIndex = bounties.findIndex(bounty => bounty._id ===bountyId)
-        const updatedBounty = Object.assign(bounties[bountyIndex], newBounty)  //could also just use req.body and not save var newBounty
-            res.send(`you have updated ${updatedBounty.firstName}`)
+        const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+        Object.assign(bounties[bountyIndex], newBounty)  //could also just use req.body and not save var newBounty
+        res.send(bounties)
     })
 
+//edit for put request
 bountyRouter.put("/bountied/:bountyId", (req, res) => {
         const bountyId = req.params.bountyId
         const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)

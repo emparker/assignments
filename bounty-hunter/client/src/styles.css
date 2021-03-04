@@ -19,10 +19,22 @@ body {
 }
 
 .bounty {
-    
     border: 1px solid #333;
     padding: 10px;
     margin: 15px; 
     width: auto;
 }
 
+/* .edit-form-container {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 15px; 
+    width: auto;
+}
+
+.edit-form {
+    display: grid;
+    grid-template-columns: 100px;
+    grid-template-rows: repeat(4, 1fr);
+    margin: 50px;
+} */
