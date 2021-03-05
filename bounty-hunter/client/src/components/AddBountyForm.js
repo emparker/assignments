@@ -19,7 +19,7 @@ export default function AddBountyForm(props) {
     
 
     return (
-        <form onSubmit={handleSubmit} id = "main-form">
+        <form onSubmit={handleSubmit} id ="main-form">
             <input 
                 type="text" 
                 name="firstName"
