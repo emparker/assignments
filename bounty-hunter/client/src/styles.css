@@ -8,32 +8,29 @@ body {
     text-align: center;
 }
 #main-form {
-    /* background-color: rgb(214, 230, 245); */
     display: flex;
     padding: 20px;
-    /* flex-wrap: wrap; */
     background-image: linear-gradient(180deg,rgb(214, 230, 245), white);
     border: none;
     justify-content: center;
     align-items: center;
-    /* height: 80px; */
 }
 
 .main-form-input {
     height: 2rem;
     margin: 10px;
-    margin-top: 25px;
+    margin-top: 15px;
     border: hidden;
+    padding: 10px;
 }
 
 #form-btn {
     background-color: rgb(214, 230, 245);
-    padding: 10px;
-    padding-right: 80px;
+    padding: 10px 40px;
     border: hidden;
     text-align: center;
     position: relative;
-    margin-top: 14px;
+    /* margin-top: 14px; */
 }
 
 .bounty-container {
@@ -46,7 +43,7 @@ body {
     width: 100%;
 }
 
-.card-btn {
+.card-btn{
     /* background-image: linear-gradient(180deg,rgb(214, 230, 245), white); */
     background-color: rgb(214, 230, 245);
     margin: 5px;
@@ -55,8 +52,13 @@ body {
     border: hidden;
 }
 
+.card-btn:hover {
+    background-color: rgba(216, 98, 98, 0.658);
+}
 .bounty {
-    border: 1px solid #333;
+    border: 1px solid rgb(190, 187, 187);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 5px rgb(190, 187, 187);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,10 +106,6 @@ body {
 
     .main-form-input {
         width: 80%;
-    }
-
-    #form-btn {
-        padding-right: 80px;
     }
 }
 
