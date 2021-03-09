@@ -10,7 +10,7 @@ export default function App() {
     function getBounties() {
         axios.get("/bounties")
         .then(res => setBounties(res.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))   // <-- could save to state for pop up modal
     }
 
     function addBounty(newBounty) {
@@ -18,7 +18,7 @@ export default function App() {
         .then(res => {
             setBounties(prevBounties => [...prevBounties, res.data.newBounty])
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))
     }
 
     const handleEdit = (inputs, _id) => {
@@ -27,7 +27,7 @@ export default function App() {
         .then(res => {
             setBounties(res.data)
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))
     }
 
     const handleExecution = (_id) => {

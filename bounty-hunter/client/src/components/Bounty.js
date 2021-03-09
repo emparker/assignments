@@ -6,7 +6,7 @@ export default function Bounty(props) {
 
     const [ toggle, setToggle ] = useState(false)
 
-    //for the edit form - could have just imported the addBounty form! Should refactor!
+    //for the edit form - could have just imported the addBounty form- Should refactor or do that way next time!
     const initInputs = { firstName, lastName, type, bounty }
     const [ inputs, setInputs ] = useState(initInputs)
 
@@ -45,7 +45,7 @@ export default function Bounty(props) {
                             name="firstName"
                             value={inputs.firstName} 
                             onChange={handleChange}
-                            // placeholder="First Name"
+                            placeholder="First Name"
                             className="inputs"
                         /> 
                         <input
@@ -61,7 +61,7 @@ export default function Bounty(props) {
                             name="type" 
                             value={inputs.type} 
                             onChange={handleChange} 
-                            placeholder="Good or Bad"
+                            placeholder="good or bad"
                             className="inputs"
                         />
                         <input 
@@ -69,7 +69,7 @@ export default function Bounty(props) {
                             name="bounty" 
                             value={inputs.bounty} 
                             onChange={handleChange} 
-                            placeholder="Bounty"
+                            placeholder="bounty"
                             className="inputs"
                         />
                         <button id="edit-btn">Done</button>

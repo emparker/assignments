@@ -15,32 +15,49 @@ const bounties = [
 //get all and create one
 bountyRouter.route("/")
     .get((req, res) => {
-        res.send(bounties)
+        res.status(200).send(bounties)
     })
-    .post((req, res) => {
+    .post((req, res, next) => {
         const newBounty = req.body
+        // need or not?->
+        // if(newBounty === null) {
+        //     const error = new Error("you must provide bounty information.")
+        //     res.status(500)
+        //     return next(error)
+        // }
         newBounty._id = uuid()
         bounties.push(newBounty)
-        res.send({
+        res.status(201).send({
             newBounty, 
             status: `you have sent ${newBounty.firstName} ${newBounty.lastName} with a bounty of ${newBounty.bounty} to your database!`})
-            //there is a res.status method to use later once learned or need 
+            //there is a res.status method to use later once learned or need - is this the right way?
     })
     
 //GET one
-bountyRouter.get("/:bountyId", (req, res) => {
+bountyRouter.get("/:bountyId", (req, res, next) => {
     const bountyId = req.params.bountyId
-    const foundBounty= bounties.find(bounty => bounty._id === bountyId)
-    // const foundBounty = bounties[bountyIndex]- if finding by index.  .find() returns the actual element
-    res.send(`you found the bounty ${foundBounty.firstName} ${JSON.stringify(foundBounty)}`) //lastName?
+    const foundBounty = bounties.find(bounty => bounty._id === bountyId)
+    // const foundBounty = bounties[bountyIndex]- **if finding by index. ** .find() returns the actual element **
+    if(!foundBounty) {
+        const error = new Error(`The bounty id ${bountyId} is not found.`)
+        res.status(500)
+        return next(error)
+    }
+    res.status(200).send(`you found the bounty ${foundBounty.firstName} ${JSON.stringify(foundBounty)}`) //lastName?
 })
 
-bountyRouter.put("/:bountyId", (req, res) => {
+bountyRouter.put("/:bountyId", (req, res, next) => {
         const bountyId = req.params.bountyId
         const newBounty = req.body
+         //not working?not sure->
+        // if (!newBounty){
+        //     const error = new Error(`Can not find bounty with id of ${bountyId}`)
+        //     res.status(500)
+        //     return next(error)
+        // }
         const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
-        Object.assign(bounties[bountyIndex], newBounty)  //could also just use req.body and not save var newBounty
-        res.send(bounties)
+        Object.assign(bounties[bountyIndex], newBounty)  //could also just use req.body and not save var for newBounty
+        res.status(201).send(bounties)
     })
 
 //edit for put request
