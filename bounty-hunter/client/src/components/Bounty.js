@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 export default function Bounty(props) {
-    const { firstName, lastName, living, bounty, type, _id, handleDelete, handleExecution, handleEdit } = props
+    const { firstName, lastName, living, bounty, type, _id, handleDelete, handleEdit } = props
     console.log(props)
 
     const [ toggle, setToggle ] = useState(false)
@@ -32,8 +32,8 @@ export default function Bounty(props) {
                     <p>Bounty: ${bounty}</p>
                     <p>{type}</p>
                     <button onClick={()=> {handleDelete(_id)}} className="card-btn">Delete</button>
-                    <button onClick={()=> setToggle((prev)=> !prev)} className="card-btn">Edit</button>
-                    <button onClick={()=> {handleExecution(_id)}} className="card-btn">Execute</button>
+                    {living && <button onClick={()=> setToggle((prev)=> !prev)} className="card-btn">Edit</button>}
+                    {living && <button onClick={()=> {handleEdit({living : false}, _id)}} className="card-btn">Execute</button>}
                 </div>
             )
             :

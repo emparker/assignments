@@ -16,7 +16,7 @@ export default function App() {
     function addBounty(newBounty) {
         axios.post("/bounties", newBounty)
         .then(res => {
-            setBounties(prevBounties => [...prevBounties, res.data.newBounty])
+            setBounties(prevBounties => [...prevBounties, res.data])
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
@@ -25,23 +25,27 @@ export default function App() {
         console.log("edit", inputs, "id", _id)
         axios.put(`/bounties/${_id}`, inputs)
         .then(res => {
-            setBounties(res.data)
+            setBounties(prevBounties => {
+                return prevBounties.map(bounty => bounty._id === _id ? res.data : bounty)
+            })
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
 
-    const handleExecution = (_id) => {
-        axios.put(`/bounties/bountied/${_id}`)
-        .then(res => {
-            setBounties(res.data)
-        })
-        .catch(err => console.log(err))
-    }
+    // const handleExecution = (_id) => {
+    //     axios.put(`/bounties/bountied/${_id}`)
+    //     .then(res => {
+    //         setBounties(res.data)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
 
     const handleDelete = (_id) => {
         axios.delete(`/bounties/${_id}`)
-        .then(res => {
-            setBounties(res.data)
+        .then(() => {
+            setBounties(prevBounties => {
+                return prevBounties.filter(bounty => bounty._id !== _id)
+            })
         })
         .catch(err => console.log(err))
     }
@@ -55,12 +59,17 @@ export default function App() {
         <div className="bounties-container">
             <AddBountyForm addBounty={addBounty} />
             <div className="bounty-components">
-                { bounties.map(bounty => 
+                { bounties.sort((a, b) => {
+                    if (a.living !== b.living) {
+                    return b.living ? 1 : -1
+                } 
+                return 0
+            }).map(bounty => 
                     <Bounty 
                             {...bounty} 
                             key={bounty._id} 
                             handleDelete={handleDelete} 
-                            handleExecution={handleExecution}
+                            // handleExecution={handleExecution}
                             handleEdit={handleEdit}
                     />) }
             </div>
