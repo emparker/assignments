@@ -13,7 +13,7 @@ const Bounty = require("../models/bountyModel.js")
 //     {firstName: "prince", lastName: "valium", living: true, bounty: 2, type: "Bad", _id: uuid()},
 // ]
 
-//get all and create one
+//get all and create one//
 bountyRouter.route("/")
     .get((req, res, next) => {
         // res.status(200).send(bounties) -old way with hardcoded data
@@ -43,8 +43,19 @@ bountyRouter.route("/")
         //     status: `you have sent ${newBounty.firstName} ${newBounty.lastName} with a bounty of ${newBounty.bounty} to your database!`})
     })
     
-//GET one -later on bring back
-// bountyRouter.get("/:bountyId", (req, res, next) => {
+//GET one//
+bountyRouter.get("/:bountyId", (req, res, next) => {
+    Bounty.findOne(
+        { _id: req.params.bountyId },
+        (err, foundBounty) => {
+            if(err){
+                res.status(500)
+                    return next(err)
+            }
+            return res.status(200).send(foundBounty)
+        })
+    })   
+//old way//
 //     const bountyId = req.params.bountyId
 //     const foundBounty = bounties.find(bounty => bounty._id === bountyId)
 //     // const foundBounty = bounties[bountyIndex]- **if finding by index. ** .find() returns the actual element **
@@ -54,7 +65,7 @@ bountyRouter.route("/")
 //         return next(error)
 //     }
 //     res.status(200).send(`you found the bounty ${foundBounty.firstName} ${JSON.stringify(foundBounty)}`) //lastName?
-// })
+// 
 
 //update one//
 bountyRouter.put("/:bountyId", (req, res, next) => {
