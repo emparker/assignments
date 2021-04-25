@@ -19,12 +19,7 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    },
-    // issue: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Issue",
-    //     required: true
-    // }
+    }
 })
 
 module.exports = mongoose.model("User", userSchema)

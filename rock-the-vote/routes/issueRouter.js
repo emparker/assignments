@@ -13,9 +13,20 @@ issueRouter.get("/", (req, res, next) => {
     })
 })
 
+//Get Isssue by User
+issueRouter.get("/by-user", (req, res, next) => {
+    Issue.find({ author: req.user._id }, (err, issues) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(issues)
+    })
+})
+
 //Add New Issue
 issueRouter.post("/", (req, res, next) => {
-    req.body.user = req.user._id
+    req.body.author = req.user._id
     const newIssue = new Issue(req.body)
     newIssue.save((err, savedIssue) => {
         if(err){
@@ -28,8 +39,8 @@ issueRouter.post("/", (req, res, next) => {
 
 //Delete Issue
 issueRouter.delete("/:issueId", (req, res, next) => {
-    Issue.findOneandDelete(
-        { _id: req.params.issueId },
+    Issue.findOneAndDelete(
+        { _id: req.params.issueId, author: req.user._id },
         (err, deletedIssue) => {
             if(err){
                 res.status(500)
@@ -43,7 +54,7 @@ issueRouter.delete("/:issueId", (req, res, next) => {
 //Update Issue
 issueRouter.put("/:issueId", (req, res, next) => {
     Issue.findOneAndUpdate(
-        { _id: req.params.issueId },
+        { _id: req.params.issueId, author: req.user._id },
         req.body,
         { new: true },
         (err, updatedIssue) => {

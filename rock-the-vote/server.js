@@ -21,8 +21,9 @@ mongoose.connect(
 )
 
 app.use("/auth", require("./routes/authRouter.js"))
-app.use("/api", expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
-app.use("/api/issue", require("./routes/issueRouter.js"))
+app.use("/api", expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))  //expressJwt decodes the user obj and adds to req obj as req.user
+app.use("/api/issues", require("./routes/issueRouter.js"))
+app.use("/api/comments", require("./routes/commentRouter.js"))
 
 
 app.use((err, req, res, next) => {
