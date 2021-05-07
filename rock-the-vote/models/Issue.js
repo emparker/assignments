@@ -10,29 +10,28 @@ const issueSchema = new Schema({
         type: String,
         required: true
     },
-    upVotes: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-        }
-    ],
-    downVotes: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-        }
-    ],
     author: {
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
     },
-    comments: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Comment"
-        }
-    ]
+    votes: {
+            upVotes: [{
+                type: Schema.Types.ObjectId, 
+                ref: "User",
+            }],
+            downVotes: [{
+                type: Schema.Types.ObjectId, 
+                ref: "User",
+            }]
+    },
+        // comments: [{
+        //         type: Schema.Types.ObjectId,
+        //         ref: "Comment"
+        //     }]   //$push req.body in router 
 })
-
+    
 module.exports = mongoose.model("Issue", issueSchema)
+                
+        
+        

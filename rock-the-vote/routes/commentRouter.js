@@ -8,6 +8,9 @@ const Comment = require("../models/Comment.js")
 //add a comment to an issue
 commentRouter.post("/:issueId", (req, res, next) => {
     req.body.author = req.user._id
+    req.body.issue = req.params.issueId
+    console.log(req.body)
+    // User.findOne({ author: req.user._id }, (err, comment))
     // Issue.findById(req.params.issueId)
     const newComment = new Comment(req.body)
     newComment.save((err, savedComment) => {

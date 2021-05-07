@@ -67,5 +67,24 @@ issueRouter.put("/:issueId", (req, res, next) => {
     )
 })
 
+//Post request for upVotes 
+issueRouter.put("/vote/:issueId", (req, res, next) => {
+    Issue.findOneAndUpdate(
+        { _id: req.params.issueId },
+        {$set: {votes: req.body}},
+        // req.body === "upVote" ? 
+        //     {$push: {upVotes: req.body}} : {$push: {downVotes: req.body}},
+        { new: true },
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedIssue)
+        }
+        
+    )//$push req.body in router 
+})
+
 
 module.exports = issueRouter

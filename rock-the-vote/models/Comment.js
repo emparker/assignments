@@ -14,7 +14,7 @@ const commentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Issue",
         
-    }
+    }   
 })
 
 module.exports = mongoose.model("Comment", commentSchema)
