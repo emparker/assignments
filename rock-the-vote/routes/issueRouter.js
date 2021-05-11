@@ -68,22 +68,23 @@ issueRouter.put("/:issueId", (req, res, next) => {
 })
 
 //Post request for upVotes 
-issueRouter.put("/vote/:issueId", (req, res, next) => {
-    Issue.findOneAndUpdate(
-        { _id: req.params.issueId },
-        {$set: {votes: req.body}},
-        // req.body === "upVote" ? 
-        //     {$push: {upVotes: req.body}} : {$push: {downVotes: req.body}},
-        { new: true },
-        (err, updatedIssue) => {
-            if(err){
+issueRouter.put("/up-vote/:issueId", async (req, res, next) => {
+    try {
+        const issue = await Issue.findOne({ _id: req.params.issueId})
+        console.log(issue)
+        if (issue.votes.upVotes.includes(req.user._id)) {
+            return res.status(403).send('You can only vote once per issue!')
+        }
+        const updatedIssue = await Issue.findOneAndUpdate(
+                        { _id: req.params.issueId },
+                        {$addToSet: {"votes.upVotes": req.user._id}},
+                        { new: true },
+                    )
+                    return res.status(201).send(updatedIssue)
+        } catch(err) {
                 res.status(500)
                 return next(err)
-            }
-            return res.status(201).send(updatedIssue)
         }
-        
-    )//$push req.body in router 
 })
 
 
