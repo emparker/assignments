@@ -80,6 +80,42 @@ issueRouter.put("/up-vote/:issueId", async (req, res, next) => {
                         {$addToSet: {"votes.upVotes": req.user._id}},
                         { new: true },
                     )
+                    if (issue.votes.downVotes.includes(req.user._id)){
+                        const removedFromDownVote = await Issue.findOneAndUpdate(
+                            { _id: req.params.issueId },
+                            {$pull: {"votes.downVotes": req.user._id}},
+                            { new: true }
+                        )
+                        return res.status(201).send(removedFromDownVote)
+                    }
+                    return res.status(201).send(updatedIssue)
+        } catch(err) {
+                res.status(500)
+                return next(err)
+        }
+})
+
+//Post request for downVotes
+issueRouter.put("/down-vote/:issueId", async (req, res, next) => {
+    try {
+        const issue = await Issue.findOne({ _id: req.params.issueId})
+        if (issue.votes.downVotes.includes(req.user._id)) {
+            return res.status(403).send('You can only vote once per issue!')
+        }
+        
+        const updatedIssue = await Issue.findOneAndUpdate(
+                        { _id: req.params.issueId },
+                        {$addToSet: {"votes.downVotes": req.user._id}},
+                        { new: true }
+                    )
+                    if (issue.votes.upVotes.includes(req.user._id)){
+                        const removedFromUpVote = await Issue.findOneAndUpdate(
+                            { _id: req.params.issueId },
+                            {$pull: {"votes.upVotes": req.user._id}},
+                            { new: true }
+                        )
+                        return res.status(201).send(removedFromUpVote)
+                    }
                     return res.status(201).send(updatedIssue)
         } catch(err) {
                 res.status(500)
@@ -88,4 +124,8 @@ issueRouter.put("/up-vote/:issueId", async (req, res, next) => {
 })
 
 
+
 module.exports = issueRouter
+
+// In down votes router.  check if already in array but ALSO check if in up votes array.
+// If so $pull then add to downvotes []
