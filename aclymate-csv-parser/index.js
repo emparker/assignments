@@ -1,8 +1,5 @@
 const { rawData } = require("./metaData.js")
 
-
-
-
 const formatCsv = (data) => {
     let formattedData = []
     const headers = data[0]
@@ -14,6 +11,6 @@ const formatCsv = (data) => {
         }
         formattedData.push(obj)
     }
-    console.log(formattedData)
+    return(formattedData)
 }
-formatCsv(rawData)
+console.log(formatCsv(rawData))

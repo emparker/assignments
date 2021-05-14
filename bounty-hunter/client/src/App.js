@@ -32,14 +32,6 @@ export default function App() {
         .catch(err => console.log(err.response.data.errMsg))
     }
 
-    // const handleExecution = (_id) => {
-    //     axios.put(`/bounties/bountied/${_id}`)
-    //     .then(res => {
-    //         setBounties(res.data)
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-
     const handleDelete = (_id) => {
         axios.delete(`/bounties/${_id}`)
         .then(() => {
@@ -68,8 +60,7 @@ export default function App() {
                     <Bounty 
                             {...bounty} 
                             key={bounty._id} 
-                            handleDelete={handleDelete} 
-                            // handleExecution={handleExecution}
+                            handleDelete={handleDelete}
                             handleEdit={handleEdit}
                     />) }
             </div>

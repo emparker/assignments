@@ -25,13 +25,6 @@ const issueSchema = new Schema({
                 ref: "User",
             }]
     },
-        // comments: [{
-        //         type: Schema.Types.ObjectId,
-        //         ref: "Comment"
-        //     }]   //$push req.body in router 
 })
     
 module.exports = mongoose.model("Issue", issueSchema)
-                
-        
-        

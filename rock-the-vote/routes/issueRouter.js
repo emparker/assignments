@@ -124,8 +124,4 @@ issueRouter.put("/down-vote/:issueId", async (req, res, next) => {
 })
 
 
-
 module.exports = issueRouter
-
-// In down votes router.  check if already in array but ALSO check if in up votes array.
-// If so $pull then add to downvotes []
