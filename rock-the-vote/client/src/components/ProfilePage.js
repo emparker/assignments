@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from './Navbar.js'
 import Footer from './Footer.js'
+import { UserContext } from '../context/UserProvider.js'
 // import IssueForm from '../forms/IssueForm.js'
 // import Issue from './Issue.js'
 // import IssueList from './IssueList.js'
 
 export default function ProfilePage(){
+    const { user: {username} } = useContext(UserContext)
 
     return (
         <div>
-            test profile.js
             <Navbar />
+            <h1>Hello { username }</h1>
+
             {/* 
                 -user issues <IssueList />  - get all issues by user id
                 -add an issue <IssueForm /> 
