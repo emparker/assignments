@@ -8,9 +8,8 @@ export default function App(){
 
     return (
         <div>
-            {/* <h1>ROCK THE VOTE</h1> */}
+            <h1>Rock The Vote!</h1>
             <section>
-                testy tester
                 <Switch>
                     <Route exact path="/"
                         render={()=> <AuthPage />}

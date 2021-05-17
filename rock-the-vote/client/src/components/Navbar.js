@@ -7,7 +7,7 @@ export default function Navbar(props){
         <div>
             test navbar.js
             {/* Hello @username */}
-            <Link to="">{/* profile link */}</Link>
+            <Link to="">{/* profile page link */}</Link>
             <Link to="">{/* public page link */}</Link>
         </div>
     )

@@ -1,9 +1,9 @@
 import React from 'react'
 import Navbar from './Navbar.js'
 import Footer from './Footer.js'
-import IssueForm from '../forms/IssueForm.js'
-import Issue from './Issue.js'
-import IssueList from './IssueList.js'
+// import IssueForm from '../forms/IssueForm.js'
+// import Issue from './Issue.js'
+// import IssueList from './IssueList.js'
 
 export default function ProfilePage(){
 

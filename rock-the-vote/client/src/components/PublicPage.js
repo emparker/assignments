@@ -1,9 +1,9 @@
 import React from 'react'
 import Navbar from './Navbar.js'
 import Footer from './Footer.js'
-import Issue from './Issue.js'
-import IssueList from './IssueList'
-import IssueForm from '../forms/IssueForm.js'
+// import Issue from './Issue.js'
+// import IssueList from './IssueList'
+// import IssueForm from '../forms/IssueForm.js'
 
 
 export default function PublicPage(){
