@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from './Navbar.js'
 import Footer from './Footer.js'
 // import Issue from './Issue.js'
 // import IssueList from './IssueList'
 // import IssueForm from '../forms/IssueForm.js'
+import { UserContext } from '../context/UserProvider.js'
 
 
 export default function PublicPage(){
+    const { user: {username}, logout } = useContext(UserContext)
 
     return (
         <div>
-            <Navbar />
+            <Navbar username={username}/>
             test PublicPage.js
             {/* 
             
@@ -22,7 +24,7 @@ export default function PublicPage(){
                 *Create issue <IssueForm />
 
             */}
-            <Footer />
+            <Footer logout={logout}/>
         </div>
     )
 }

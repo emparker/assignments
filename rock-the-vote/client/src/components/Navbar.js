@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar(props){
     // const {username: {username}} = useContext(UserContext)
-
+const { username } = props
 
     return (
         <div>
-            test navbar.js
-            {/* <h1>Hello {username}</h1> */}
-            <Link to="">{/* profile page link */}</Link>
-            <Link to="">{/* public page link */}</Link>
+            <h2>Every Vote Counts</h2>
+            <Link to="/profile">{username}'s Page</Link>
+            <Link to="/public">Public Feed</Link>
         </div>
     )
 }

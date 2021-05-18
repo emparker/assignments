@@ -7,11 +7,11 @@ import { UserContext } from '../context/UserProvider.js'
 // import IssueList from './IssueList.js'
 
 export default function ProfilePage(){
-    const { user: {username} } = useContext(UserContext)
+    const { user: {username}, logout } = useContext(UserContext)
 
     return (
         <div>
-            <Navbar />
+            <Navbar username={username}/>
             <h1>Hello { username }</h1>
 
             {/* 
@@ -21,7 +21,7 @@ export default function ProfilePage(){
                 -veiw comments per issue  - drop down comments per issue  - get comments by issue id
             */}
             
-            <Footer />
+            <Footer logout={logout}/>
         </div>
     )
 }

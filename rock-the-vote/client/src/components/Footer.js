@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 
 export default function Footer(props){
-
+const { logout } = props
     return (
-        <Link to="">Log out @username</Link>
+        <Link to="/" onClick={logout}>Log out</Link>
     )
 }

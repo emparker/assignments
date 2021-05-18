@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthPage from './components/AuthPage.js'
 import ProfilePage from './components/ProfilePage.js'
 import PublicPage from './components/PublicPage.js'
@@ -14,10 +14,8 @@ const { token } = useContext(UserContext)
             <section>
                 <Switch>
                     <Route exact path="/"
-                        render={()=> <AuthPage />}
+                        render={()=> token ? <Redirect to="/profile"/> : <AuthPage />}
                         />
-                        {/* token ? <ProfilePage /> :  */}
-                    
                     <Route path="/profile"
                         render={()=> <ProfilePage />}
                     />
