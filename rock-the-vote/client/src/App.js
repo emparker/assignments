@@ -4,6 +4,7 @@ import AuthPage from './components/AuthPage.js'
 import ProfilePage from './components/ProfilePage.js'
 import PublicPage from './components/PublicPage.js'
 import { UserContext } from './context/UserProvider.js'
+// import { IssueContext } from './context/IssueProvider.js'
 
 export default function App(){
 const { token } = useContext(UserContext)

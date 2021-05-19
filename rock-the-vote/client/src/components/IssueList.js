@@ -1,10 +1,12 @@
 import React from 'react'
+import Issue from './Issue.js'
 
-export default function IssueList(){
-    //map Issue component
+export default function IssueList(props){
+    const { issues } = props
+
     return (
         <div>
-            test IssueList.js
+            {issues.map(issue => <Issue key={issue._id} issue={issue}/>)}
         </div>
     )
 }

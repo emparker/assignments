@@ -1,37 +1,41 @@
 import React from 'react'
-import Navbar from '../components/Navbar.js'
-import Footer from '../components/Footer.js'
-
 
 export default function IssueForm(props){
-    //state inputs, setInputs { title, description }
-    // deconstruct props if need?
-    // handleSubmit
-    // handleChange
-    //const {title, description } = inputs
+    const {
+        handleChange,
+        handleSubmit,
+        buttonText,
+        inputs: { title, description} 
+    } = props
 
 
     return (
         <div>
-            <Navbar />
             
-            <form>
-                {/* 
-                <input onSubmit={}
+            <form onSubmit={handleSubmit}>
+                
+                <input
                     type="text"
-                    value=
-                    onChange=
-                    placeholder= ""
+                    value={title}
+                    name="title"
+                    onChange={handleChange}
+                    placeholder= "Title"
                 /> 
-                */}
-                <button>Create Your Issue!</button>
+                <input
+                    type="text"
+                    value={description}
+                    name="description"
+                    onChange={handleChange}
+                    placeholder= "Description"
+                /> 
+                <button>{buttonText}</button>
                 {/* 
                     * CREATE AN ISSUE
                         -EDIT ISSUE? *MAYBE -CAN BE DONE THROUGH LIST AND MAY BE REDUNDANT HERE*
                     
                 */}
             </form>
-            <Footer />
+            
         </div>
     )
 }
