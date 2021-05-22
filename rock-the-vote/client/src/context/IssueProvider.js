@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 export const IssueContext = React.createContext()
@@ -38,14 +38,20 @@ export default function IssueProvider(props){
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
-
+//remove try catch?
     function getIssuesByAuthor(authorId){
         issueAxios.get("/api/issues/by-user", authorId)
         .then(res => {
-            setIssuesState(prevIssueState => ({
-            ...prevIssueState,
-            userIssues: res.data
-            }))
+            try{
+
+                setIssuesState(prevIssueState => ({
+                ...prevIssueState,
+                userIssues: res.data
+                }))
+            } 
+            catch{
+                console.log(res)
+            }
         })
         .catch(err => console.log(err.response.data.errMsg))
     }

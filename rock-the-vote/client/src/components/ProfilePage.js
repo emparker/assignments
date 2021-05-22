@@ -10,7 +10,10 @@ const initInputs = { title: "", description: ""}
 
 export default function ProfilePage(){
     const [ inputs, setInputs ] = useState(initInputs)
-    const { user: {username}, logout } = useContext(UserContext)
+
+    const { 
+        user: {username}, 
+        logout } = useContext(UserContext)
 
     const { 
         issues, 
@@ -44,9 +47,6 @@ export default function ProfilePage(){
             <h1>Hello { username }</h1>
             <IssueList issues={userIssues}/> 
             {/* 
-                -user issues <IssueList />  - get all issues by user id
-                -add an issue <IssueForm /> 
-                -only access to edit button for issue is here in profile?  put request for issue by issue id
                 -veiw comments per issue  - drop down comments per issue  - get comments by issue id
             */}
             <IssueForm 
