@@ -8,9 +8,9 @@ const { username } = props
 
     return (
         <div>
-            <h2>Every Vote Counts</h2>
-            <Link to="/profile">{username}'s Page</Link>
-            <Link to="/public">Public Feed</Link>
+            <h2>EVERY VOTE COUNTS!</h2>
+            <Link to="/profile">{username}'s page</Link>
+            <Link to="/public">public feed</Link>
         </div>
     )
 }

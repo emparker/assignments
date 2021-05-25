@@ -11,7 +11,7 @@ const { token } = useContext(UserContext)
 
     return (
         <div>
-            <h1>Rock The Vote!</h1>
+            <h1>ROCK THE VOTE!</h1>
             <section>
                 <Switch>
                     <Route exact path="/"

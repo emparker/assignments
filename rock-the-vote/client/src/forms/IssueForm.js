@@ -21,7 +21,7 @@ export default function IssueForm(props){
                     onChange={handleChange}
                     placeholder= "Title"
                 /> 
-                <input
+                <textarea
                     type="text"
                     value={description}
                     name="description"
@@ -29,11 +29,6 @@ export default function IssueForm(props){
                     placeholder= "Description"
                 /> 
                 <button>{buttonText}</button>
-                {/* 
-                    * CREATE AN ISSUE
-                        -EDIT ISSUE? *MAYBE -CAN BE DONE THROUGH LIST AND MAY BE REDUNDANT HERE*
-                    
-                */}
             </form>
             
         </div>

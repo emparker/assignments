@@ -38,7 +38,7 @@ export default function AuthPage(){
                         inputs= {inputs}
                         buttonText="Sign Up!"
                     />
-                    <p onClick={()=> setToggle(prev => !prev)}>Already a member?</p>
+                    <p onClick={()=> setToggle(prev => !prev)}>already a member?</p>
                 </>
             :
                 <>
@@ -48,7 +48,7 @@ export default function AuthPage(){
                         inputs= {inputs}
                         buttonText="Log In!"
                     />
-                    <p onClick={()=> setToggle(prev => !prev)}>Not a member?</p>
+                    <p onClick={()=> setToggle(prev => !prev)}>not a member?</p>
                 </>
 
             }

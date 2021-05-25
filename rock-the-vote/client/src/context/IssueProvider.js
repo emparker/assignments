@@ -18,7 +18,7 @@ export default function IssueProvider(props){
     }
 
     const [issuesState, setIssuesState] = useState(initState)
-
+//upvot/downvote functions (update aka PUT request)
     function createIssue(newIssue){
         issueAxios.post("/api/issues", newIssue)
         .then(response => setIssuesState(prevIssuesState => ({
@@ -28,12 +28,25 @@ export default function IssueProvider(props){
         .catch(err => console.log(err))
     }
 
+    function editIssue(_id, inputs){
+        issueAxios.put(`/api/issues/${_id}`, inputs)
+        .then(response => setIssuesState(prevIssuesState => {
+            return {
+                ...prevIssuesState,
+                userIssues: prevIssuesState.userIssues.map(issue => _id === issue._id ? response.data : issue),
+                issues: prevIssuesState.issues.map(issue => _id === issue._id ? response.data : issue)
+
+            }
+        }))
+        .catch(err => console.log(err))
+    }
+
     function getAllIssues(){
         issueAxios.get("/api/issues")
-        .then(res => {
-            setIssuesState(prevIssueState => ({
-            ...prevIssueState,
-            issues: res.data
+        .then(response => {
+            setIssuesState(prevIssuesState => ({
+            ...prevIssuesState,
+            issues: response.data
             }))
         })
         .catch(err => console.log(err.response.data.errMsg))
@@ -41,17 +54,31 @@ export default function IssueProvider(props){
 //remove try catch?
     function getIssuesByAuthor(authorId){
         issueAxios.get("/api/issues/by-user", authorId)
-        .then(res => {
+        .then(response => {
             try{
-
-                setIssuesState(prevIssueState => ({
-                ...prevIssueState,
-                userIssues: res.data
+            console.log(response)
+                setIssuesState(prevIssuesState => ({
+                ...prevIssuesState,
+                userIssues: response.data
                 }))
             } 
             catch{
-                console.log(res)
+                console.log(response)
             }
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    function deleteIssue(_id){
+        issueAxios.delete(`/api/issues/${_id}`)
+        .then(response => {
+            setIssuesState(prevIssuesState => {
+                return {
+                    ...prevIssuesState,
+                    userIssues: prevIssuesState.userIssues.filter(issue => issue._id !== _id),
+                    issues: prevIssuesState.issues.filter(issue => issue._id !== _id) 
+                }
+            })
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
@@ -61,8 +88,10 @@ export default function IssueProvider(props){
             value={{
                 ...issuesState,
                 createIssue,
+                editIssue,
                 getAllIssues,
-                getIssuesByAuthor
+                getIssuesByAuthor,
+                deleteIssue
             }}>
             { props.children }
         </IssueContext.Provider>
