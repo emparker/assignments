@@ -20,9 +20,10 @@ export default function ProfilePage(){
         createIssue,
         editIssue,
         getIssuesByAuthor,
-        deleteIssue 
+        deleteIssue,
+        upVote
     } = useContext(IssueContext)
-    console.log(userIssues)
+    // console.log(userIssues)
 
     useEffect(() => {
         getIssuesByAuthor()
@@ -46,7 +47,7 @@ export default function ProfilePage(){
         <div>
             <Navbar username={username}/>
             <h1>hello { username }</h1>
-            <IssueList issues={userIssues} editIssue={editIssue} deleteIssue={deleteIssue} /> 
+            <IssueList issues={userIssues} editIssue={editIssue} deleteIssue={deleteIssue} upVote={upVote} /> 
             {/* 
                 -veiw comments per issue  - drop down comments per issue  - get comments by issue id
             */}

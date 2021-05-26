@@ -6,14 +6,13 @@ import IssueForm from '../forms/IssueForm.js'
 export default function Issue(props){
     const { issue, editIssue, deleteIssue, upVote } = props
     const { title, description, author, _id } = issue
-    // const { editIssue } = useContext(IssueContext)
-    // console.log(editIssue)
+
     const { user } = useContext(UserContext)
     
     const initInputs = { title, description }
-    
     const [ inputs, setInputs ] = useState(initInputs)
-    const [showEditForm, setShowEditForm ] = useState(false)
+    const [ showEditForm, setShowEditForm ] = useState(false)
+    // const [ upVotes, setUpVotes ] = useState([])
 
     function editIssueSubmit(e){
         e.preventDefault()
@@ -43,6 +42,8 @@ export default function Issue(props){
 
     function handleUpVote(){
         upVote(_id, user._id)
+        // setUpVotes(upVotes)
+        
     }
 
     return (
@@ -58,8 +59,11 @@ export default function Issue(props){
                         <button onClick={handleDelete}>Delete</button>
                     </div>
                 }
-                <button onClick={handleUpVote}>upvote</button>
-                <button>downvote</button>
+                <div>
+                    <button onClick={handleUpVote}>upvote</button>
+                    <button>downvote</button>
+                </div>
+                
                 {/* 
                 <textarea>
                 for comments */}
