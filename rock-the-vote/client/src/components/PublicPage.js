@@ -10,7 +10,7 @@ import { IssueContext } from '../context/IssueProvider.js'
 
 export default function PublicPage(){
     const { user: {username}, logout } = useContext(UserContext)
-    const { issues, getAllIssues, deleteIssue, editIssue } = useContext(IssueContext)
+    const { issues, getAllIssues, deleteIssue, editIssue, upVote } = useContext(IssueContext)
 
     useEffect(() => {
         getAllIssues()
@@ -19,7 +19,7 @@ export default function PublicPage(){
     return (
         <div>
             <Navbar username={username}/>
-            <IssueList issues={issues} editIssue={editIssue} deleteIssue={deleteIssue}/>
+            <IssueList issues={issues} editIssue={editIssue} deleteIssue={deleteIssue} upVote={upVote}/>
 
             {/* 
             

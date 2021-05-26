@@ -95,7 +95,7 @@ issueRouter.put("/up-vote/:issueId", async (req, res, next) => {
         }
 })
 
-//Post request for downVotes
+//Put request for downVotes
 issueRouter.put("/down-vote/:issueId", async (req, res, next) => {
     try {
         const issue = await Issue.findOne({ _id: req.params.issueId})

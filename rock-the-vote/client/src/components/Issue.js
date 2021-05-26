@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserProvider.js'
 import IssueForm from '../forms/IssueForm.js'
 
 export default function Issue(props){
-    const { issue, editIssue, deleteIssue } = props
+    const { issue, editIssue, deleteIssue, upVote } = props
     const { title, description, author, _id } = issue
     // const { editIssue } = useContext(IssueContext)
     // console.log(editIssue)
@@ -41,6 +41,10 @@ export default function Issue(props){
         deleteIssue(_id)
     }
 
+    function handleUpVote(){
+        upVote(_id, user._id)
+    }
+
     return (
         <>
             {!showEditForm ? (
@@ -54,9 +58,11 @@ export default function Issue(props){
                         <button onClick={handleDelete}>Delete</button>
                     </div>
                 }
-                <button>upvote</button>
+                <button onClick={handleUpVote}>upvote</button>
                 <button>downvote</button>
-                {/* comments */}
+                {/* 
+                <textarea>
+                for comments */}
                 </div>
             )
             :

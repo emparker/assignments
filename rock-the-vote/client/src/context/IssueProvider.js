@@ -18,7 +18,7 @@ export default function IssueProvider(props){
     }
 
     const [issuesState, setIssuesState] = useState(initState)
-//upvot/downvote functions (update aka PUT request)
+
     function createIssue(newIssue){
         issueAxios.post("/api/issues", newIssue)
         .then(response => setIssuesState(prevIssuesState => ({
@@ -83,6 +83,19 @@ export default function IssueProvider(props){
         .catch(err => console.log(err.response.data.errMsg))
     }
 
+    function upVote( issueId, _id){
+        issueAxios.put(`/api/issues/up-vote/${issueId}`)
+        .then(response => setIssuesState(prevIssuesState => {
+            return {
+                ...prevIssuesState,
+                userIssues: prevIssuesState.userIssues.map(issue => issue._id ? response.data : issue),
+                issues: prevIssuesState.issues.map(issue => issue._id ? response.data : issue)
+
+            }
+        }))
+        .catch(err => console.log(err))
+    }
+
     return (
         <IssueContext.Provider 
             value={{
@@ -91,7 +104,8 @@ export default function IssueProvider(props){
                 editIssue,
                 getAllIssues,
                 getIssuesByAuthor,
-                deleteIssue
+                deleteIssue,
+                upVote
             }}>
             { props.children }
         </IssueContext.Provider>
