@@ -13,7 +13,8 @@ export default function ProfilePage(){
 
     const { 
         user: {username}, 
-        logout } = useContext(UserContext)
+        logout 
+    } = useContext(UserContext)
 
     const { 
         userIssues,
@@ -21,7 +22,8 @@ export default function ProfilePage(){
         editIssue,
         getIssuesByAuthor,
         deleteIssue,
-        upVote
+        upVote,
+        downVote
     } = useContext(IssueContext)
     // console.log(userIssues)
 
@@ -47,16 +49,22 @@ export default function ProfilePage(){
         <div>
             <Navbar username={username}/>
             <h1>hello { username }</h1>
-            <IssueList issues={userIssues} editIssue={editIssue} deleteIssue={deleteIssue} upVote={upVote} /> 
-            {/* 
+            <IssueList 
+                issues={userIssues} 
+                editIssue={editIssue} 
+                deleteIssue={deleteIssue} 
+                upVote={upVote} 
+                downVote={downVote} 
+            /> 
+            {/*
                 -veiw comments per issue  - drop down comments per issue  - get comments by issue id
             */}
             
             <IssueForm 
-                    handleChange= {handleChange}
-                    handleSubmit= {handleSubmit}
-                    inputs= {inputs}
-                    buttonText="Create Issue"
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                inputs={inputs}
+                buttonText="Create Issue"
             />
             
             <Footer logout={logout}/>

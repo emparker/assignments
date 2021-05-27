@@ -15,8 +15,8 @@ export default function UserProvider(props) {
         axios.post("/auth/signup", credentials)
         .then(res => { 
             const { token, user } = res.data
-            localStorage.setItem("token", token);
-            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
             setUserState(prevUserState => ({
                 ...prevUserState,
                 user,
@@ -30,8 +30,8 @@ export default function UserProvider(props) {
         axios.post("/auth/login", credentials)
         .then(res => {
             const { token, user } = res.data
-            localStorage.setItem("token", token);
-            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
             setUserState(prevUserState => ({
                 ...prevUserState,
                 user,

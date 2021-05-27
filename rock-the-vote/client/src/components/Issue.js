@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/UserProvider.js'
-// import { IssueContext } from '../context/IssueProvider.js'
 import IssueForm from '../forms/IssueForm.js'
 
 export default function Issue(props){
-    const { issue, editIssue, deleteIssue, upVote } = props
+    const { issue, editIssue, deleteIssue, upVote, downVote } = props
     const { title, description, author, _id } = issue
 
     const { user } = useContext(UserContext)
@@ -12,7 +11,6 @@ export default function Issue(props){
     const initInputs = { title, description }
     const [ inputs, setInputs ] = useState(initInputs)
     const [ showEditForm, setShowEditForm ] = useState(false)
-    // const [ upVotes, setUpVotes ] = useState([])
 
     function editIssueSubmit(e){
         e.preventDefault()
@@ -42,8 +40,10 @@ export default function Issue(props){
 
     function handleUpVote(){
         upVote(_id, user._id)
-        // setUpVotes(upVotes)
-        
+    }
+
+    function handleDownVote(){
+        downVote(_id, user._id)
     }
 
     return (
@@ -59,14 +59,13 @@ export default function Issue(props){
                         <button onClick={handleDelete}>Delete</button>
                     </div>
                 }
-                <div>
-                    <button onClick={handleUpVote}>upvote</button>
-                    <button>downvote</button>
-                </div>
-                
+                    <div>
+                        <button onClick={handleUpVote}>upvote</button>
+                        <button onClick={handleDownVote}>downvote</button>
+                    </div>
                 {/* 
-                <textarea>
-                for comments */}
+                display the votes!
+                 comments */}
                 </div>
             )
             :

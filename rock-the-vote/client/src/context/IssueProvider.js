@@ -18,7 +18,6 @@ export default function IssueProvider(props){
     }
 
     const [issuesState, setIssuesState] = useState(initState)
-    // const [ upVotes, setUpVotes ] = useState([])
 
     function createIssue(newIssue){
         issueAxios.post("/api/issues", newIssue)
@@ -34,8 +33,10 @@ export default function IssueProvider(props){
         .then(response => setIssuesState(prevIssuesState => {
             return {
                 ...prevIssuesState,
-                userIssues: prevIssuesState.userIssues.map(issue => _id === issue._id ? response.data : issue),
-                issues: prevIssuesState.issues.map(issue => _id === issue._id ? response.data : issue)
+                userIssues: prevIssuesState.userIssues
+                    .map(issue => _id === issue._id ? response.data : issue),
+                issues: prevIssuesState.issues
+                    .map(issue => _id === issue._id ? response.data : issue)
 
             }
         }))
@@ -57,7 +58,6 @@ export default function IssueProvider(props){
         issueAxios.get("/api/issues/by-user", authorId)
         .then(response => {
             try{
-            // console.log(response)
                 setIssuesState(prevIssuesState => ({
                 ...prevIssuesState,
                 userIssues: response.data
@@ -76,8 +76,10 @@ export default function IssueProvider(props){
             setIssuesState(prevIssuesState => {
                 return {
                     ...prevIssuesState,
-                    userIssues: prevIssuesState.userIssues.filter(issue => issue._id !== _id),
-                    issues: prevIssuesState.issues.filter(issue => issue._id !== _id) 
+                    userIssues: prevIssuesState.userIssues
+                        .filter(issue => issue._id !== _id),
+                    issues: prevIssuesState.issues
+                        .filter(issue => issue._id !== _id) 
                 }
             })
         })
@@ -87,12 +89,26 @@ export default function IssueProvider(props){
     function upVote( issueId, _id){
         issueAxios.put(`/api/issues/up-vote/${issueId}`)
         .then(response => setIssuesState(prevIssuesState => {
-
             return {
                 ...prevIssuesState,
-                userIssues: prevIssuesState.userIssues.map(issue => issue._id === issueId ? response.data : issue),
-                issues: prevIssuesState.issues.map(issue => issue._id === issueId ? response.data : issue)
+                userIssues: prevIssuesState.userIssues
+                    .map(issue => issue._id === issueId ? response.data : issue),
+                issues: prevIssuesState.issues
+                    .map(issue => issue._id === issueId ? response.data : issue)
+            }
+        }))
+        .catch(err => console.log(err))
+    }
 
+    function downVote( issueId, _id){
+        issueAxios.put(`/api/issues/down-vote/${issueId}`)
+        .then(response => setIssuesState(prevIssuesState => {
+            return {
+                ...prevIssuesState,
+                userIssues: prevIssuesState.userIssues
+                    .map(issue => issue._id === issueId ? response.data : issue),
+                issues: prevIssuesState.issues
+                    .map(issue => issue._id === issueId ? response.data : issue)
             }
         }))
         .catch(err => console.log(err))
@@ -107,7 +123,8 @@ export default function IssueProvider(props){
                 getAllIssues,
                 getIssuesByAuthor,
                 deleteIssue,
-                upVote
+                upVote,
+                downVote
             }}>
             { props.children }
         </IssueContext.Provider>
