@@ -14,7 +14,8 @@ export default function IssueProvider(props){
     
     const initState = { 
         issues: [],
-        userIssues: []
+        userIssues: [],
+        comments: []
     }
 
     const [issuesState, setIssuesState] = useState(initState)
@@ -114,6 +115,23 @@ export default function IssueProvider(props){
         .catch(err => console.log(err))
     }
 
+    function commentOnIssue(issueId, _id, newComment){
+        issueAxios.post(`/api/comments/${issueId}`, newComment)
+        .then(response => setIssuesState(prevIssuesState => ({
+            ...prevIssuesState,
+            comments: [...prevIssuesState.comments, response.data]
+        }))
+        )
+    }
+
+    function getComments(issueId){
+        issueAxios.get(`/api/comments/${issueId}`)
+        .then(response => setIssuesState(prevIssuesState => ({
+            ...prevIssuesState,
+            comments: response.data
+            })))
+    }
+
     return (
         <IssueContext.Provider 
             value={{
@@ -124,7 +142,9 @@ export default function IssueProvider(props){
                 getIssuesByAuthor,
                 deleteIssue,
                 upVote,
-                downVote
+                downVote,
+                commentOnIssue,
+                getComments
             }}>
             { props.children }
         </IssueContext.Provider>

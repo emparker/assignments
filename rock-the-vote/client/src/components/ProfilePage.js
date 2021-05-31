@@ -18,12 +18,15 @@ export default function ProfilePage(){
 
     const { 
         userIssues,
+        comments,
         createIssue,
         editIssue,
         getIssuesByAuthor,
         deleteIssue,
         upVote,
-        downVote
+        downVote,
+        commentOnIssue,
+        getComments
     } = useContext(IssueContext)
     // console.log(userIssues)
 
@@ -49,12 +52,16 @@ export default function ProfilePage(){
         <div>
             <Navbar username={username}/>
             <h1>hello { username }</h1>
+
             <IssueList 
                 issues={userIssues} 
+                comments={comments}
                 editIssue={editIssue} 
                 deleteIssue={deleteIssue} 
                 upVote={upVote} 
-                downVote={downVote} 
+                downVote={downVote}               
+                commentOnIssue={commentOnIssue}
+                getComments={getComments}
             /> 
             {/*
                 -veiw comments per issue  - drop down comments per issue  - get comments by issue id

@@ -17,11 +17,14 @@ export default function PublicPage(){
 
     const { 
         issues, 
+        comments,
         getAllIssues, 
         deleteIssue, 
         editIssue, 
         upVote, 
-        downVote 
+        downVote,
+        commentOnIssue,
+        getComments 
     } = useContext(IssueContext)
 
     useEffect(() => {
@@ -34,21 +37,15 @@ export default function PublicPage(){
 
             <IssueList 
                 issues={issues} 
+                comments={comments}
                 editIssue={editIssue} 
                 deleteIssue={deleteIssue} 
                 upVote={upVote} 
-                downVote={downVote}
-                />
-            {/* 
-            
-                *List of Issues -get all issues
-                    -create a comment on an issue - get issue by id
-                    -list of comments (dropdown)
-                    -ability for upVoting/downVoting
-                
-                *Create issue <IssueForm />
+                downVote={downVote}               
+                commentOnIssue={commentOnIssue}
+                getComments={getComments}
+            />
 
-            */}
             <Footer logout={logout}/>
         </div>
     )
