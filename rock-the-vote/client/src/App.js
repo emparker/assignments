@@ -4,7 +4,7 @@ import AuthPage from './components/AuthPage.js'
 import ProfilePage from './components/ProfilePage.js'
 import PublicPage from './components/PublicPage.js'
 import { UserContext } from './context/UserProvider.js'
-// import { IssueContext } from './context/IssueProvider.js'
+import ProtectedRoute from './components/ProtectedRoute.js'
 
 export default function App(){
 const { token } = useContext(UserContext)
@@ -14,14 +14,21 @@ const { token } = useContext(UserContext)
             <h1>ROCK THE VOTE</h1>
             <section>
                 <Switch>
-                    <Route exact path="/"
+                    <Route 
+                        exact path="/"
                         render={()=> token ? <Redirect to="/profile"/> : <AuthPage />}
-                        />
-                    <Route path="/profile"
-                        render={()=> <ProfilePage />}
                     />
-                    <Route path="/public"
-                        render={()=> <PublicPage />}
+                    <ProtectedRoute 
+                        path="/profile"
+                        component={ProfilePage}
+                        redirectTo="/"
+                        token={token}
+                    />
+                    <ProtectedRoute 
+                        path="/public"
+                        component={PublicPage}
+                        redirectTo="/"
+                        token={token}
                     />
                 </Switch>
             </section>

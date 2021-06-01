@@ -6,7 +6,8 @@ export const UserContext = React.createContext()
 export default function UserProvider(props) {
     const initialState = { 
         token: localStorage.getItem("token") || "", 
-        user: JSON.parse(localStorage.getItem("user")) || {} 
+        user: JSON.parse(localStorage.getItem("user")) || {},
+        errMsg: ""
     }
 
     const [ userState, setUserState ] = useState(initialState)
@@ -23,7 +24,7 @@ export default function UserProvider(props) {
                 token
             }))
         })
-        .catch(err => console.log(err.response.data.errMsg))
+        .catch(err => handleAuthError(err.response.data.errMsg))
     }
 
     function login(credentials){
@@ -38,7 +39,7 @@ export default function UserProvider(props) {
                 token
             }))
         })
-        .catch(err => console.log(err.response.data.errMsg))
+        .catch(err => handleAuthError(err.response.data.errMsg))
     }
 
     function logout(){
@@ -50,13 +51,27 @@ export default function UserProvider(props) {
         })
     }
 
+    function handleAuthError(errMsg){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg
+        }))
+    }
+    function resetAuthErr(errMsg){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg: ""
+        }))
+    }
+
     return (
         <UserContext.Provider
             value={{
                 ...userState,
                 signup,
                 login,
-                logout
+                logout,
+                resetAuthErr
             }}>
             { props.children }
         </UserContext.Provider>

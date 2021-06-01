@@ -19,6 +19,11 @@ export default function Issue(props){
 
     // const [commentListState, setCommentListState] = useState([])
 
+    // const [ commentBtnText, setCommentBtnText ] = useState("")
+    // function changeText(){
+    //     setCommentBtnText({commentBtnText})
+    // }
+
     const [ showEditForm, setShowEditForm ] = useState(false)
     const [ showComments, setShowComments ] = useState(false)
 
@@ -63,6 +68,7 @@ export default function Issue(props){
         }))
     }
 
+    
     function handleShowCommentToggle(){
         getComments(_id)
         setShowComments((prev)=> !prev)
@@ -70,7 +76,7 @@ export default function Issue(props){
 
     // function showCommentTotal(issueId, commentId){
     //     if (issueId === commentId){
-    //         return [comments.length]
+    //         setCommentListState(commentListState.length)
     //     }
     // }
     // useEffect(()=> {
@@ -104,7 +110,7 @@ export default function Issue(props){
                             <button onClick={handleDownVote}>downvote</button>
                             {downVotes.length}
                             <button onClick={handleShowCommentToggle}>checkout the comments</button>
-                            {/* {comments.length} */}
+                            
                         </div>
                     </div>
                     <CommentForm 

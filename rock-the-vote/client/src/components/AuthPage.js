@@ -8,7 +8,7 @@ export default function AuthPage(){
     const [ inputs, setInputs ] = useState(initInputs)
     const [ toggle, setToggle ] = useState(false)
 
-    const { signup, login } = useContext(UserContext)
+    const { signup, login, errMsg, resetAuthErr } = useContext(UserContext)
 
         function handleChange(e){
             const { name, value } = e.target
@@ -28,6 +28,11 @@ export default function AuthPage(){
             login(inputs)
         }
 
+        function toggleForm(){
+            setToggle(prev => !prev)
+            resetAuthErr()
+        }
+
     return (
         <div>
             { !toggle ?
@@ -37,8 +42,9 @@ export default function AuthPage(){
                         handleSubmit= {handleSignup}
                         inputs= {inputs}
                         buttonText="Sign Up!"
+                        errMsg={errMsg}
                     />
-                    <p onClick={()=> setToggle(prev => !prev)}>already a member?</p>
+                    <p onClick={toggleForm}>already a member?</p>
                 </>
             :
                 <>
@@ -47,8 +53,9 @@ export default function AuthPage(){
                         handleSubmit= {handleLogin}
                         inputs= {inputs}
                         buttonText="Log In!"
+                        errMsg={errMsg}
                     />
-                    <p onClick={()=> setToggle(prev => !prev)}>not a member?</p>
+                    <p onClick={toggleForm}>not a member?</p>
                 </>
 
             }
