@@ -3,7 +3,7 @@ import Issue from './Issue.js'
 
 export default function IssueList(props){
     const { issues, comments, editIssue, deleteIssue, upVote, downVote, commentOnIssue, getComments } = props
-
+    // , getNameOfCommenter
     return (
         <div>
             {issues.map((issue, index) =>  <Issue 
@@ -16,6 +16,7 @@ export default function IssueList(props){
                                                 downVote={downVote}
                                                 commentOnIssue={commentOnIssue}
                                                 getComments={getComments}
+                                                // getNameOfCommenter={getNameOfCommenter}
                                             />)}
         </div>
     )

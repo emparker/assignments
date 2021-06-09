@@ -1,0 +1,31 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    padding: 10%;
+    background: url("https://images.unsplash.com/photo-1606525391723-0ad8ac725451?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+} */
+
+#login-form {
+        display: grid;
+        grid-template-columns: 400px;
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 8px;
+}
+
+.input {
+    opacity: 50%;
+    border: none;
+    border-radius: 2px;
+    height: 25px;
+}
+
+
+

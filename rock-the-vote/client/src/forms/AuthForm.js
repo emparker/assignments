@@ -1,4 +1,5 @@
 import React from 'react'
+import "../css/login.css"
 
 export default function AuthForm(props){
 
@@ -12,8 +13,10 @@ export default function AuthForm(props){
 
 
     return (
-            <form onSubmit={handleSubmit}>
+        <>
+            <form id="login-form" onSubmit={handleSubmit}>
                 <input
+                    className="input"
                     type= "text"
                     value= {username}
                     name= "username"
@@ -21,6 +24,7 @@ export default function AuthForm(props){
                     placeholder= "username"
                 />
                 <input
+                    className="input"
                     type= "password"
                     value= {password}
                     name= "password"
@@ -30,5 +34,6 @@ export default function AuthForm(props){
                 <button>{ buttonText }</button>
                 <p style={{color: "red"}}>{errMsg}</p>
             </form>
+        </>
     )
 }

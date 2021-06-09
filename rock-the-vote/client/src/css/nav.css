@@ -1,0 +1,37 @@
+.nav-links {
+    text-decoration: none;
+    color: black;
+}
+.nav-links:hover {
+    color: blue
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-evenly;
+    position: sticky;
+    top: 3.5rem;
+    z-index: 100;
+    bottom: 0;
+    background-color: salmon;
+    padding: 10px;
+    text-align: left;
+    
+}
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    /* top: 3.5rem; */
+    z-index: 100;
+    bottom: 0;
+    background-color: salmon;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+
+
+

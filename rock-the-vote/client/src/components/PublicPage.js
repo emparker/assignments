@@ -24,7 +24,8 @@ export default function PublicPage(){
         upVote, 
         downVote,
         commentOnIssue,
-        getComments 
+        getComments,
+        // getNameOfCommenter
     } = useContext(IssueContext)
 
     useEffect(() => {
@@ -44,6 +45,7 @@ export default function PublicPage(){
                 downVote={downVote}               
                 commentOnIssue={commentOnIssue}
                 getComments={getComments}
+                // getNameOfCommenter={getNameOfCommenter}
             />
 
             <Footer logout={logout}/>

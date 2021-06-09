@@ -5,6 +5,7 @@ export default function IssueForm(props){
         handleChange,
         handleSubmit,
         buttonText,
+        closeEditForm,
         inputs: { title, description} 
     } = props
 
@@ -29,6 +30,7 @@ export default function IssueForm(props){
                     placeholder= "Description"
                 /> 
                 <button>{buttonText}</button>
+                <button onClick={closeEditForm}>Nevermind</button>
             </form>
             
         </div>

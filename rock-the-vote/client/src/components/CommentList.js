@@ -3,16 +3,17 @@ import Comment from './Comment.js'
 
 
 export default function CommentList(props){
-    const { issue, comments } = props
+    const { issue, comments, user} = props
     const { _id } = issue
-
-console.log(comments)
+    // , getNameOfCommenter
     return (
         <div>
             {comments.map((comment, index) => <Comment 
                                                     key={index}
                                                     issue={_id}
                                                     comment={comment}
+                                                    user={user}
+                                                    // getNameOfCommenter={getNameOfCommenter}
                                                 />)}
         </div>
     )

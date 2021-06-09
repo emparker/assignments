@@ -26,7 +26,9 @@ export default function ProfilePage(){
         upVote,
         downVote,
         commentOnIssue,
-        getComments
+        getComments,
+        // authorOfCommentState,
+        // getNameOfCommenter
     } = useContext(IssueContext)
     // console.log(userIssues)
 
@@ -62,6 +64,8 @@ export default function ProfilePage(){
                 downVote={downVote}               
                 commentOnIssue={commentOnIssue}
                 getComments={getComments}
+                // authorOfCommentState={authorOfCommentState}
+                // getNameOfCommenter={getNameOfCommenter}
             /> 
             {/*
                 -veiw comments per issue  - drop down comments per issue  - get comments by issue id

@@ -5,14 +5,15 @@ import ProfilePage from './components/ProfilePage.js'
 import PublicPage from './components/PublicPage.js'
 import { UserContext } from './context/UserProvider.js'
 import ProtectedRoute from './components/ProtectedRoute.js'
+import './css/main.css'
 
 export default function App(){
 const { token } = useContext(UserContext)
 
     return (
         <div>
-            <h1>ROCK THE VOTE</h1>
-            <section>
+            <h1 id="rock-the-vote">ROCK THE VOTE</h1>
+            <section id="main-section">
                 <Switch>
                     <Route 
                         exact path="/"
