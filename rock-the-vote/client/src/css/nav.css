@@ -16,20 +16,22 @@
     background-color: salmon;
     padding: 10px;
     text-align: left;
-    
+    border-radius: 15px;
 }
 
 .footer {
-    display: flex;
-    justify-content: space-evenly;
+    margin-left: 90%;
     position: fixed;
-    /* top: 3.5rem; */
     z-index: 100;
     bottom: 0;
     background-color: salmon;
-    padding: 10px;
-    text-align: left;
-    width: 100%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+}
+
+#username {
+    font-style: oblique;
+    font-size: 65px;
 }
 
 

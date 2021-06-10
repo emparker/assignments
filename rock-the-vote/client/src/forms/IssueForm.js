@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/forms.css'
 
 export default function IssueForm(props){
     const {
@@ -11,9 +12,9 @@ export default function IssueForm(props){
 
 
     return (
-        <div>
+        <div  id="issue-form-div">
             
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="issue-form-content">
                 
                 <input
                     type="text"

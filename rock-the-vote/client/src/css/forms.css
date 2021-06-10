@@ -1,0 +1,23 @@
+#issue-form-div {
+    background-color: salmon;
+    padding: 20px;
+    height: auto;
+    width: 250px;
+    margin-left: 40px;
+    border-radius: 15px;
+}
+
+#issue-form-content {
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+}
+
+#comment-form-div {
+    margin: 10px;
+}
+
+#comment-form-content {
+    display: flex;
+    flex-direction: column;
+}

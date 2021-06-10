@@ -53,7 +53,7 @@ export default function ProfilePage(){
     return (
         <div>
             <Navbar username={username}/>
-            <h1>hello { username }</h1>
+            <h1 id="username">hello { username }</h1>
 
             <IssueList 
                 issues={userIssues} 

@@ -102,17 +102,19 @@ export default function Issue(props) {
         <>
           <div className="card-content">
             <h3 id="title">{title}</h3>
-            <hr id="line"></hr>
-            <p>{description}</p>
+            {/* <hr id="line"></hr> */}
+            <p id="description">{description}</p>
             {authorOfIssue() && (
-              <div>
-                <button onClick={() => setShowEditForm((prev) => !prev)}>
+              <div id="edit-delete">
+                <button onClick={() => setShowEditForm((prev) => !prev)} className="edit-delete">
                   Edit
                 </button>
-                <button onClick={handleDelete}>Delete</button>
+                <button onClick={handleDelete} className="edit-delete">
+                    Delete
+                </button>
               </div>
             )}
-            <div>
+            <div className="buttons">
               <button onClick={handleUpVote}>upvote</button>
               {upVotes.length}
               <button onClick={handleDownVote}>downvote</button>
@@ -120,7 +122,7 @@ export default function Issue(props) {
               <button onClick={handleShowCommentToggle}>
                 checkout the comments {comments.length}
               </button>
-            </div>
+            </div >
             <CommentForm
               inputs={commentInputs}
               handleCommentChange={handleCommentChange}

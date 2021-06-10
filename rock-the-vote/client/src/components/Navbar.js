@@ -7,7 +7,7 @@ const { username } = props
 
     return (
         <>
-            <h2>EVERY VOTE COUNTS!</h2>
+            <h2 id="everyvote">EVERY VOTE COUNTS!</h2>
                 <div className="nav-bar">
                         <Link to="/profile" className="nav-links">{username}'s page</Link>
                         <Link to="/public" className="nav-links">public feed</Link>

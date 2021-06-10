@@ -12,7 +12,7 @@ export default function Comment(props) {
   // }
 
   return (
-    <div>
+    <div id="comments">
       <p>
         {comment.author.username} says: {text}
       </p>

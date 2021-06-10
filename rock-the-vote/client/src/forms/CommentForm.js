@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/forms.css'
 
 export default function CommentForm(props){
 
@@ -12,8 +13,8 @@ export default function CommentForm(props){
     // console.log(commentSubmit)
 
     return (
-        <div>
-            <form onSubmit={commentSubmit}>
+        <div id="comment-form-div">
+            <form onSubmit={commentSubmit} id="comment-form-content">
                 <textarea
                     type="text"
                     value={text}

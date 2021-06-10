@@ -16,7 +16,6 @@ export default function IssueList(props){
                                                 downVote={downVote}
                                                 commentOnIssue={commentOnIssue}
                                                 getComments={getComments}
-                                                // getNameOfCommenter={getNameOfCommenter}
                                             />)}
         </div>
     )
