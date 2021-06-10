@@ -22,7 +22,7 @@ export default function CommentForm(props){
                     onChange={handleCommentChange}
                     placeholder= "write your thoughts!"
                 />
-                <button>{buttonText}</button>
+                <button id="comment-btn">{buttonText}</button>
             </form>
 
         </div>

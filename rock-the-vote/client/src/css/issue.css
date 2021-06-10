@@ -6,7 +6,7 @@
     height: auto;
     overflow: hidden;
     position: relative;
-    width: 550px;
+    width: 575px;
     margin: 15px;
 }
 .issue-card:before {
@@ -28,28 +28,33 @@
     grid-row-gap: 3px;
 }
 
-p {
-    margin: 10px;
-}
-
 #title { 
     grid-area: 1 / 2 / 1 / 6; 
     padding: 10px;
+    font-style: oblique;
 }
 
 #description { 
     grid-area: 2 / 2 / 4 / 6; 
-    padding: 10px;
+    padding: 18px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-indent: 20px;
+    margin: 10px;
+    margin-top: 0px;
+    background-color: transparent;
+    height: 200px;
+    width: 300px;
 }
-
 
 .buttons {
     grid-area: 1 / 1 / 4 / 2;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* padding: 10px;
     width: 100px;
+    margin-left: 10px;
+    /* padding: 10px;
     margin: 20px */
 }
 
@@ -58,17 +63,63 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 35px;
+}
+button.edit-delete{
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
 }
 
-.edit-delete {
-    padding: 10px;
-    /* justify-content: center; */
+div#edit-delete{
+    align-items: center;
+    justify-content: space-evenly;
+}
+button.edit-delete:hover {
+    background-color: rgba(255, 219, 59, 0.767);
+}
+button.edit-delete:active {
+    background-color: rgba(252, 179, 71, 0.767);
+    box-shadow: 0 4px rgb(165, 160, 160);
+    transform: translateY(4px);
 }
 
 #comments {
     position: absloute;
     bottom: 0;
+}
+
+#checkout-comments {
+    margin-top: 18px;
+    background-color: transparent;
+    border-radius: 15px;
+    height: 50px;
+    width: 100px;
+}
+
+#checkout-comments:hover {
+    background-color: rgba(255, 219, 59, 0.767);
+}
+
+#checkout-comments:active {
+    background-color: rgba(252, 179, 71, 0.767);
+    box-shadow: 0 4px rgb(165, 160, 160);
+    transform: translateY(4px);
+}
+
+.upvote-downvote {
+    background-color: transparent;
+    width: 100px;
+    height: 35px;
+}
+
+.upvote-downvote:hover {
+    background-color: rgba(255, 219, 59, 0.767);
+}
+
+.upvote-downvote:active {
+    background-color: rgba(252, 179, 71, 0.767);
+    box-shadow: 0 4px rgb(165, 160, 160);
+    transform: translateY(4px);
 }
 
 

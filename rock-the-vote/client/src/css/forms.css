@@ -1,23 +1,38 @@
 #issue-form-div {
-    background-color: salmon;
-    padding: 20px;
+    background-color: rgba(255, 219, 59, 0.767);
+    padding: 3px;
     height: auto;
     width: 250px;
     margin-left: 40px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
+    border: 1px solid grey;
 }
 
 #issue-form-content {
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
+    background-color: transparent;
 }
 
 #comment-form-div {
     margin: 10px;
+    
 }
 
 #comment-form-content {
     display: flex;
     flex-direction: column;
+}
+
+#comment-btn {
+    background-color: rgba(255, 219, 59, 0.767);
+}
+#comment-btn:hover {
+    background-color: rgba(252, 179, 71, 0.767);
+}
+#comment-btn:active {
+    background-color: rgba(252, 179, 71, 0.767);
+    box-shadow: 0 4px rgb(165, 160, 160);
+    transform: translateY(4px);
 }

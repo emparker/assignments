@@ -46,7 +46,7 @@ export default function AuthPage(){
                             buttonText="Sign Up!"
                             errMsg={errMsg}
                         />
-                        <p onClick={toggleForm}>already a member?</p>
+                        <p onClick={toggleForm} className="memeber">already a member?</p>
                     </>
                 :
                     <>
@@ -57,7 +57,7 @@ export default function AuthPage(){
                             buttonText="Log In!"
                             errMsg={errMsg}
                         />
-                        <p onClick={toggleForm}>not a member?</p>
+                        <p onClick={toggleForm} className="memeber">not a member?</p>
                     </>
                 }
         </div>

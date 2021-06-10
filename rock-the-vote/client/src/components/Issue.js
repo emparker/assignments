@@ -103,7 +103,7 @@ export default function Issue(props) {
           <div className="card-content">
             <h3 id="title">{title}</h3>
             {/* <hr id="line"></hr> */}
-            <p id="description">{description}</p>
+            <textarea id="description">{description}</textarea>
             {authorOfIssue() && (
               <div id="edit-delete">
                 <button onClick={() => setShowEditForm((prev) => !prev)} className="edit-delete">
@@ -115,11 +115,11 @@ export default function Issue(props) {
               </div>
             )}
             <div className="buttons">
-              <button onClick={handleUpVote}>upvote</button>
+              <button onClick={handleUpVote} className="upvote-downvote">upvote</button>
               {upVotes.length}
-              <button onClick={handleDownVote}>downvote</button>
+              <button onClick={handleDownVote} className="upvote-downvote">downvote</button>
               {downVotes.length}
-              <button onClick={handleShowCommentToggle}>
+              <button onClick={handleShowCommentToggle} id="checkout-comments">
                 checkout the comments {comments.length}
               </button>
             </div >
